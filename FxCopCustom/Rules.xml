@@ -11,4 +11,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0002" Category="FxCopCustom" TypeName="UnusedReasign">
+		<Name>UnusedReasign</Name>
+		<Description>ローカル変数へ代入した値が使用されずに再代入された場合を検出する</Description>
+		<Url />
+		<Resolution>ローカル変数が使用されずに再代入されています。直前の代入を除去するか、再代入の前に使用してください。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>
