@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}</ProjectGuid>
+    <ProjectGuid>{22BC2CC5-4746-42EC-B57E-875E82410CAB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FxCopCustom</RootNamespace>
-    <AssemblyName>FxCopCustom</AssemblyName>
+    <RootNamespace>ViolationLibrary</RootNamespace>
+    <AssemblyName>ViolationLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,8 +20,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\AllRule.ruleset</CodeAnalysisRuleSet>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</StartProgram>
+    <StartArguments>/file:$(AssemblyName).dll /rule:"$(SolutionDir)$(RootNamespace)\$(OutputPath)FxCopCustom.dll" /console</StartArguments>
+    <StartWorkingDirectory>$(SolutionDir)$(RootNamespace)\$(OutputPath)</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,15 +32,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FxCopSdk">
-      <HintPath>$(CodeAnalysisPath)\FxCopSdk.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Cci">
-      <HintPath>$(CodeAnalysisPath)\Microsoft.Cci.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,18 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IgnoreCompareZeroToCountResultTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rules\BaseRule.cs" />
-    <Compile Include="Rules\IgnoreCompareZeroToCountResult.cs" />
-    <Compile Include="SystemMembers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Rules.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
+    <ProjectReference Include="..\FxCopCustom\FxCopCustom.csproj">
+      <Project>{effc3ccd-f3c6-49fc-9d67-235b965f9ade}</Project>
+      <Name>FxCopCustom</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Condition="Exists('$(ProgramFiles)\MSBuild\StyleCop\v4.7\StyleCop.targets')" Project="$(ProgramFiles)\MSBuild\StyleCop\v4.7\StyleCop.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

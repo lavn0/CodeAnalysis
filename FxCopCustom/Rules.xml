@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Rules FriendlyName="カスタムルール">
+	<Rule CheckId="DT0001" Category="FxCopCustom" TypeName="IgnoreCompareZeroToCountResult">
+		<Name>IgnoreCompareZeroToCountResult</Name>
+		<Description>System.Linq.Enumerable.Countメソッドの結果が直接比較された場合を検出する</Description>
+		<Url />
+		<Resolution Name="Equals">LINQのCountメソッドの呼び出しはIEnumerableインスタンスを評価するため、結果を直接比較しません。IList.CountまたはArray.Lengthプロパティを使用するか、"(IEnumerable).Count() == 1" → "(IEnumerable).Take(2).Count() == 1" のように要数までの列挙結果により比較することで性能劣化を防いでください。</Resolution>
+		<Resolution Name="Compare">LINQのCountメソッドの呼び出しはIEnumerableインスタンスを評価するため、結果を直接比較しません。IList.CountまたはArray.Lengthプロパティを使用するか、"(IEnumerable).Count() > 1" → "(IEnumerable).ElementAtOrDefault(2) != null" のように修正し、性能劣化を防いでください。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
+</Rules>
