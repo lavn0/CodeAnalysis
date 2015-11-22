@@ -58,10 +58,10 @@ namespace FxCopCustom.Rules
 		}
 
 		/// <summary>コード分析エラーとしてマークします</summary>
-		/// <param name="node">分析エラー対象ノード</param>
 		/// <param name="resolutionName">解決方法の名前（Name属性）</param>
+		/// <param name="node">分析エラー対象ノード</param>
 		/// <param name="arguments">解決方法の書式指定オブジェクト</param>
-		protected void Violate(Node node, string resolutionName, params object[] arguments)
+		protected void Violate(string resolutionName, Node node, params object[] arguments)
 		{
 			var resolution = this.GetNamedResolution(resolutionName, arguments);
 			var problem = CreateProblem(resolution, node);

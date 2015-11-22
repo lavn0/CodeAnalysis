@@ -47,7 +47,7 @@ namespace FxCopCustom.Rules
 					if (requireViolate)
 					{
 						var resolutionName = binaryExpression.NodeType == NodeType.Ceq ? "Equals" : "Compare";
-						this.Violate(binaryExpression, resolutionName);
+						this.Violate(resolutionName, binaryExpression);
 					}
 
 					break;

@@ -21,4 +21,15 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0003" Category="FxCopCustom" TypeName="ConcatConstString">
+		<Name>ConcatConstString</Name>
+		<Description>固定文字列が再連結されています。</Description>
+		<Url />
+		<Resolution>固定文字列"{0}"と"{1}"が連結されています。</Resolution>
+		<Resolution Name="OverrideByLocal">固定文字列"{0}"と"{1}"が連結されています。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>
