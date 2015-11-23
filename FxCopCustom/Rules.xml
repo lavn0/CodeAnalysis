@@ -32,4 +32,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0004" Category="FxCopCustom" TypeName="LinqResultComparedByNull">
+		<Name>LinqResultComparedByNull</Name>
+		<Description>LINQのクエリ結果がnullと比較されている場合を検出する。</Description>
+		<Url />
+		<Resolution>LINQのクエリ結果{0}がnullと比較されています。LINQのクエリ結果は常にイテレータのため、nullになることがありません。この比較演算は不要です。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

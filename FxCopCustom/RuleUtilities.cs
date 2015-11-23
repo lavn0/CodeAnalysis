@@ -16,5 +16,17 @@ namespace FxCopCustom
 			var isStringConcatMethodCall = boundMember.FullName.StartsWith("System.String.Concat(", StringComparison.OrdinalIgnoreCase);
 			return isStringConcatMethodCall;
 		}
+
+		public static bool IsLiteralForNull(Node node)
+		{
+			if (node == null ||
+				node.NodeType != NodeType.Literal)
+			{
+				return false;
+			}
+
+			var literal = node as Literal;
+			return literal.Value == null;
+		}
 	}
 }

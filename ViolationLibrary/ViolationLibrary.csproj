@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ConcatConstStringTest.cs" />
     <Compile Include="IgnoreCompareZeroToCountResultTest.cs" />
+    <Compile Include="LinqResultComparedByNullTest.cs" />
     <Compile Include="UnusedReqsignTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

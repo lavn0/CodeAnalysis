@@ -16,6 +16,7 @@ namespace FxCopCustom
 		private static readonly Method EnumerableThenByMethod = GetFirstEnumerableMethod("ThenBy");
 		private static readonly Method IDictionaryContainsKeyMethod = FrameworkTypes.GenericIDictionary.GetMethod(Identifier.For("ContainsKey"), FrameworkTypes.GenericIDictionary.TemplateParameters[0]);
 		private static readonly PropertyNode IDictionaryIndexerProperty = FrameworkTypes.GenericIDictionary.GetProperty(Identifier.For("Item"), FrameworkTypes.GenericIDictionary.TemplateParameters[0]);
+		private static readonly TypeNode EnumerableType = GetEnumerable();
 
 		/// <summary><see cref="object.GetHashCode"/>のメソッドです。</summary>
 		public static Method ObjectGetHashCode
@@ -71,6 +72,12 @@ namespace FxCopCustom
 			get { return IDictionaryIndexerProperty; }
 		}
 
+		/// <summary><see cref="System.Linq.Enumerable"/>クラスです。</summary>
+		public static TypeNode Enumerable
+		{
+			get { return EnumerableType; }
+		}
+
 		/// <summary><see cref="System.IEquatable{T}"/>のパラメーターのみ取る<see cref="System.Linq.Enumerable"/>のメソッドを取得します。</summary>
 		/// <param name="methodName">メソッド名</param>
 		/// <returns><see cref="System.IEquatable{T}"/>のメソッドの最初の候補</returns>
@@ -78,8 +85,7 @@ namespace FxCopCustom
 		{
 			return FrameworkAssemblies.SystemCore == null
 				? null
-				: FrameworkAssemblies.SystemCore
-					.GetType(Identifier.For("System.Linq"), Identifier.For("Enumerable"))
+				: GetEnumerable()
 					.GetMembersNamed(Identifier.For(methodName))
 					.OfType<Method>()
 					.First(method => method.Parameters.Count == 1 && method.Parameters[0].Type.IsAssignableToInstanceOf(FrameworkTypes.GenericIEnumerable));
@@ -92,11 +98,20 @@ namespace FxCopCustom
 		{
 			return FrameworkAssemblies.SystemCore == null
 				? null
-				: FrameworkAssemblies.SystemCore
-					.GetType(Identifier.For("System.Linq"), Identifier.For("Enumerable"))
+				: GetEnumerable()
 					.GetMembersNamed(Identifier.For(methodName))
 					.OfType<Method>()
 					.First();
+		}
+
+		/// <summary><see cref="System.Linq.Enumerable"/>クラスの型ノードを取得します。</summary>
+		/// <returns><see cref="System.Linq.Enumerable"/>クラスの型ノード</returns>
+		private static TypeNode GetEnumerable()
+		{
+			return FrameworkAssemblies.SystemCore == null
+				? null
+				: FrameworkAssemblies.SystemCore
+					.GetType(Identifier.For("System.Linq"), Identifier.For("Enumerable"));
 		}
 	}
 }
