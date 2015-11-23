@@ -42,4 +42,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0005" Category="FxCopCustom" TypeName="AsignedConstOnly">
+		<Name>AsignedConstOnly</Name>
+		<Description>固定値のみが代入されたローカル値を検出する。</Description>
+		<Url />
+		<Resolution>ローカル変数{0}には固定値のみが代入されています。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

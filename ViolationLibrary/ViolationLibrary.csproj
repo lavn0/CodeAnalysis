@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignedConstOnlyTest.cs" />
     <Compile Include="ConcatConstStringTest.cs" />
     <Compile Include="IgnoreCompareZeroToCountResultTest.cs" />
     <Compile Include="LinqResultComparedByNullTest.cs" />
