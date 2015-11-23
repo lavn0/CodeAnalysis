@@ -41,7 +41,8 @@ namespace FxCopCustom.Rules
 			if (assignment != null)
 			{
 				var local = assignment.Target as Local;
-				if (local != null)
+				if (local != null &&
+					!Microsoft.FxCop.Sdk.RuleUtilities.IsCompilerGenerated(local))
 				{
 					this.locals.Remove(local);
 					if (!this.initedLocals.Add(local) &&
