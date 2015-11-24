@@ -20,8 +20,11 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(SolutionDir)$(AssemblyName).dll')">
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>..\AllRules.ruleset</CodeAnalysisRuleSet>
+    <AdditionalOptions>/nr:false</AdditionalOptions>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FxCopSdk">
-      <HintPath>$(CodeAnalysisPath)\FxCopSdk.dll</HintPath>
+      <HintPath>$(CodeAnalysisPath)FxCopSdk.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Cci">
-      <HintPath>$(CodeAnalysisPath)\Microsoft.Cci.dll</HintPath>
+      <HintPath>$(CodeAnalysisPath)Microsoft.Cci.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,6 +74,10 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
+    <Copy SourceFiles="$(AssemblyName).dll" DestinationFiles="$(SolutionDir)$(AssemblyName).dll" />
   </Target>
   -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(AssemblyName).dll "$(SolutionDir)$(AssemblyName).dll"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

@@ -21,7 +21,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <StartAction>Program</StartAction>
-    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</StartProgram>
+    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio $(VisualStudioVersion)\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</StartProgram>
     <StartArguments>/file:$(AssemblyName).dll /rule:"$(SolutionDir)$(RootNamespace)\$(OutputPath)FxCopCustom.dll" /console</StartArguments>
     <StartWorkingDirectory>$(SolutionDir)$(RootNamespace)\$(OutputPath)</StartWorkingDirectory>
   </PropertyGroup>
