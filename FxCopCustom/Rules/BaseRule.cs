@@ -14,19 +14,9 @@ namespace FxCopCustom.Rules
 		{
 		}
 
-		public override void AfterAnalysis()
+		public override ProblemCollection Check(Member member)
 		{
-			// デバッグ用にメッセージを出力
-			foreach (var problem in this.Problems)
-			{
-				Debug.WriteLine(
-					"{0}({1}) : {2}",
-					problem.SourceFile,
-					problem.SourceLine,
-					problem.Resolution.ToString());
-			}
-
-			base.AfterAnalysis();
+			return base.Check(member) ?? this.Problems; // BaseIntrospectionRule.Check(Member)はnullを返却するので、正しくなるように変更する
 		}
 
 		/// <summary>指定のソースコードの情報を設定した<see cref="Problem"/>を作成します。</summary>
@@ -53,8 +43,7 @@ namespace FxCopCustom.Rules
 		protected void Violate(Node node, params object[] arguments)
 		{
 			var resolution = this.GetResolution(arguments);
-			var problem = CreateProblem(resolution, node);
-			this.Problems.Add(problem);
+			this.Violate(node, resolution);
 		}
 
 		/// <summary>コード分析エラーとしてマークします</summary>
@@ -64,8 +53,20 @@ namespace FxCopCustom.Rules
 		protected void Violate(string resolutionName, Node node, params object[] arguments)
 		{
 			var resolution = this.GetNamedResolution(resolutionName, arguments);
+			this.Violate(node, resolution);
+		}
+
+		private void Violate(Node node, Resolution resolution)
+		{
 			var problem = CreateProblem(resolution, node);
 			this.Problems.Add(problem);
+
+			// デバッグ用にメッセージを出力
+			Debug.WriteLine(
+				"{0}({1}) : {2}",
+				problem.SourceFile,
+				problem.SourceLine,
+				problem.Resolution.ToString());
 		}
 	}
 }
