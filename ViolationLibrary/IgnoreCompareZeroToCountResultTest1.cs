@@ -4,7 +4,7 @@ using System.Linq;
 namespace ViolationLibrary
 {
 	/// <summary>Countメソッドの結果を利用するサンプル</summary>
-	public static class IgnoreCompareZeroToCountResultTest
+	public static class IgnoreCompareZeroToCountResultTest1
 	{
 		public static List<string> GetSample()
 		{
@@ -53,27 +53,52 @@ namespace ViolationLibrary
 
 		public static bool NG1()
 		{
-			return GetSample().Count() > 0;
+			return GetSample().Count() > 0; // Any
 		}
 
 		public static bool NG2()
 		{
-			return GetSample().Count() >= 0;
+			return GetSample().Count() >= 0; // always true
 		}
 
 		public static bool NG3()
 		{
-			return GetSample().Count() < 0;
+			return GetSample().Count() < 0; // always true
 		}
 
 		public static bool NG4()
 		{
-			return GetSample().Count() <= 0;
+			return GetSample().Count() <= 0; // !Any
 		}
 
 		public static bool NG5()
 		{
-			return GetSample().Count() == 0;
+			return GetSample().Count() == 0; // !Any
+		}
+
+		public static bool NG6()
+		{
+			return GetSample().Count() > 1; // Take
+		}
+
+		public static bool NG7()
+		{
+			return GetSample().Count() >= 1; // Any
+		}
+
+		public static bool NG8()
+		{
+			return GetSample().Count() < 1; // !Any
+		}
+
+		public static bool NG9()
+		{
+			return GetSample().Count() <= 1; // Take
+		}
+
+		public static bool NG10()
+		{
+			return GetSample().Count() == 1; // Take
 		}
 	}
 }

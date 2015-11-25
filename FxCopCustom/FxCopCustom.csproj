@@ -56,7 +56,7 @@
     <Compile Include="Rules\AsignedConstOnly.cs" />
     <Compile Include="Rules\BaseRule.cs" />
     <Compile Include="Rules\ConcatConstString.cs" />
-    <Compile Include="Rules\IgnoreCompareZeroToCountResult.cs" />
+    <Compile Include="Rules\CompareZeroToCountResult.cs" />
     <Compile Include="Rules\LinqResultComparedByNull.cs" />
     <Compile Include="Rules\UnusedReasign.cs" />
     <Compile Include="RuleUtilities.cs" />
