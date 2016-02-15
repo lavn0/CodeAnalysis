@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		Settings.StyleCop = Settings.StyleCop
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRunLibrary", "TestRunLibrary\TestRunLibrary.csproj", "{07EDF7E0-2235-4309-8613-9404BD9764FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxCopCustomTestRunLibrary", "FxCopCustomTestRunLibrary\FxCopCustomTestRunLibrary.csproj", "{07EDF7E0-2235-4309-8613-9404BD9764FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViolationLibrary", "ViolationLibrary\ViolationLibrary.csproj", "{22BC2CC5-4746-42EC-B57E-875E82410CAB}"
 EndProject

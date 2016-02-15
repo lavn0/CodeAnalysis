@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TestRunLibrary
+namespace FxCopCustomTestRunLibrary
 {
 	public static class TestClass
 	{
