@@ -3,8 +3,5 @@
   <RuleHintPaths>
     <Path>FxCopCustom.dll</Path>
   </RuleHintPaths>
-  <IncludeAll Action="Warning" />
-  <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
-    <Rule Id="CA2210" Action="None" />
-  </Rules>
+  <IncludeAll Action="Hidden" />
 </RuleSet>

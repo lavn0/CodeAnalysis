@@ -25,6 +25,11 @@
     <StartArguments>/file:$(AssemblyName).dll /rule:"$(SolutionDir)$(RootNamespace)\$(OutputPath)FxCopCustom.dll" /console</StartArguments>
     <StartWorkingDirectory>$(SolutionDir)$(RootNamespace)\$(OutputPath)</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(OutputPath)FxCopCustom.dll')">
+    <AdditionalOptions>/nr:false</AdditionalOptions>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>

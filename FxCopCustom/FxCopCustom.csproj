@@ -21,11 +21,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="Exists('$(SolutionDir)$(AssemblyName).dll')">
-    <RunCodeAnalysis>true</RunCodeAnalysis>
-    <CodeAnalysisRuleSet>..\AllRules.ruleset</CodeAnalysisRuleSet>
-    <AdditionalOptions>/nr:false</AdditionalOptions>
-  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
@@ -77,7 +72,4 @@
     <Copy SourceFiles="$(AssemblyName).dll" DestinationFiles="$(SolutionDir)$(AssemblyName).dll" />
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>copy $(AssemblyName).dll "$(SolutionDir)$(AssemblyName).dll"</PostBuildEvent>
-  </PropertyGroup>
 </Project>
