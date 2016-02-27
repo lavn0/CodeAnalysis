@@ -53,6 +53,7 @@
     <Compile Include="Rules\ConcatConstString.cs" />
     <Compile Include="Rules\CompareZeroToCountResult.cs" />
     <Compile Include="Rules\LinqResultComparedByNull.cs" />
+    <Compile Include="Rules\StaticMethodShouldNotCallDateTimeNow.cs" />
     <Compile Include="Rules\UnusedReasign.cs" />
     <Compile Include="RuleUtilities.cs" />
     <Compile Include="SystemMembers.cs" />

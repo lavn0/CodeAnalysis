@@ -53,4 +53,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0006" Category="FxCopCustom" TypeName="StaticMethodShouldNotCallDateTimeNow">
+		<Name>StaticMethodShouldNotCallDateTimeNow</Name>
+		<Description>staticメソッド内のDateTime.Nowの使用禁止</Description>
+		<Url />
+		<Resolution>DateTime.Nowはメソッドパラメータとして外部から与えてください。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

@@ -16,6 +16,7 @@ namespace FxCopCustom
 		private static readonly Method EnumerableThenByMethod = GetFirstEnumerableMethod("ThenBy");
 		private static readonly Method IDictionaryContainsKeyMethod = FrameworkTypes.GenericIDictionary.GetMethod(Identifier.For("ContainsKey"), FrameworkTypes.GenericIDictionary.TemplateParameters[0]);
 		private static readonly PropertyNode IDictionaryIndexerProperty = FrameworkTypes.GenericIDictionary.GetProperty(Identifier.For("Item"), FrameworkTypes.GenericIDictionary.TemplateParameters[0]);
+		private static readonly PropertyNode DateTimeNowProperty = FrameworkTypes.DateTime.GetProperty(Identifier.For("Now"));
 		private static readonly TypeNode EnumerableType = GetEnumerable();
 
 		/// <summary><see cref="object.GetHashCode"/>のメソッドです。</summary>
@@ -70,6 +71,11 @@ namespace FxCopCustom
 		public static PropertyNode IDictionaryIndexer
 		{
 			get { return IDictionaryIndexerProperty; }
+		}
+
+		public static PropertyNode DateTimeNow
+		{
+			get { return DateTimeNowProperty; }
 		}
 
 		/// <summary><see cref="System.Linq.Enumerable"/>クラスです。</summary>
