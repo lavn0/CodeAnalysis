@@ -7,8 +7,8 @@
     <ProjectGuid>{07EDF7E0-2235-4309-8613-9404BD9764FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestRunLibrary</RootNamespace>
-    <AssemblyName>TestRunLibrary</AssemblyName>
+    <RootNamespace>FxCopCustomTestRunLibrary</RootNamespace>
+    <AssemblyName>FxCopCustomTestRunLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
