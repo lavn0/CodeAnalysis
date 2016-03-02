@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="StyleCop">
+      <HintPath>$(ProgramFiles)\StyleCop 4.7\StyleCop.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -50,8 +53,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Content Include="Resources\Class1.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Compile Include="Runner\AnalysisResults.cs" />
+    <Compile Include="Runner\ConsoleRunner.cs" />
+    <Compile Include="Runner\ProjectUtility.cs" />
+    <Compile Include="Runner\StyleCopUtil.cs" />
+    <Compile Include="TestCode\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NullSettings.StyleCop">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
