@@ -38,6 +38,12 @@
     <Reference Include="StyleCop">
       <HintPath>$(ProgramFiles)\StyleCop 4.7\StyleCop.dll</HintPath>
     </Reference>
+    <Reference Include="StyleCop.CSharp">
+      <HintPath>$(ProgramFiles)\StyleCop 4.7\StyleCop.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StyleCop.CSharp.Rules">
+      <HintPath>$(ProgramFiles)\StyleCop 4.7\StyleCop.CSharp.Rules.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -53,20 +59,26 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Content Include="Resources\Class1.cs">
+    <Content Include="Resources\PreferAtmarkQuotedStringTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="Runner\AnalysisResults.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NullSettings.StyleCop">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StyleCopCustom\StyleCopCustom.csproj">
+      <Project>{fd92c12c-1935-4fb0-a7b0-5f3970ca05ce}</Project>
+      <Name>StyleCopCustom</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
