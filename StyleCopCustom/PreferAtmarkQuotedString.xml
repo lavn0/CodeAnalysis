@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SourceAnalyzer Name="CustomRules">
+	<Description>カスタムルール</Description>
+	<Rules>
+		<Rule Name="PreferAtmarkQuotedString" CheckId="EX0001">
+			<Context>\文字エスケープを使用していない、\を含む文字列には@quoted stringsを使用します。</Context>
+			<Description>@quoted stringsの仕様を推奨するルール</Description>
+		</Rule>
+	</Rules>
+</SourceAnalyzer>
