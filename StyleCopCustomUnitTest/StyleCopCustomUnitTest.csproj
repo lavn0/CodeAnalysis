@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C5EC58BF-173A-4552-B537-B5B441150920}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>StyleCopCustomUnitTest</RootNamespace>
     <AssemblyName>StyleCopCustomUnitTest</AssemblyName>
@@ -62,6 +62,7 @@
     <Content Include="Resources\PreferAtmarkQuotedStringTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="Program.cs" />
     <Compile Include="Runner\AnalysisResults.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
