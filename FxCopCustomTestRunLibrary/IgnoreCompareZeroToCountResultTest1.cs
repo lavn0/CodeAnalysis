@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ViolationLibrary
+namespace FxCopCustomTestRunLibrary
 {
 	/// <summary>Countメソッドの結果を利用するサンプル</summary>
-	public static class IgnoreCompareZeroToCountResultTest2
+	public static class IgnoreCompareZeroToCountResultTest1
 	{
-		public static IEnumerable<string> GetSample()
+		public static List<string> GetSample()
 		{
 			return new List<string>() { "1", "2", "3" };
 		}

@@ -1,4 +1,4 @@
-﻿namespace ViolationLibrary
+﻿namespace FxCopCustomTestRunLibrary
 {
 	/// <summary>固定文字連結をする処理のサンプルコード</summary>
 	public static class ConcatConstStringTest

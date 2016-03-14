@@ -1,4 +1,4 @@
-﻿namespace ViolationLibrary
+﻿namespace FxCopCustomTestRunLibrary
 {
 	public static class AsignedConstOnlyTest
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ViolationLibrary
+namespace FxCopCustomTestRunLibrary
 {
 	public class StaticMethodShouldNotCallDateTimeNowTest
 	{

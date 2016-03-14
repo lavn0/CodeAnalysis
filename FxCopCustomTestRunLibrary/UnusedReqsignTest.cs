@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace ViolationLibrary
+namespace FxCopCustomTestRunLibrary
 {
 	public static class UnusedReqsignTest
 	{
