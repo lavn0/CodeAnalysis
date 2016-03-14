@@ -1,9 +1,9 @@
 ﻿namespace FxCopCustomTestRunLibrary
 {
 	/// <summary>固定文字連結をする処理のサンプルコード</summary>
-	public static class ConcatConstStringTest
+	public static class ConcatConstStringSample
 	{
-		public static string NG1()
+		public static string ConcatConstStringSample_NG1()
 		{
 			// 良くある固定値の連結
 			var item = "a";
@@ -17,7 +17,7 @@
 			 */
 		}
 
-		public static string NG2()
+		public static string ConcatConstStringSample_NG2()
 		{
 			// NG1とコンパイル後は全く同じになる処理
 			var item = "a";
@@ -25,7 +25,7 @@
 			return item;
 		}
 
-		public static string NG3()
+		public static string ConcatConstStringSample_NG3()
 		{
 			// NG2の逆順連結
 			var item = "a";
@@ -33,7 +33,7 @@
 			return item;
 		}
 
-		public static string NG4()
+		public static string ConcatConstStringSample_NG4()
 		{
 			// NG3とコンパイル後は全く同じになる処理
 			var item = "a";
@@ -41,14 +41,14 @@
 			return item;
 		}
 
-		public static string NG5()
+		public static string ConcatConstStringSample_NG5()
 		{
 			var item = "a";
 			item += "b" + item + "c";
 			return item;
 		}
 
-		public static string NG6()
+		public static string ConcatConstStringSample_NG6()
 		{
 			// この連結はparamsを引き数に取る連結は判定できていない
 			var item = "a";

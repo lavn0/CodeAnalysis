@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FxCopCustomTestRunLibrary
 {
-	public static class UnusedReqsignTest
+	public static class UnusedReqsignSample
 	{
 		public static object OK1()
 		{

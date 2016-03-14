@@ -4,9 +4,9 @@ using System.Linq;
 namespace FxCopCustomTestRunLibrary
 {
 	/// <summary>Countメソッドの結果を利用するサンプル</summary>
-	public static class IgnoreCompareZeroToCountResultTest2
+	public static class IgnoreCompareZeroToCountResultSample1
 	{
-		public static IEnumerable<string> GetSample()
+		public static List<string> GetSample()
 		{
 			return new List<string>() { "1", "2", "3" };
 		}

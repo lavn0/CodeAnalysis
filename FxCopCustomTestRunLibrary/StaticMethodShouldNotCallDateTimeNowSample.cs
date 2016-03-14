@@ -2,7 +2,7 @@
 
 namespace FxCopCustomTestRunLibrary
 {
-	public class StaticMethodShouldNotCallDateTimeNowTest
+	public class StaticMethodShouldNotCallDateTimeNowSample
 	{
 		public void OK()
 		{

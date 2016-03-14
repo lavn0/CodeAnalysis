@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FxCopCustomTestRunLibrary
 {
-	public static class LinqResultComparedByNullTest
+	public static class LinqResultComparedByNullSample
 	{
 		public static List<string> GetSample()
 		{

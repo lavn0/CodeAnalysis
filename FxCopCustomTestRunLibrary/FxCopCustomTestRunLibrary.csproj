@@ -44,15 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsignedConstOnlyTest.cs" />
+    <Compile Include="AsignedConstOnlySample.cs" />
     <Compile Include="CompareZeroToCountResultSample.cs" />
-    <Compile Include="ConcatConstStringTest.cs" />
-    <Compile Include="IgnoreCompareZeroToCountResultTest1.cs" />
-    <Compile Include="IgnoreCompareZeroToCountResultTest2.cs" />
-    <Compile Include="LinqResultComparedByNullTest.cs" />
+    <Compile Include="ConcatConstStringSample.cs" />
+    <Compile Include="IgnoreCompareZeroToCountResultSample1.cs" />
+    <Compile Include="IgnoreCompareZeroToCountResultSample2.cs" />
+    <Compile Include="LinqResultComparedByNullSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StaticMethodShouldNotCallDateTimeNowTest.cs" />
-    <Compile Include="UnusedReqsignTest.cs" />
+    <Compile Include="StaticMethodShouldNotCallDateTimeNowSample.cs" />
+    <Compile Include="UnusedReqsignSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FxCopCustom\FxCopCustom.csproj">

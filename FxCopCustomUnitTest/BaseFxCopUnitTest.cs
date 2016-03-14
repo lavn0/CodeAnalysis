@@ -13,14 +13,14 @@ namespace FxCopCustomUnitTest
 		private const string exePath = @"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe";
 		private const string outXmlPath = "fxcoplog.xml";
 
-		protected readonly XDocument FxCopResult;
+		protected static readonly XDocument FxCopResult;
 
-		public BaseFxCopUnitTest()
+		static BaseFxCopUnitTest()
 		{
-			this.FxCopResult = this.GetFxCopResult();
+			FxCopResult = GetFxCopResult();
 		}
 
-		private XDocument GetFxCopResult()
+		private static XDocument GetFxCopResult()
 		{
 			using (var process = new Process() { StartInfo = GetProcessInfo() })
 			{
@@ -40,7 +40,7 @@ namespace FxCopCustomUnitTest
 			}
 		}
 
-		private ProcessStartInfo GetProcessInfo()
+		private static ProcessStartInfo GetProcessInfo()
 		{
 			return new ProcessStartInfo(exePath)
 			{
@@ -50,18 +50,26 @@ namespace FxCopCustomUnitTest
 					new FileInfo("FxCopCustom.dll").FullName,
 					outXmlPath),
 				CreateNoWindow = true,
-				RedirectStandardError = true,
-				RedirectStandardInput = false,
-				RedirectStandardOutput = true,
-				UseShellExecute = false,
 				WindowStyle = ProcessWindowStyle.Hidden,
 			};
 		}
 
-		protected List<XElement> GetMethodErrors(string ruleName)
+		protected List<XElement> GetErrors(string ruleName)
 		{
-			string xpath = string.Format("//Member[@Kind='Method']//Message[@TypeName='{0}']", ruleName);
-			return this.FxCopResult.XPathSelectElements(xpath).ToList();
+			string xpath = string.Format("//Message[@TypeName='{0}']", ruleName);
+			return FxCopResult.XPathSelectElements(xpath).ToList();
+		}
+
+		protected List<XElement> GetErrors(string ruleName, string targetTypeName)
+		{
+			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Message[@TypeName='{0}']", ruleName, targetTypeName);
+			return FxCopResult.XPathSelectElements(xpath).ToList();
+		}
+
+		protected XElement GetError(string ruleName, string targetTypeName, string methodName)
+		{
+			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Member[@Kind='Method'][@Name='#{2}']//Message[@TypeName='{0}']", ruleName, targetTypeName, methodName);
+			return FxCopResult.XPathSelectElement(xpath);
 		}
 	}
 }
