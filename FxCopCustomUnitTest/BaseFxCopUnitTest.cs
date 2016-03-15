@@ -10,13 +10,20 @@ namespace FxCopCustomUnitTest
 {
 	public abstract class BaseFxCopUnitTest
 	{
-		private const string exePath = @"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe";
 		private const string outXmlPath = "fxcoplog.xml";
+		private static readonly string exePath;
 
 		protected static readonly XDocument FxCopResult;
 
 		static BaseFxCopUnitTest()
 		{
+			exePath = new[]
+				{
+					@"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
+					@"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
+					@"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
+				}.First(s => File.Exists(s));
+
 			FxCopResult = GetFxCopResult();
 		}
 

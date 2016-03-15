@@ -11,9 +11,9 @@ namespace FxCopCustomUnitTest
 		[TestMethod]
 		public void AsignedConstOnlyTest1()
 		{
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "AsignedConstOnlySample_NG1()"), "NG1");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "AsignedConstOnlySample_NG2()"), "NG2");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "AsignedConstOnlySample_NG3()"), "NG3");
+			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG1()"), "NG1");
+			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG2()"), "NG2");
+			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG3()"), "NG3");
 			Assert.AreEqual(3, this.GetErrors(ruleName, targetTypeName).Count);
 		}
 	}

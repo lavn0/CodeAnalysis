@@ -14,7 +14,12 @@ namespace FxCopCustom.Rules
 			switch (member.NodeType)
 			{
 				case NodeType.Method:
-					this.Visit(member);
+					var method = (Method)member;
+					if (method.IsStatic)
+					{
+						this.Visit(method);
+					}
+
 					break;
 			}
 

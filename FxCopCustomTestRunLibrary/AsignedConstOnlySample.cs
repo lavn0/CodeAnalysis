@@ -2,40 +2,40 @@
 {
 	public static class AsignedConstOnlySample
 	{
-		public static string AsignedConstOnlySample_NG1()
+		public static string NG1()
 		{
 			var local = "a";
 			return local;
 		}
 
-		public static string AsignedConstOnlySample_NG2()
+		public static string NG2()
 		{
 			var local = "a";
 			local = "b";
 			return local;
 		}
 
-		public static int AsignedConstOnlySample_NG3()
+		public static int NG3()
 		{
 			var local = 0;
 			local = 1;
 			return local;
 		}
 
-		public static string AsignedConstOnlySample_OK1()
+		public static string OK1()
 		{
 			const string local = "a";
 			return local;
 		}
 
-		public static string AsignedConstOnlySample_OK2()
+		public static string OK2()
 		{
 			var local = "a";
 			local += "b";
 			return local;
 		}
 
-		public static int AsignedConstOnlySample_OK3()
+		public static int OK3()
 		{
 			var local = 0;
 			local++;
