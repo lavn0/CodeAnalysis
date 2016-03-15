@@ -28,68 +28,114 @@ namespace FxCopCustom.Rules
 
 		public override void VisitBinaryExpression(BinaryExpression binaryExpression)
 		{
-			if (binaryExpression.NodeType == NodeType.Ceq)
+			if (IsUnEnumerableCountMethodCall(binaryExpression.Operand1))
 			{
-				var binaryExpression1 = binaryExpression.Operand1 as BinaryExpression;
-				if (binaryExpression1 != null)
+				var literal = binaryExpression.Operand2 as Literal;
+				var compareValue = (int?)literal?.Value;
+				if (compareValue > 0)
 				{
-					var resolutionName = Validate(binaryExpression1, false);
-					if (!string.IsNullOrEmpty(resolutionName))
+					switch (binaryExpression.NodeType)
 					{
-						this.Violate(resolutionName, binaryExpression);
+						case NodeType.Ceq:
+							if ((((binaryExpression.Operand1 as MethodCall)?.Operands.SingleOrDefault() as MethodCall)?.Callee as MemberBinding)?.BoundMember.Name.Name != "Take<System.Object>")
+							{
+								this.Violate("TakeCount", binaryExpression);
+							}
+
+							return;
+
+						case NodeType.Cgt:
+						case NodeType.Cgt_Un:
+							this.Violate("SkipAny", binaryExpression);
+							return;
+
+						case NodeType.Clt:
+						case NodeType.Clt_Un:
+							if (compareValue == 1)
+							{
+								this.Violate("Any", binaryExpression);
+							}
+							else
+							{
+								this.Violate("TakeCount", binaryExpression);
+							}
+
+							return;
 					}
 
+				}
+				else if (compareValue == 0)
+				{
+					switch (binaryExpression.NodeType)
+					{
+						case NodeType.Ceq:
+						case NodeType.Cgt:
+						case NodeType.Cgt_Un:
+							if ((((binaryExpression.Operand1 as MethodCall)?.Operands.SingleOrDefault() as MethodCall)?.Callee as MemberBinding)?.BoundMember.Name.Name != "Take<System.Object>")
+							{
+								this.Violate("Any", binaryExpression);
+							}
+
+							return;
+
+						case NodeType.Clt:
+						case NodeType.Clt_Un:
+							this.Violate("Error", binaryExpression);
+							return;
+					}
+				}
+				else
+				{
+					this.Violate("Error", binaryExpression);
 					return;
 				}
 			}
-
+			else if (IsUnEnumerableCountMethodCall(binaryExpression.Operand2))
 			{
-				var resolutionName = Validate(binaryExpression, false);
-				if (!string.IsNullOrEmpty(resolutionName))
+				var compareValue = (binaryExpression.Operand1 as Literal)?.Value as int?;
+				if (compareValue > 0)
 				{
-					this.Violate(resolutionName, binaryExpression);
-					return;
+					switch (binaryExpression.NodeType)
+					{
+						case NodeType.Ceq:
+							this.Violate("TakeCount", binaryExpression);
+							return;
+
+						case NodeType.Cgt:
+						case NodeType.Cgt_Un:
+							this.Violate("Any", binaryExpression);
+							return;
+
+						case NodeType.Clt:
+						case NodeType.Clt_Un:
+							this.Violate("SkipAny", binaryExpression);
+							return;
+					}
+
+				}
+				else if (compareValue == 0)
+				{
+					switch (binaryExpression.NodeType)
+					{
+						case NodeType.Ceq:
+						case NodeType.Cgt:
+						case NodeType.Cgt_Un:
+							this.Violate("Error", binaryExpression);
+							return;
+
+						case NodeType.Clt:
+						case NodeType.Clt_Un:
+							this.Violate("Any", binaryExpression);
+							return;
+					}
+				}
+				else
+				{
+					this.Violate("Error", binaryExpression);
 				}
 			}
 
 			base.VisitBinaryExpression(binaryExpression);
-		}
-
-		private static string Validate(BinaryExpression binaryExpression, bool withCeq)
-		{
-			if (binaryExpression == null)
-			{
-				return null;
-			}
-
-			switch (binaryExpression.NodeType)
-			{
-				case NodeType.Cgt:
-				case NodeType.Clt:
-				case NodeType.Ceq:
-
-					if (IsUnEnumerableCountMethodCall(binaryExpression.Operand1))
-					{
-						var compareValue = (binaryExpression.Operand2 as Literal)?.Value as int?;
-						if (compareValue == null)
-						{
-							return "Take";
-						}
-
-						var resolutioonName =
-							compareValue == 0 && ((binaryExpression.NodeType == NodeType.Clt && !withCeq) || (binaryExpression.NodeType == NodeType.Cgt && withCeq))
-							? "Error"
-							: compareValue == 0 && ((binaryExpression.NodeType == NodeType.Ceq && !withCeq) || (binaryExpression.NodeType == NodeType.Clt && withCeq) || (binaryExpression.NodeType == NodeType.Cgt && !withCeq)) ||
-							  compareValue == 1 && binaryExpression.NodeType == NodeType.Clt && !withCeq
-								? "Any"
-								: "Take";
-						return resolutioonName;
-					}
-
-					break;
-			}
-
-			return null;
 		}
 
 		/// <summary><see cref="System.Linq.Enumerable.Count{TSource}(System.Collections.Generic.IEnumerable{TSource})"/>の呼び出しか判定する</summary>

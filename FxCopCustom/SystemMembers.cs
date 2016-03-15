@@ -12,6 +12,8 @@ namespace FxCopCustom
 		private static readonly Method EnumerableAnyMethod = GetOneParamEnumerableMethod("Any");
 		private static readonly Method EnumerableFirstMethod = GetOneParamEnumerableMethod("First");
 		private static readonly Method EnumerableFirstOrDefaultMethod = GetOneParamEnumerableMethod("FirstOrDefault");
+		private static readonly Method EnumerableSkipMethod = GetFirstEnumerableMethod("Skip");
+		private static readonly Method EnumerableTakeMethod = GetFirstEnumerableMethod("Take");
 		private static readonly Method EnumerableOrderByMethod = GetFirstEnumerableMethod("OrderBy");
 		private static readonly Method EnumerableThenByMethod = GetFirstEnumerableMethod("ThenBy");
 		private static readonly Method IDictionaryContainsKeyMethod = FrameworkTypes.GenericIDictionary.GetMethod(Identifier.For("ContainsKey"), FrameworkTypes.GenericIDictionary.TemplateParameters[0]);
@@ -47,6 +49,18 @@ namespace FxCopCustom
 		public static Method EnumerableFirstOrDefault
 		{
 			get { return EnumerableFirstOrDefaultMethod; }
+		}
+
+		/// <summary><see cref="System.Linq.Enumerable.Skip{TSource}(System.Collections.Generic.IEnumerable{TSource}, int)"/>のメソッドです。</summary>
+		public static Method EnumerableSkip
+		{
+			get { return EnumerableSkipMethod; }
+		}
+
+		/// <summary><see cref="System.Linq.Enumerable.Take{TSource}(System.Collections.Generic.IEnumerable{TSource}, int)"/>のメソッドです。</summary>
+		public static Method EnumerableTake
+		{
+			get { return EnumerableTakeMethod; }
 		}
 
 		/// <summary><see cref="System.Linq.Enumerable.OrderBy{TSource, TKey}(System.Collections.Generic.IEnumerable{TSource}, System.Func{TSource, TKey})"/>のメソッドです。</summary>
