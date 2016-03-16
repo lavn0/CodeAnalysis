@@ -59,5 +59,32 @@ namespace PhoenixCustom {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   TestPhoenixRuleDescription に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Description {
+            get {
+                return ResourceManager.GetString("PH0001_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   TestPhoenixRule に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Name {
+            get {
+                return ResourceManager.GetString("PH0001_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   TestPhoenixRuleResolution に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Resolution {
+            get {
+                return ResourceManager.GetString("PH0001_Resolution", resourceCulture);
+            }
+        }
     }
 }

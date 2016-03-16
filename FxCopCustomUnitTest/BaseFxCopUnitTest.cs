@@ -43,7 +43,7 @@ namespace FxCopCustomUnitTest
 					throw new InvalidOperationException(string.Format("FxCop returned exit code of {0}.", process.ExitCode));
 				}
 
-				return XDocument.Load(outXmlPath);
+				return File.Exists(outXmlPath) ? XDocument.Load(outXmlPath) : null; // エラーがない場合はログファイルが出力されない
 			}
 		}
 

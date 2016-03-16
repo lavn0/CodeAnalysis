@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PhoenixCustomTestRunLibrary
 {
-	public static class TestClass
+	public static class TestPhoenixRuleSample
 	{
 		public static void Test()
 		{
