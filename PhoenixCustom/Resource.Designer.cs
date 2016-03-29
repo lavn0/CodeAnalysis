@@ -63,27 +63,27 @@ namespace PhoenixCustom {
         /// <summary>
         ///   TestPhoenixRuleDescription に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string PH0001_Description {
+        internal static string PH0000_Description {
             get {
-                return ResourceManager.GetString("PH0001_Description", resourceCulture);
+                return ResourceManager.GetString("PH0000_Description", resourceCulture);
             }
         }
         
         /// <summary>
         ///   TestPhoenixRule に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string PH0001_Name {
+        internal static string PH0000_Name {
             get {
-                return ResourceManager.GetString("PH0001_Name", resourceCulture);
+                return ResourceManager.GetString("PH0000_Name", resourceCulture);
             }
         }
         
         /// <summary>
         ///   TestPhoenixRuleResolution に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        internal static string PH0001_Resolution {
+        internal static string PH0000_Resolution {
             get {
-                return ResourceManager.GetString("PH0001_Resolution", resourceCulture);
+                return ResourceManager.GetString("PH0000_Resolution", resourceCulture);
             }
         }
     }

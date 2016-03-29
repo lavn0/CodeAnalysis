@@ -5,7 +5,7 @@ using Phx;
 namespace PhoenixCustom
 {
 	/// <summary>実験的に実装された最低限の設定のPhoenixRule</summary>
-	[LocalizedFxCopRule("PhenixCustom.PH0001", typeof(ReliabilityCategory))]
+	[LocalizedFxCopRule("PhenixCustom.PH0000", typeof(ReliabilityCategory))]
 	internal sealed class TestPhoenixRule : BasePhoenixCustomRule
 	{
 		public TestPhoenixRule(StatisticsService statisticsService)
@@ -18,7 +18,7 @@ namespace PhoenixCustom
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			this.Violate(warningEmitter, functionUnit.FirstInstruction);
+			//this.Violate(warningEmitter, functionUnit.FirstInstruction);
 		}
 	}
 }

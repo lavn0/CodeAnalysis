@@ -117,15 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PH0001_Description" xml:space="preserve">
+  <data name="PH0000_Description" xml:space="preserve">
     <value>TestPhoenixRuleDescription</value>
     <comment>説明</comment>
   </data>
-  <data name="PH0001_Name" xml:space="preserve">
+  <data name="PH0000_Name" xml:space="preserve">
     <value>TestPhoenixRule</value>
     <comment>名前</comment>
   </data>
-  <data name="PH0001_Resolution" xml:space="preserve">
+  <data name="PH0000_Resolution" xml:space="preserve">
     <value>TestPhoenixRuleResolution</value>
     <comment>解決方法</comment>
   </data>
