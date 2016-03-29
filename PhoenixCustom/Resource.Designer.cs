@@ -86,5 +86,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0000_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   戻り値がnullではないメソッドの結果がnullと比較された場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Description {
+            get {
+                return ResourceManager.GetString("PH0001_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidNonNullMethodResultComparedByNull に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Name {
+            get {
+                return ResourceManager.GetString("PH0001_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}メソッドの結果をnullと比較しません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0001_Resolution {
+            get {
+                return ResourceManager.GetString("PH0001_Resolution", resourceCulture);
+            }
+        }
     }
 }

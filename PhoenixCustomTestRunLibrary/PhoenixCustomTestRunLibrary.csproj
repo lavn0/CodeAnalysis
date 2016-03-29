@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvoidNonNullMethodResultComparedByNullSample.cs" />
     <Compile Include="TestPhoenixRuleSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

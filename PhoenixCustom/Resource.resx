@@ -129,4 +129,16 @@
     <value>TestPhoenixRuleResolution</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0001_Description" xml:space="preserve">
+    <value>戻り値がnullではないメソッドの結果がnullと比較された場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0001_Name" xml:space="preserve">
+    <value>AvoidNonNullMethodResultComparedByNull</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0001_Resolution" xml:space="preserve">
+    <value>{0}メソッドの結果をnullと比較しません。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>

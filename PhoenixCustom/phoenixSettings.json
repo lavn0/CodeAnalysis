@@ -1,0 +1,15 @@
+﻿{
+  "UnNullReturnMethod": {
+    "list": [
+      "System.Linq.Enumerable.Where",
+      "System.Linq.Enumerable.OrderBy",
+      "System.Linq.Enumerable.ThenBy",
+      "System.Linq.Enumerable.First",
+      "System.Linq.Enumerable.Last",
+      "System.Linq.Enumerable.ElementAt",
+      "System.Linq.Enumerable.Single",
+      "System.Linq.Enumerable.ToList",
+      "System.Linq.Enumerable.ToArray"
+    ]
+  }
+}
