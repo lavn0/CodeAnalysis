@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace StyleCopCustom
 {
-	[SourceAnalyzer(typeof(CsParser))]
+	[SourceAnalyzer(typeof(CsParser), "StyleCopCustom.Rules.xml")]
 	public class PreferAtmarkQuotedString : SourceAnalyzer
 	{
 		const string pattern = @"(?!^.*(?<=(?<!\\)(?:\\\\)*?)\\[^\\].*$)^([""']).*\\\\.*\1$";
