@@ -25,6 +25,12 @@ namespace PhoenixCustom
 
 			foreach (var comp in comps)
 			{
+				if (comp.GetFileName().IsNull)
+				{
+					// ラムダ式などから生成されたメソッドで対応コードが無い部分の場合
+					continue;
+				}
+
 				var functionSymbol =
 					comp.SourceOperand2.IsNullPtr()
 						? comp.SourceOperand1.DefinitionInstruction.SourceOperand?.AsFunctionOperand?.FunctionSymbol
@@ -37,14 +43,15 @@ namespace PhoenixCustom
 					continue;
 				}
 
+				var symbol = functionSymbol.UninstantiatedFunctionSymbol ?? functionSymbol;
 				var fullNameWithoutGenericParameter = string.Format(
 					"{0}.{1}",
-					functionSymbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
-					functionSymbol.UninstantiatedFunctionSymbol.NameString);
+					symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
+					symbol.NameString);
 
 				if (this.settings.UnNullReturnMethod.Contains(fullNameWithoutGenericParameter))
 				{
-					this.Violate(warningEmitter, comp);
+					this.Violate(warningEmitter, comp, symbol);
 				}
 			}
 		}

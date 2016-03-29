@@ -27,15 +27,10 @@ namespace PhoenixCustom
 			this.m_statisticsService = statisticsService;
 		}
 
-		protected void Violate(WarningEmitter warningEmitter, Instruction instruction)
+		protected void Violate(WarningEmitter warningEmitter, Instruction instruction, params object[] args)
 		{
-			var violationMessage = this.ReportLocalizedWarning(instruction);
-			var sourceContext = instruction.GetSourceContext();
-			Debug.WriteLine(
-				"{0}({1}) : {2}",
-				sourceContext.FileName,
-				sourceContext.LineNumber,
-				violationMessage.DescriptionString);
+			var violationMessage = this.ReportLocalizedWarning(instruction, args);
+			Debug.WriteLine(violationMessage.ToString(), args);
 			warningEmitter.Add(violationMessage);
 		}
 	}

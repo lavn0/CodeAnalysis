@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="PreferAtmarkQuotedString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SourceAnalyzerUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Rules.xml" />

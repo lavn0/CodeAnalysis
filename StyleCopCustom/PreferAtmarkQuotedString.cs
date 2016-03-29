@@ -27,7 +27,7 @@ namespace StyleCopCustom
 			{
 				if (RegexPattern.IsMatch(literal.Text))
 				{
-					this.AddViolation(parentElement, literal.Location, this.GetType().Name);
+					this.Violate(parentElement, literal);
 				}
 			}
 
