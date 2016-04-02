@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AvoidNonNullMethodResultComparedByNullTest.cs" />
+    <Compile Include="AvoidReasignLocalTest.cs" />
     <Compile Include="BasePhoenixUnitTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TestPhoenixRuleTest.cs" />

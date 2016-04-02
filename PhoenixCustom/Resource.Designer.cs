@@ -113,5 +113,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0001_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   変数が使用されずに再代入されている場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0002_Description {
+            get {
+                return ResourceManager.GetString("PH0002_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidReasignLocal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0002_Name {
+            get {
+                return ResourceManager.GetString("PH0002_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   式の結果{0}が使用されていません。変数へ格納しないように修正するか、式を削除します。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0002_Resolution {
+            get {
+                return ResourceManager.GetString("PH0002_Resolution", resourceCulture);
+            }
+        }
     }
 }

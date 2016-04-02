@@ -45,8 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AvoidNonNullMethodResultComparedByNullSample.cs" />
-    <Compile Include="TestPhoenixRuleSample.cs" />
+    <Compile Include="AvoidReasignLocalSample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestPhoenixRuleSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhoenixCustom\PhoenixCustom.csproj">
