@@ -13,10 +13,10 @@ namespace FxCopCustomUnitTest
 		{
 			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG1()"), "NG1");
 			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG2()"), "NG2");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG3()"), "NG3");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG4()"), "NG4");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG5()"), "NG5");
-			Assert.AreEqual(5, this.GetErrors(ruleName, targetTypeName).Count);
+			Assert.AreEqual(2, this.GetErrors(ruleName, targetTypeName, "NG3()").Count, "NG3");
+			Assert.AreEqual(2, this.GetErrors(ruleName, targetTypeName, "NG4()").Count, "NG4");
+			Assert.AreEqual(3, this.GetErrors(ruleName, targetTypeName, "NG5()").Count, "NG5");
+			Assert.AreEqual(9, this.GetErrors(ruleName, targetTypeName).Count);
 		}
 	}
 }
