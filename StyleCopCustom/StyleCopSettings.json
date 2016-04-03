@@ -1,0 +1,14 @@
+﻿{
+  "XPathRules": {
+    "list": [
+      {
+        "Message": "メッセージのテスト",
+        "XPath": "\/\/test\/rule"
+      },
+      {
+        "Message": "メッセージのテスト",
+        "XPath": "\/\/test\/rule"
+      }
+    ]
+  }
+}
