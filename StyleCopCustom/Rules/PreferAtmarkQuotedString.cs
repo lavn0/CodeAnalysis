@@ -2,7 +2,7 @@
 using StyleCop.CSharp;
 using System.Text.RegularExpressions;
 
-namespace StyleCopCustom
+namespace StyleCopCustom.Rules
 {
 	[SourceAnalyzer(typeof(CsParser), "StyleCopCustom.Rules.xml")]
 	public class PreferAtmarkQuotedString : SourceAnalyzer
