@@ -11,7 +11,7 @@ namespace StyleCopCustomUnitTest
 		private const string settingPath = "NullSettings.StyleCop";
 
 		[TestMethod]
-		public void TestMethod()
+		public void PreferAtmarkQuotedStringTest1()
 		{
 			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\PreferAtmarkQuotedStringTestClass.cs");
 			Assert.AreEqual(2, result.Violations.Count);
