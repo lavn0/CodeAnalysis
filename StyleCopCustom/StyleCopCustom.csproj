@@ -50,8 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\XmlExtention.cs">
+      <Link>XmlExtention.cs</Link>
+    </Compile>
     <Compile Include="Rules\PreferAtmarkQuotedString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\XmlCommentRule.cs" />
     <Compile Include="Settings\StyleCopsettingsReader.cs" />
     <Compile Include="Settings\XPathRule.cs" />
     <Compile Include="SourceAnalyzerUtility.cs" />

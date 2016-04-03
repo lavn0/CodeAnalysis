@@ -63,11 +63,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Compile Include="Program.cs" />
+    <Content Include="Resources\XmlCommentRuleTestClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Runner\AnalysisResults.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestCode\XmlCommentRuleTest.cs" />
     <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,10 +7,20 @@ namespace StyleCopCustom
 {
 	public static class SourceAnalyzerUtility
 	{
-		internal static void Violate(this SourceAnalyzer sourceAnalyzer, CsElement element, CodeUnit codeUnit)
+		internal static void Violate(this SourceAnalyzer sourceAnalyzer, CsElement element, CodeUnit codeUnit, params object[] args)
 		{
-			sourceAnalyzer.AddViolation(element, codeUnit.Location, sourceAnalyzer.GetType().Name);
-			DebugWrite(element.Violations.Last());
+			Violate(sourceAnalyzer, element, codeUnit.Location, args);
+		}
+
+		internal static void Violate(this SourceAnalyzer sourceAnalyzer, CsElement element, CodeLocation location, params object[] args)
+		{
+			var ruleName = sourceAnalyzer.GetType().Name;
+			var rule = sourceAnalyzer.GetRule(ruleName);
+			if (rule != null)
+			{
+				sourceAnalyzer.AddViolation(element, location, ruleName, args);
+				DebugWrite(element.Violations.Last());
+			}
 		}
 
 		[Conditional("DEBUG")]

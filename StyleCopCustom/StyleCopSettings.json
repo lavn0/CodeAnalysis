@@ -2,12 +2,8 @@
   "XPathRules": {
     "list": [
       {
-        "Message": "メッセージのテスト",
-        "XPath": "\/\/test\/rule"
-      },
-      {
-        "Message": "メッセージのテスト",
-        "XPath": "\/\/test\/rule"
+        "Message": "summaryタグの最初の行に内容を記述し、IDEで折り畳み表示がされていても内容の一部が見えるようにします。",
+        "XPath": "//summary[contains(.,'\n')][string-length(substring-before(., '\n'))=0]"
       }
     ]
   }
