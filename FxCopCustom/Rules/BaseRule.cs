@@ -1,6 +1,9 @@
 ﻿using Microsoft.FxCop.Sdk;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace FxCopCustom.Rules
 {
@@ -8,6 +11,20 @@ namespace FxCopCustom.Rules
 	public abstract class BaseRule : BaseIntrospectionRule
 	{
 		private const string FxCopRulesXmlPath = "FxCopCustom.Rules.xml";
+		private const string settingFileName = "fxcopSettings.json";
+
+		internal readonly static FxCopSettings settings;
+
+		static BaseRule()
+		{
+			// BOMを読み込むためにStreamReaderで読み込み、ReadObjectメソッド引き数に使えるようにするためにMemoryStreamに転写する
+			using (var sr = new StreamReader(settingFileName))
+			using (var str = new MemoryStream(Encoding.UTF8.GetBytes(sr.ReadToEnd())))
+			{
+				var serializer = new DataContractJsonSerializer(typeof(FxCopSettings));
+				settings = (FxCopSettings)serializer.ReadObject(str);
+			}
+		}
 
 		protected BaseRule(string name)
 			: base(name, FxCopRulesXmlPath, typeof(BaseRule).Assembly)

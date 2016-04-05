@@ -65,4 +65,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0007" Category="FxCopCustom" TypeName="DontUseMethod">
+		<Name>DontUseMethod</Name>
+		<Description>使用禁止として設定されたメソッドを検出します。</Description>
+		<Url />
+		<Resolution>{0}メソッドの使用は禁止されています。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

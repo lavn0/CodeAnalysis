@@ -1,0 +1,7 @@
+﻿{
+  "DontUseMethod": {
+    "list": [
+      "FxCopCustomTestRunLibrary.DontUseMethodSample.DontUseMethodCall"
+    ]
+  }
+}

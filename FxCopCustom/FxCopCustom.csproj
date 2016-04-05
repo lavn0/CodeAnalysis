@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +53,8 @@
     <Compile Include="Rules\BaseRule.cs" />
     <Compile Include="Rules\ConcatConstString.cs" />
     <Compile Include="Rules\CompareZeroToCountResult.cs" />
+    <Compile Include="Rules\DontUseMethod.cs" />
+    <Compile Include="FxCopSettings.cs" />
     <Compile Include="Rules\LinqResultComparedByNull.cs" />
     <Compile Include="Rules\StaticMethodShouldNotCallDateTimeNow.cs" />
     <Compile Include="Rules\UnusedReasign.cs" />
@@ -62,6 +65,11 @@
     <EmbeddedResource Include="Rules.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fxcopSettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Condition="Exists('$(ProgramFiles)\MSBuild\StyleCop\v4.7\StyleCop.targets')" Project="$(ProgramFiles)\MSBuild\StyleCop\v4.7\StyleCop.targets" />

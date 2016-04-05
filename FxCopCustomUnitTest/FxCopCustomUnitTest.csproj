@@ -59,6 +59,7 @@
     <Compile Include="BaseFxCopUnitTest.cs" />
     <Compile Include="CompareZeroToCountResultTest.cs" />
     <Compile Include="ConcatConstStringTest.cs" />
+    <Compile Include="DontUseMethodTest.cs" />
     <Compile Include="LinqResultComparedByNullTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
