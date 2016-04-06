@@ -48,11 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extention\MemberExtention.cs" />
+    <Compile Include="MemberInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\AsignedConstOnly.cs" />
     <Compile Include="Rules\BaseRule.cs" />
     <Compile Include="Rules\ConcatConstString.cs" />
     <Compile Include="Rules\CompareZeroToCountResult.cs" />
+    <Compile Include="Rules\DontDefineMember.cs" />
     <Compile Include="Rules\DontUseMethod.cs" />
     <Compile Include="FxCopSettings.cs" />
     <Compile Include="Rules\LinqResultComparedByNull.cs" />

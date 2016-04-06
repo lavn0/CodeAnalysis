@@ -9,5 +9,8 @@ namespace FxCopCustom
 	{
 		[DataMember]
 		public ReadOnlyCollection<string> DontUseMethod { get; set; }
+
+		[DataMember]
+		public ReadOnlyCollection<MemberInfo> DontDefimeMember { get; set; }
 	}
 }

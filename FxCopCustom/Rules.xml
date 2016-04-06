@@ -75,4 +75,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0008" Category="FxCopCustom" TypeName="DontDefineMember">
+		<Name>DontDefineMember</Name>
+		<Description>定義禁止として設定されたメソッドを検出します。</Description>
+		<Url />
+		<Resolution>{0}</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

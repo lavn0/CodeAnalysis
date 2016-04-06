@@ -75,13 +75,13 @@ namespace FxCopCustomUnitTest
 
 		protected List<XElement> GetErrors(string ruleName, string targetTypeName, string methodName)
 		{
-			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Member[@Kind='Method'][@Name='#{2}']//Message[@TypeName='{0}']//Issue", ruleName, targetTypeName, methodName);
+			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Member[@Name='#{2}']//Message[@TypeName='{0}']//Issue", ruleName, targetTypeName, methodName);
 			return FxCopResult.XPathSelectElements(xpath).ToList();
 		}
 
 		protected XElement GetError(string ruleName, string targetTypeName, string methodName)
 		{
-			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Member[@Kind='Method'][@Name='#{2}']//Message[@TypeName='{0}']//Issue", ruleName, targetTypeName, methodName);
+			string xpath = string.Format("//Type[@Kind='Class'][@Name='{1}']//Member[@Name='#{2}']//Message[@TypeName='{0}']//Issue", ruleName, targetTypeName, methodName);
 			return FxCopResult.XPathSelectElement(xpath);
 		}
 	}

@@ -1,4 +1,83 @@
 ﻿{
+  "DontDefimeMember": {
+    "list": [
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Is",
+        "Message": "'Is' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Can",
+        "Message": "'Can' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Has",
+        "Message": "'Has' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Should",
+        "Message": "'Should' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Could",
+        "Message": "'Could' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Will",
+        "Message": "'Will' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Shall",
+        "Message": "'Shall' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Check",
+        "Message": "'Check' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Contains",
+        "Message": "'Contains' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^Equals",
+        "Message": "'Equals' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean|System.Void$)^.*$",
+        "RegexName": "^Add",
+        "Message": "'Add' 開始のメンバーはbool型またはvoid型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean|System.Void$)^.*$",
+        "RegexName": "^Put",
+        "Message": "'Put' 開始のメンバーはbool型またはvoid型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean|System.Void$)^.*$",
+        "RegexName": "^Remove",
+        "Message": "'Remove' 開始のメンバーはbool型またはvoid型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^StartsWith",
+        "Message": "'StartsWith' 開始のメンバーはbool型である必要があります。"
+      },
+      {
+        "RegexTypeName": "(?!^System.Boolean$)^.*$",
+        "RegexName": "^EndsWith",
+        "Message": "'EndsWith' 開始のメンバーはbool型である必要があります。"
+      }
+    ]
+  },
   "DontUseMethod": {
     "list": [
       "FxCopCustomTestRunLibrary.DontUseMethodSample.DontUseMethodCall"
