@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 
-namespace FxCopCustom
+namespace FxCopCustom.Settings
 {
 	/// <summary>FxCopカスタムルールの設定記述用クラス</summary>
 	[DataContract]

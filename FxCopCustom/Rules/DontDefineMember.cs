@@ -19,7 +19,7 @@ namespace FxCopCustom.Rules
 					case NodeType.Method:
 					case NodeType.Property:
 					case NodeType.Field:
-						foreach (var dontDefineMember in settings.DontDefimeMember)
+						foreach (var dontDefineMember in Settings.DontDefimeMember)
 						{
 							if (dontDefineMember.IsMatch(member))
 							{

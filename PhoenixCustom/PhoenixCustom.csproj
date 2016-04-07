@@ -57,10 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\EnumerableUtility.cs">
+      <Link>EnumerableUtility.cs</Link>
+    </Compile>
     <Compile Include="AvoidNonNullMethodResultComparedByNull.cs" />
     <Compile Include="AvoidReasignLocal.cs" />
     <Compile Include="BasePhoenixCustomRule.cs" />
-    <Compile Include="EnumerableUtility.cs" />
     <Compile Include="PhoenixSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.Designer.cs">

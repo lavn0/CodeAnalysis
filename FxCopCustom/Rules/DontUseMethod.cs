@@ -33,7 +33,7 @@ namespace FxCopCustom.Rules
 			if (member.NodeType == NodeType.Method)
 			{
 				var method = (Method)member;
-				if (settings.DontUseMethod.Contains(method.FullName))
+				if (Settings.DontUseMethod.Contains(method.FullName))
 				{
 					this.Violate(call, method.FullName);
 				}

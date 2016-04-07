@@ -49,7 +49,7 @@ namespace PhoenixCustom
 					symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
 					symbol.NameString);
 
-				if (this.settings.UnNullReturnMethod.Contains(fullNameWithoutGenericParameter))
+				if (Settings.UnNullReturnMethod.Contains(fullNameWithoutGenericParameter))
 				{
 					this.Violate(warningEmitter, comp, symbol);
 				}

@@ -1,4 +1,5 @@
-﻿using Microsoft.FxCop.Sdk;
+﻿using FxCopCustom.Settings;
+using Microsoft.FxCop.Sdk;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -11,22 +12,22 @@ namespace FxCopCustom.Rules
 	/// <summary>FxCopのカスタムルールの作成を簡易にするための抽象クラス</summary>
 	public abstract class BaseRule : BaseIntrospectionRule
 	{
-		private const string FxCopRulesXmlPath = "FxCopCustom.Rules.xml";
-		private const string settingFileName = "fxcopSettings.json";
+		internal static readonly FxCopSettings Settings;
 
-		internal readonly static FxCopSettings settings;
+		private const string FxCopRulesXmlPath = "FxCopCustom.Rules.xml";
+		private const string SettingFileName = "fxcopSettings.json";
 
 		static BaseRule()
 		{
 			var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			var fileName = Path.Combine(directory, settingFileName);
+			var fileName = Path.Combine(directory, SettingFileName);
 
 			// BOMを読み込むためにStreamReaderで読み込み、ReadObjectメソッド引き数に使えるようにするためにMemoryStreamに転写する
 			using (var sr = new StreamReader(fileName))
 			using (var str = new MemoryStream(Encoding.UTF8.GetBytes(sr.ReadToEnd())))
 			{
 				var serializer = new DataContractJsonSerializer(typeof(FxCopSettings));
-				settings = (FxCopSettings)serializer.ReadObject(str);
+				Settings = (FxCopSettings)serializer.ReadObject(str);
 			}
 		}
 

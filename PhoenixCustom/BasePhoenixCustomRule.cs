@@ -12,10 +12,10 @@ namespace PhoenixCustom
 	{
 		private const string settingFileName = "phoenixSettings.json";
 
-		protected readonly PhoenixSettings settings;
+		protected readonly static PhoenixSettings Settings;
 		protected readonly StatisticsService m_statisticsService;
 
-		public BasePhoenixCustomRule(StatisticsService statisticsService)
+		static BasePhoenixCustomRule()
 		{
 			var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			var fileName = Path.Combine(directory, settingFileName);
@@ -25,9 +25,12 @@ namespace PhoenixCustom
 			using (var str = new MemoryStream(Encoding.UTF8.GetBytes(sr.ReadToEnd())))
 			{
 				var serializer = new DataContractJsonSerializer(typeof(PhoenixSettings));
-				this.settings = (PhoenixSettings)serializer.ReadObject(str);
+				Settings = (PhoenixSettings)serializer.ReadObject(str);
 			}
+		}
 
+		public BasePhoenixCustomRule(StatisticsService statisticsService)
+		{
 			this.m_statisticsService = statisticsService;
 		}
 

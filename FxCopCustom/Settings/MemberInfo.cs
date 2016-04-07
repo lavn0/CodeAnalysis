@@ -3,7 +3,7 @@ using Microsoft.FxCop.Sdk;
 using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
-namespace FxCopCustom
+namespace FxCopCustom.Settings
 {
 	[DataContract]
 	internal class MemberInfo
