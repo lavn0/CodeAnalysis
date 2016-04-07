@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 using System.Runtime.Serialization.Json;
 using System.Text;
 
@@ -17,8 +18,11 @@ namespace FxCopCustom.Rules
 
 		static BaseRule()
 		{
+			var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			var fileName = Path.Combine(directory, settingFileName);
+
 			// BOMを読み込むためにStreamReaderで読み込み、ReadObjectメソッド引き数に使えるようにするためにMemoryStreamに転写する
-			using (var sr = new StreamReader(settingFileName))
+			using (var sr = new StreamReader(fileName))
 			using (var str = new MemoryStream(Encoding.UTF8.GetBytes(sr.ReadToEnd())))
 			{
 				var serializer = new DataContractJsonSerializer(typeof(FxCopSettings));
