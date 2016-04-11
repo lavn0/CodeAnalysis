@@ -82,5 +82,14 @@
     "list": [
       "FxCopCustomTestRunLibrary.DontUseMethodSample.DontUseMethodCall"
     ]
+  },
+  "NeedToCatchInfos": {
+    "list": [
+      {
+        "MethodFullName": "System.Int32.Parse(System.String)",
+        "ExceptionFullName": "System.ArgumentNullException",
+        "Message": "ArgumentNullExceptionをcatchしてください。"
+      }
+    ]
   }
 }

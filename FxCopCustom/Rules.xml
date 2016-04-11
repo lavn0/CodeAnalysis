@@ -85,4 +85,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0009" Category="FxCopCustom" TypeName="NeedToCatch">
+		<Name>NeedToCatch</Name>
+		<Description>メソッドのcatchすべき例外検出します。</Description>
+		<Url />
+		<Resolution>{0}</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

@@ -12,5 +12,8 @@ namespace FxCopCustom.Settings
 
 		[DataMember]
 		public ReadOnlyCollection<MemberInfo> DontDefimeMember { get; set; }
+
+		[DataMember]
+		public ReadOnlyCollection<NeedToCatchInfo> NeedToCatchInfos { get; set; }
 	}
 }

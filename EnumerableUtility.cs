@@ -25,4 +25,19 @@ public static class EnumerableUtility
 			}
 		}
 	}
+
+	[DebuggerStepThrough]
+	public static IEnumerable<T> TakeUntil<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+	{
+		foreach (var item in source)
+		{
+			if (!predicate(item))
+			{
+				yield return item;
+				break;
+			}
+
+			yield return item;
+		}
+	}
 }
