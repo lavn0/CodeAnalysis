@@ -1,0 +1,6 @@
+bin
+obj
+StyleCop.Cache
+*.suo
+*.user
+TestResults
