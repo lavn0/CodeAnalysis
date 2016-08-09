@@ -59,10 +59,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Resources\NumberAmoountRuleTestClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\PreferAtmarkQuotedStringTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Compile Include="Program.cs" />
     <Content Include="Resources\XmlCommentRuleTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -70,9 +74,9 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestCode\XmlCommentRuleTest.cs" />
+    <Compile Include="TestCode\NumberAmoountRuleTest.cs" />
     <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
+    <Compile Include="TestCode\XmlCommentRuleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NullSettings.StyleCop">

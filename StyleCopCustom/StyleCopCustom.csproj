@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Rules\PreferAtmarkQuotedString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rules\NumberAmoountRule.cs" />
     <Compile Include="Rules\XmlCommentRule.cs" />
     <Compile Include="Settings\StyleCopsettingsReader.cs" />
     <Compile Include="Settings\XPathRule.cs" />

@@ -10,5 +10,9 @@
 			<Context>{0}</Context>
 			<Description>XPathRuleの設定に一致するXMLコメントを検出します。</Description>
 		</Rule>
+		<Rule Name="NumberAmoountRule" CheckId="EX0003">
+			<Context>数値の記述において、{0}個以上連続する "0" は許可されていません。例に示すように乗算式に書き換えてください。修正例）{1} ⇒ {2}</Context>
+			<Description>数値の記述において桁間違いを防ぐために "0" が一定数以上連続することを禁止するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>

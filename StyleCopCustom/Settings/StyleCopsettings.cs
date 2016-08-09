@@ -9,6 +9,10 @@ namespace StyleCopCustom.Settings
 	[DebuggerDisplay("XPathRuleCount={XPathRules.Count}")]
 	internal class StyleCopsettings
 	{
+		/// <summary>リテラル値で許可する "0" の連続数</summary>
+		[DataMember]
+		public int MaxRepeatZeroOnNumber { get; set; }
+
 		[DataMember]
 		public ReadOnlyCollection<XPathRule> XPathRules { get; set; }
 	}
