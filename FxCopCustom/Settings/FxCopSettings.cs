@@ -11,6 +11,9 @@ namespace FxCopCustom.Settings
 		public ReadOnlyCollection<string> DontUseMethod { get; set; }
 
 		[DataMember]
+		public ReadOnlyCollection<MethodInfo> DontPassParameterType { get; set; }
+
+		[DataMember]
 		public ReadOnlyCollection<MemberInfo> DontDefimeMember { get; set; }
 
 		[DataMember]

@@ -60,6 +60,7 @@
     <Compile Include="CompareZeroToCountResultTest.cs" />
     <Compile Include="ConcatConstStringTest.cs" />
     <Compile Include="DontDefineMemberTest.cs" />
+    <Compile Include="DontPassParameterTypeTest.cs" />
     <Compile Include="DontUseMethodTest.cs" />
     <Compile Include="LinqResultComparedByNullTest.cs" />
     <Compile Include="Program.cs" />

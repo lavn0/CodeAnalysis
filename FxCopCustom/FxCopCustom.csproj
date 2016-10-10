@@ -59,6 +59,7 @@
     <Compile Include="Rules\CompareZeroToCountResult.cs" />
     <Compile Include="Rules\ConcatConstString.cs" />
     <Compile Include="Rules\DontDefineMember.cs" />
+    <Compile Include="Rules\DontPassParameterType.cs" />
     <Compile Include="Rules\DontUseMethod.cs" />
     <Compile Include="Rules\LinqResultComparedByNull.cs" />
     <Compile Include="Rules\NeedToCatch.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="RuleUtilities.cs" />
     <Compile Include="Settings\FxCopSettings.cs" />
     <Compile Include="Settings\MemberInfo.cs" />
+    <Compile Include="Settings\MethodInfo.cs" />
     <Compile Include="Settings\NeedToCatchInfo.cs" />
     <Compile Include="SystemMembers.cs" />
   </ItemGroup>

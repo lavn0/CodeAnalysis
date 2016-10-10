@@ -95,4 +95,14 @@
 		<FixCategories>NonBreaking</FixCategories>
 		<Owner />
 	</Rule>
+	<Rule CheckId="DT0010" Category="FxCopCustom" TypeName="DontPassParameterType">
+		<Name>DontPassParameterType</Name>
+		<Description>メソッドに渡すことが禁止された型のパラメータを検出します。</Description>
+		<Url />
+		<Resolution>{0} メソッドの 第{1}引数に {2} 型のパラメータを渡すことは禁止されています。</Resolution>
+		<Email />
+		<MessageLevel Certainty="80">Warning</MessageLevel>
+		<FixCategories>NonBreaking</FixCategories>
+		<Owner />
+	</Rule>
 </Rules>

@@ -48,6 +48,7 @@
     <Compile Include="CompareZeroToCountResultSample.cs" />
     <Compile Include="ConcatConstStringSample.cs" />
     <Compile Include="DontDefineMemberSample.cs" />
+    <Compile Include="DontPassParameterTypeSample.cs" />
     <Compile Include="DontUseMethodSample.cs" />
     <Compile Include="LinqResultComparedByNullSample.cs" />
     <Compile Include="NeedToCatchSample.cs" />

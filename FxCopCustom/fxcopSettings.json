@@ -83,6 +83,19 @@
       "FxCopCustomTestRunLibrary.DontUseMethodSample.DontUseMethodCall"
     ]
   },
+  "DontPassParameterType": {
+    "list": [
+      {
+        "FullName": "FxCopCustomTestRunLibrary.DontPassParameterTypeSample.Sample1(System.Collections.Generic.IEnumerable`1<System.String>,System.Collections.Generic.IEnumerable`1<System.String>,System.Collections.Generic.IEnumerable`1<System.String>)",
+        "ParameterType": [
+          {
+            "Key": 2,
+            "Value": "System.Collections.Generic.IEnumerable`1<System.String>"
+          }
+        ]
+      }
+    ]
+  },
   "NeedToCatchInfos": {
     "list": [
       {
