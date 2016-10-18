@@ -2,17 +2,21 @@
 <SourceAnalyzer Name="CustomRules">
 	<Description>カスタムルール</Description>
 	<Rules>
-		<Rule Name="PreferAtmarkQuotedString" CheckId="EX0001">
+		<Rule CheckId="EX0001" Name="PreferAtmarkQuotedString">
 			<Context>\文字エスケープを使用していない、\を含む文字列には@quoted stringsを使用します。</Context>
 			<Description>@quoted stringsの仕様を推奨するルール</Description>
 		</Rule>
-		<Rule Name="XmlCommentRule" CheckId="EX0002">
+		<Rule CheckId="EX0002" Name="XmlCommentRule">
 			<Context>{0}</Context>
 			<Description>XPathRuleの設定に一致するXMLコメントを検出します。</Description>
 		</Rule>
-		<Rule Name="NumberAmoountRule" CheckId="EX0003">
+		<Rule CheckId="EX0003" Name="NumberAmoountRule">
 			<Context>数値の記述において、{0}個以上連続する "0" は許可されていません。例に示すように乗算式に書き換えてください。修正例）{1} ⇒ {2}</Context>
 			<Description>数値の記述において桁間違いを防ぐために "0" が一定数以上連続することを禁止するルール</Description>
+		</Rule>
+		<Rule CheckId="EX0005" Name="SpaceIndentMustNotBeUsed">
+			<Context>空白インデントが使用されています。</Context>
+			<Description>空白インデントを禁止するルール</Description>
 		</Rule>
 	</Rules>
 </SourceAnalyzer>

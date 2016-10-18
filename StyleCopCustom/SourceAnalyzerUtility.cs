@@ -1,7 +1,7 @@
-﻿using StyleCop;
-using StyleCop.CSharp;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
+using StyleCop;
+using StyleCop.CSharp;
 
 namespace StyleCopCustom
 {
@@ -19,6 +19,18 @@ namespace StyleCopCustom
 			if (rule != null)
 			{
 				sourceAnalyzer.AddViolation(element, location, ruleName, args);
+				DebugWrite(element.Violations.Last());
+			}
+		}
+
+		internal static void Violate(this SourceAnalyzer sourceAnalyzer, CsToken value, params object[] args)
+		{
+			var ruleName = sourceAnalyzer.GetType().Name;
+			var rule = sourceAnalyzer.GetRule(ruleName);
+			if (rule != null)
+			{
+				var element = value.FindParentElement();
+				sourceAnalyzer.AddViolation(element, value.LineNumber, ruleName, args);
 				DebugWrite(element.Violations.Last());
 			}
 		}
