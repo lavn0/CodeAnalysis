@@ -59,6 +59,7 @@
     <Compile Include="Rules\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
     <Compile Include="Rules\SpaceIndentMustNotBeUsed.cs" />
     <Compile Include="Rules\TrailingSpacesMustNotBeUsed.cs" />
+    <Compile Include="Rules\WideSpaceNotBeUsed.cs" />
     <Compile Include="Rules\XmlCommentRule.cs" />
     <Compile Include="Settings\StyleCopsettingsReader.cs" />
     <Compile Include="Settings\XPathRule.cs" />

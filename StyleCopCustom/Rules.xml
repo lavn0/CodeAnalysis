@@ -26,5 +26,9 @@
 			<Context>行末空白が使用されています。</Context>
 			<Description>行末空白の使用を禁止するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0008" Name="WideSpaceNotBeUsed">
+			<Context>全角空白が使用されています。</Context>
+			<Description>全角空白の使用を禁止するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>
