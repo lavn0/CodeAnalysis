@@ -76,6 +76,9 @@
     <Content Include="Resources\SpaceAndTabMixedIndentMustNotBeUsedTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\TrailingSpacesMustNotBeUsedTestClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Runner\AnalysisResults.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
@@ -84,6 +87,7 @@
     <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
     <Compile Include="TestCode\SpaceAndTabMixedIndentMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\SpaceIndentMustNotBeUsedTest.cs" />
+    <Compile Include="TestCode\TrailingSpacesMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\XmlCommentRuleTest.cs" />
   </ItemGroup>
   <ItemGroup>

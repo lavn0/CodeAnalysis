@@ -22,5 +22,9 @@
 			<Context>空白・タブ混在のインデントが使用されています。</Context>
 			<Description>空白・タブ混在のインデントを禁止するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0007" Name="TrailingSpacesMustNotBeUsed">
+			<Context>行末空白が使用されています。</Context>
+			<Description>行末空白の使用を禁止するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>
