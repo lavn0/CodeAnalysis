@@ -82,10 +82,14 @@
     <Content Include="Resources\WideSpaceNotBeUsedTestClass.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\AvoidMagicNumberRuleTestClass.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Compile Include="Runner\AnalysisResults.cs" />
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
+    <Compile Include="TestCode\AvoidMagicNumberRuleTest.cs" />
     <Compile Include="TestCode\NumberAmoountRuleTest.cs" />
     <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
     <Compile Include="TestCode\SpaceAndTabMixedIndentMustNotBeUsedTest.cs" />

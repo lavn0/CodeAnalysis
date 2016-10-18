@@ -7,5 +7,25 @@
         "XPath": "//summary[contains(.,'\n')][string-length(substring-before(., '\n'))=0]"
       }
     ]
+  },
+  "AvoidMagicNumbers": {
+    "list": [
+      {
+        "Name": "ViolateMethod",
+        "Index": 0
+      },
+      {
+        "Name": "ViolateMethod",
+        "Index": 1
+      },
+      {
+        "Name": "ViolateMethod",
+        "Index": 2
+      },
+      {
+        "Name": "ViolateMethod",
+        "Index": 3
+      }
+    ]
   }
 }

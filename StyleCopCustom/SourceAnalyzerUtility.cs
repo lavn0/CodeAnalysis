@@ -23,14 +23,14 @@ namespace StyleCopCustom
 			}
 		}
 
-		internal static void Violate(this SourceAnalyzer sourceAnalyzer, CsToken value, params object[] args)
+		internal static void Violate(this SourceAnalyzer sourceAnalyzer, ICodePart value, params object[] args)
 		{
 			var ruleName = sourceAnalyzer.GetType().Name;
 			var rule = sourceAnalyzer.GetRule(ruleName);
 			if (rule != null)
 			{
 				var element = value.FindParentElement();
-				sourceAnalyzer.AddViolation(element, value.LineNumber, ruleName, args);
+				sourceAnalyzer.AddViolation(element, value.Location, ruleName, args);
 				DebugWrite(element.Violations.Last());
 			}
 		}

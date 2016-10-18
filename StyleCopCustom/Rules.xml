@@ -14,6 +14,10 @@
 			<Context>数値の記述において、{0}個以上連続する "0" は許可されていません。例に示すように乗算式に書き換えてください。修正例）{1} ⇒ {2}</Context>
 			<Description>数値の記述において桁間違いを防ぐために "0" が一定数以上連続することを禁止するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0004" Name="AvoidMagicNumberRule">
+			<Context>マジックナンバー{0}が使用されています。</Context>
+			<Description>マジックナンバーを禁止するルール</Description>
+		</Rule>
 		<Rule CheckId="EX0005" Name="SpaceIndentMustNotBeUsed">
 			<Context>空白インデントが使用されています。</Context>
 			<Description>空白インデントを禁止するルール</Description>
