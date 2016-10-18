@@ -6,15 +6,15 @@ using StyleCopContrib.Runner;
 namespace StyleCopCustomUnitTest
 {
 	[TestClass]
-	public class SpaceIndentMustNotBeUsedTest
+	public class SpaceAndTabMixedIndentMustNotBeUsedTest
 	{
 		private const string settingPath = "NullSettings.StyleCop";
 
 		[TestMethod]
-		public void SpaceIndentMustNotBeUsedTest1()
+		public void SpaceAndTabMixedIndentMustNotBeUsedTest1()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\SpaceIndentMustNotBeUsedTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "SpaceIndentMustNotBeUsed").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\SpaceAndTabMixedIndentMustNotBeUsedTestClass.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "SpaceAndTabMixedIndentMustNotBeUsed").ToList();
 			Assert.AreEqual(5, violations.Count);
 			Assert.AreEqual(typeof(StyleCop.CSharp.Method).FullName, violations.ElementAt(0).Element.GetType().FullName);
 			var method0 = violations.ElementAt(0).Element as Method;

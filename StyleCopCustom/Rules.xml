@@ -18,5 +18,9 @@
 			<Context>空白インデントが使用されています。</Context>
 			<Description>空白インデントを禁止するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0006" Name="SpaceAndTabMixedIndentMustNotBeUsed">
+			<Context>空白・タブ混在のインデントが使用されています。</Context>
+			<Description>空白・タブ混在のインデントを禁止するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>
