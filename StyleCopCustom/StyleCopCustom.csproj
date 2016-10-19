@@ -57,6 +57,7 @@
     <Compile Include="Rules\PreferAtmarkQuotedString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rules\NumberAmoountRule.cs" />
+    <Compile Include="Rules\ShortenAttributeName.cs" />
     <Compile Include="Rules\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
     <Compile Include="Rules\SpaceIndentMustNotBeUsed.cs" />
     <Compile Include="Rules\TabNotBeUseInNonIndent.cs" />
