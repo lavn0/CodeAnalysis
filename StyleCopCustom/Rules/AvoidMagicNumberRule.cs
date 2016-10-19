@@ -31,7 +31,7 @@ namespace StyleCopCustom.Rules
 			if (expression.ExpressionType == ExpressionType.MethodInvocation)
 			{
 				var methodInvocation = expression as MethodInvocationExpression;
-				var target = AvoidMagicNumbers.Where(a => a.Name == methodInvocation.Name.Text).ToList();
+				var target = AvoidMagicNumbers.Where(a => a.Name == methodInvocation.Name.Tokens.Last.Value.Text).ToList();
 
 				if (target.Any())
 				{
