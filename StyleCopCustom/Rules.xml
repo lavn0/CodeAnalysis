@@ -42,5 +42,9 @@
 			<Context>属性を指定する際、属性名末尾の"Attribute"を省略します。</Context>
 			<Description>属性を指定する際、属性名末尾の"Attribute"を省略するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0011" Name="ShortenAttributeEmptyParenthesis">
+			<Context>属性を指定する際、空の括弧を省略します。</Context>
+			<Description>属性を指定する際、空の括弧を省略するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>
