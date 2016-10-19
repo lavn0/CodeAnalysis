@@ -39,8 +39,8 @@
 			<Description>インデント以外でのタブの使用を禁止するルール</Description>
 		</Rule>
 		<Rule CheckId="EX0010" Name="ShortenAttributeName">
-			<Context>属性を指定する際、属性名末尾の"Attribute"は省略します。</Context>
-			<Description>属性を指定する際、属性名末尾の"Attribute"の記述を禁止するルール</Description>
+			<Context>属性を指定する際、属性名末尾の"Attribute"を省略します。</Context>
+			<Description>属性を指定する際、属性名末尾の"Attribute"を省略するルール</Description>
 		</Rule>
 	</Rules>
 </SourceAnalyzer>

@@ -11,7 +11,13 @@ namespace StyleCopCustomUnitTest.Resources
 		}
 
 		[DebuggerStepThroughAttribute]
-		public string NG()
+		public string NG1()
+		{
+			return string.Empty;
+		}
+
+		[DebuggerStepThroughAttribute(), System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		public string NG2()
 		{
 			return string.Empty;
 		}

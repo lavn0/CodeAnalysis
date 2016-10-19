@@ -21,7 +21,14 @@ namespace StyleCopCustom.Rules
 		{
 			var violateTargets = element.Attributes?
 				.SelectMany(a => a.AttributeExpressions)
-				.Where(a => a.ChildExpressions.First().Tokens.Last.Value.Text.EndsWith("Attribute"))
+				.Where(a =>
+				{
+					var attribute = a.ChildExpressions.First();
+					return (attribute.ExpressionType == ExpressionType.Literal
+						? attribute.Tokens.Last.Value.Text
+						: (attribute as MethodInvocationExpression).Name.Tokens.Last.Value.Text)
+						.EndsWith("Attribute");
+				})
 				.ToList();
 
 			if (violateTargets != null)
