@@ -1,20 +1,11 @@
-﻿using System.Collections.ObjectModel;
-using StyleCop;
+﻿using StyleCop;
 using StyleCop.CSharp;
-using StyleCopCustom.Settings;
 
 namespace StyleCopCustom.Rules
 {
 	[SourceAnalyzer(typeof(CsParser), "StyleCopCustom.Rules.xml")]
 	public class TrailingSpacesMustNotBeUsed : SourceAnalyzer
 	{
-		private static readonly ReadOnlyCollection<XPathRule> rules;
-
-		static TrailingSpacesMustNotBeUsed()
-		{
-			rules = StyleCopsettingsReader.Settings.XPathRules;
-		}
-
 		public override void AnalyzeDocument(CodeDocument document)
 		{
 			CsDocument csdocument = (CsDocument)document;
