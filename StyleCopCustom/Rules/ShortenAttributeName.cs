@@ -21,21 +21,18 @@ namespace StyleCopCustom.Rules
 		{
 			var violateTargets = element.Attributes?
 				.SelectMany(a => a.AttributeExpressions)
-				.Where(a =>
-				{
-					var attribute = a.ChildExpressions.First();
-					return (attribute.ExpressionType == ExpressionType.Literal
-						? attribute.Tokens.Last.Value.Text
-						: (attribute as MethodInvocationExpression).Name.Tokens.Last.Value.Text)
-						.EndsWith("Attribute");
-				})
+				.Select(a => a.ChildExpressions.First())
 				.ToList();
 
 			if (violateTargets != null)
 			{
 				foreach (var violateTarget in violateTargets)
 				{
-					this.Violate(violateTarget);
+					string attributeName = violateTarget.ExpressionType == ExpressionType.Literal ? violateTarget.Tokens.Last.Value.Text : (violateTarget as MethodInvocationExpression).Name.Tokens.Last.Value.Text;
+					if (attributeName.EndsWith("Attribute"))
+					{
+						this.Violate(violateTarget);
+					}
 				}
 			}
 
