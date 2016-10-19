@@ -25,6 +25,10 @@
       {
         "Name": "ViolateMethod",
         "Index": 3
+      },
+      {
+        "Name": "ViolateMethod",
+        "Index": 4
       }
     ]
   }
