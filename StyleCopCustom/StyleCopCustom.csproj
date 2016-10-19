@@ -59,6 +59,7 @@
     <Compile Include="Rules\NumberAmoountRule.cs" />
     <Compile Include="Rules\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
     <Compile Include="Rules\SpaceIndentMustNotBeUsed.cs" />
+    <Compile Include="Rules\TabNotBeUseInNonIndent.cs" />
     <Compile Include="Rules\TrailingSpacesMustNotBeUsed.cs" />
     <Compile Include="Rules\WideSpaceNotBeUsed.cs" />
     <Compile Include="Rules\XmlCommentRule.cs" />

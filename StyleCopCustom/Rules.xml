@@ -34,5 +34,9 @@
 			<Context>全角空白が使用されています。</Context>
 			<Description>全角空白の使用を禁止するルール</Description>
 		</Rule>
+		<Rule CheckId="EX0009" Name="TabNotBeUseInNonIndent">
+			<Context>インデント以外の空白にタブが使用されています。</Context>
+			<Description>インデント以外でのタブの使用を禁止するルール</Description>
+		</Rule>
 	</Rules>
 </SourceAnalyzer>
