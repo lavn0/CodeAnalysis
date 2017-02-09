@@ -31,13 +31,11 @@ public static class EnumerableUtility
 	{
 		foreach (var item in source)
 		{
+			yield return item;
 			if (!predicate(item))
 			{
-				yield return item;
 				break;
 			}
-
-			yield return item;
 		}
 	}
 }
