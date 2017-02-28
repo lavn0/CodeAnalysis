@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PhoenixCustomTestRunLibrary
 {
-	public static class AvoidReasignLocalSample
+	public static class AvoidReasignLocalWithoutUsedSample
 	{
 		// 戻り値に使われている
 		public static object OK1()

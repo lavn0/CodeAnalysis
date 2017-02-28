@@ -3,13 +3,13 @@
 namespace PhoenixCustomUnitTest
 {
 	[TestClass]
-	public class AvoidReasignLocalTest : BasePhoenixUnitTest
+	public class AvoidReasignLocalWithoutUsedTest : BasePhoenixUnitTest
 	{
-		private const string ruleName = "AvoidReasignLocal";
-		private const string targetTypeName = "AvoidReasignLocalSample";
+		private const string ruleName = "AvoidReasignLocalWithoutUsed";
+		private const string targetTypeName = "AvoidReasignLocalWithoutUsedSample";
 
 		[TestMethod]
-		public void AvoidReasignLocalTest1()
+		public void AvoidReasignLocalWithoutUsedTest1()
 		{
 			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG1()"), "NG1");
 			Assert.AreEqual(2, this.GetErrors(ruleName, targetTypeName, "NG2()").Count, "NG2");

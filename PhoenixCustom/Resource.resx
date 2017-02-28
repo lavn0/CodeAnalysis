@@ -146,7 +146,7 @@
     <comment>説明</comment>
   </data>
   <data name="PH0002_Name" xml:space="preserve">
-    <value>AvoidReasignLocal</value>
+    <value>AvoidReasignLocalWithoutUsed</value>
     <comment>名前</comment>
   </data>
   <data name="PH0002_Resolution" xml:space="preserve">

@@ -1,24 +1,24 @@
-﻿using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
+﻿using System.Linq;
+using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using Phx;
-using System.Linq;
 
 namespace PhoenixCustom
 {
-	/// <summary>戻り値がnullではないメソッドの結果がnullと比較された場合を検出する</summary>
+	/// <summary>ローカル変数が使用されずに再代入されている場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0002", typeof(ReliabilityCategory))]
-	internal sealed class AvoidReasignLocal : BasePhoenixCustomRule
+	internal sealed class AvoidReasignLocalWithoutUsed : BasePhoenixCustomRule
 	{
-		public AvoidReasignLocal(StatisticsService statisticsService)
+		public AvoidReasignLocalWithoutUsed(StatisticsService statisticsService)
 			: base(statisticsService)
 		{
 		}
 
 		[FunctionUnitTask(FunctionUnitTargetState.Dataflow)]
 		private void AnalyzeFunction(
-				FunctionUnit functionUnit,
-				WarningEmitter warningEmitter)
+			FunctionUnit functionUnit,
+			WarningEmitter warningEmitter)
 		{
 			if (functionUnit.FunctionSymbol.IsCompilerGenerated())
 			{

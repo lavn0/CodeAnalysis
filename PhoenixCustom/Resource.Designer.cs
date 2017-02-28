@@ -124,7 +124,7 @@ namespace PhoenixCustom {
         }
         
         /// <summary>
-        ///   AvoidReasignLocal に類似しているローカライズされた文字列を検索します。
+        ///   AvoidReasignLocalWithoutUsed に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string PH0002_Name {
             get {

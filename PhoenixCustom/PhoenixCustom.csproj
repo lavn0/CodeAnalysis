@@ -61,7 +61,7 @@
       <Link>EnumerableUtility.cs</Link>
     </Compile>
     <Compile Include="AvoidNonNullMethodResultComparedByNull.cs" />
-    <Compile Include="AvoidReasignLocal.cs" />
+    <Compile Include="AvoidReasignLocalWithoutUsed.cs" />
     <Compile Include="BasePhoenixCustomRule.cs" />
     <Compile Include="PhoenixSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
