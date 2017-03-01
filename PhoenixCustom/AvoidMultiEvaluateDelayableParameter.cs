@@ -9,7 +9,7 @@ using Phx.Symbols;
 
 namespace PhoenixCustom
 {
-	/// <summary>遅延評価可能な引数が複数回評価された場合を検出する</summary>
+	/// <summary>遅延評価可能な引数が複数回使用された場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0003", typeof(ReliabilityCategory))]
 	internal sealed class AvoidMultiEvaluateDelayableParameter : BasePhoenixCustomRule
 	{
@@ -23,24 +23,47 @@ namespace PhoenixCustom
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			var counter = new Dictionary<ParameterSymbol, int>();
-			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
+			var instructionSet = new Dictionary<ParameterSymbol, List<CallInstruction>>();
+			foreach (var basicBlock in functionUnit.FlowGraph.BasicBlocks)
 			{
-				foreach (var param in callInstruction.ArgumentsWithParameters)
+				foreach (var callInstruction in basicBlock.Instructions.OfType<CallInstruction>())
 				{
-					var parameterSymbol = param.ArgumentOperand.DefinitionOperand.GetDefinedParameter();
-					if (parameterSymbol == null)
+					foreach (var param in callInstruction.ArgumentsWithParameters)
 					{
-						continue;
-					}
+						var parameterSymbol = param.ArgumentOperand.DefinitionOperand.GetDefinedParameter();
+						if (parameterSymbol == null)
+						{
+							continue;
+						}
 
-					int count = 0;
-					counter.TryGetValue(parameterSymbol, out count);
-					count++;
-					counter[parameterSymbol] = count;
-					if (count >= 2)
+						List<CallInstruction> ls = instructionSet.TryGetValue(parameterSymbol, out ls) ? ls : instructionSet[parameterSymbol] = new List<CallInstruction>();
+						ls.Add(callInstruction);
+					}
+				}
+			}
+
+			if (instructionSet.Any())
+			{
+				functionUnit.FlowGraph.BuildDominators();
+			}
+
+			foreach (var pair in instructionSet)
+			{
+				for (var i = 0; i < pair.Value.Count; i++)
+				{
+					for (var j = i + 1; j < pair.Value.Count; j++)
 					{
-						this.Violate(warningEmitter, callInstruction, count);
+						var item1 = pair.Value[i];
+						var item2 = pair.Value[j];
+
+						if (functionUnit.FlowGraph.Dominates(item1.BasicBlock, item2.BasicBlock))
+						{
+							this.Violate(warningEmitter, item2, item1.GetLineNumber());
+						}
+						else if (functionUnit.FlowGraph.Dominates(item2.BasicBlock, item1.BasicBlock))
+						{
+							this.Violate(warningEmitter, item1, item2.GetLineNumber());
+						}
 					}
 				}
 			}

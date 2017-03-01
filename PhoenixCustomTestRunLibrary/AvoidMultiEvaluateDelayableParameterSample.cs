@@ -22,6 +22,7 @@ namespace PhoenixCustomTestRunLibrary
 			return null;
 		}
 
+		// 変数に結果をキャッシュすれば２回評価されないのでOK
 		public static object OK1(IEnumerable<string> items)
 		{
 			var item = items.FirstOrDefault();
@@ -33,8 +34,8 @@ namespace PhoenixCustomTestRunLibrary
 			return null;
 		}
 
-		// パス解析は出来ていないのでメソッド内で２回評価していると無条件でエラー
-		public static object NG2(IEnumerable<string> items, bool flg)
+		// ２つ評価式があっても同じパスで２回評価されていない場合はOK
+		public static object OK2(IEnumerable<string> items, bool flg)
 		{
 			if (flg)
 			{
@@ -44,6 +45,18 @@ namespace PhoenixCustomTestRunLibrary
 			{
 				return items.ToArray();
 			}
+		}
+
+		// ループ内の再評価は未判定
+		public static object OK3(IEnumerable<string> items)
+		{
+			var ls = new List<string>();
+			foreach (var item in items)
+			{
+				ls.Add(items.FirstOrDefault());
+			}
+
+			return ls;
 		}
 	}
 }

@@ -12,8 +12,7 @@ namespace PhoenixCustomUnitTest
 		public void AvoidMultiEvaluateDelayableParameterTest1()
 		{
 			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG1(System.Collections.Generic.IEnumerable`1<System.String>)"), "NG1");
-			Assert.IsNotNull(this.GetError(ruleName, targetTypeName, "NG2(System.Collections.Generic.IEnumerable`1<System.String>,System.Boolean)"), "NG2");
-			Assert.AreEqual(2, this.GetErrors(ruleName, targetTypeName).Count);
+			Assert.AreEqual(1, this.GetErrors(ruleName, targetTypeName).Count);
 		}
 	}
 }

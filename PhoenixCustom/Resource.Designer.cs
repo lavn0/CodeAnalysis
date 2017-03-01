@@ -142,7 +142,7 @@ namespace PhoenixCustom {
         }
         
         /// <summary>
-        ///   遅延評価可能な引数が複数回評価された場合を検出する に類似しているローカライズされた文字列を検索します。
+        ///   遅延評価可能な引数が複数回使用された場合を検出する に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string PH0003_Description {
             get {
@@ -160,7 +160,7 @@ namespace PhoenixCustom {
         }
         
         /// <summary>
-        ///   遅延評価可能な引数の{0}回目の評価です。 に類似しているローカライズされた文字列を検索します。
+        ///   {0}行目で使用された遅延評価可能な引数が再度使用されています。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string PH0003_Resolution {
             get {

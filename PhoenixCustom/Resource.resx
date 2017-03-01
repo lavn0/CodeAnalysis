@@ -154,7 +154,7 @@
     <comment>解決方法</comment>
   </data>
   <data name="PH0003_Description" xml:space="preserve">
-    <value>遅延評価可能な引数が複数回評価された場合を検出する</value>
+    <value>遅延評価可能な引数が複数回使用された場合を検出する</value>
     <comment>説明</comment>
   </data>
   <data name="PH0003_Name" xml:space="preserve">
@@ -162,7 +162,7 @@
     <comment>名前</comment>
   </data>
   <data name="PH0003_Resolution" xml:space="preserve">
-    <value>遅延評価可能な引数の{0}回目の評価です。</value>
+    <value>{0}行目で使用された遅延評価可能な引数が再度使用されています。</value>
     <comment>解決方法</comment>
   </data>
 </root>
