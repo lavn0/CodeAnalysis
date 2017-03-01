@@ -153,4 +153,16 @@
     <value>式の結果{0}が使用されていません。変数へ格納しないように修正するか、式を削除します。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0003_Description" xml:space="preserve">
+    <value>遅延評価可能な引数が複数回評価された場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0003_Name" xml:space="preserve">
+    <value>AvoidMultiEvaluateDelayableParameter</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0003_Resolution" xml:space="preserve">
+    <value>遅延評価可能な引数の{0}回目の評価です。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>

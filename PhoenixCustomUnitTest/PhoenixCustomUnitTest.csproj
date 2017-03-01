@@ -53,6 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AvoidMultiEvaluateDelayableParameterTest.cs" />
     <Compile Include="AvoidNonNullMethodResultComparedByNullTest.cs" />
     <Compile Include="AvoidReasignLocalWithoutUsedTest.cs" />
     <Compile Include="BasePhoenixUnitTest.cs" />
