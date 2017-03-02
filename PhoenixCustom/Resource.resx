@@ -177,4 +177,16 @@
     <value>{0}行目で使用された遅延評価可能な変数が再度使用されています。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0005_Description" xml:space="preserve">
+    <value>IEnumerable&lt;T&gt;型を返却するメソッドが遅延評価可能なインスタンスを返却しない場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0005_Name" xml:space="preserve">
+    <value>EnumerateMethodShouldBeDelayed</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0005_Resolution" xml:space="preserve">
+    <value>IEnumerable&lt;T&gt;型を返却するメソッドの戻り値が遅延評価可能なように実装します。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>

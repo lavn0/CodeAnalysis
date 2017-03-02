@@ -194,5 +194,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0004_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   IEnumerable&lt;T&gt;型を返却するメソッドが遅延評価可能なインスタンスを返却しない場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0005_Description {
+            get {
+                return ResourceManager.GetString("PH0005_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   EnumerateMethodShouldBeDelayed に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0005_Name {
+            get {
+                return ResourceManager.GetString("PH0005_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   IEnumerable&lt;T&gt;型を返却するメソッドの戻り値が遅延評価可能なように実装します。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0005_Resolution {
+            get {
+                return ResourceManager.GetString("PH0005_Resolution", resourceCulture);
+            }
+        }
     }
 }
