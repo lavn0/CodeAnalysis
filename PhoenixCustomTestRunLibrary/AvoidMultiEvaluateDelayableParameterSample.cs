@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace PhoenixCustomTestRunLibrary
 {
-	public static class AvoidMultiEvaluateDelayableParameterSample
+	public class AvoidMultiEvaluateDelayableParameterSample
 	{
 		// 1回だけ評価するのはOK
 		public static object OK(IEnumerable<string> items)
@@ -57,6 +57,17 @@ namespace PhoenixCustomTestRunLibrary
 			}
 
 			return ls;
+		}
+
+		// 関係ない型の引数
+		public static object NG4(List<string> items)
+		{
+			if (items.Any())
+			{
+				return items.ToList();
+			}
+
+			return null;
 		}
 	}
 }

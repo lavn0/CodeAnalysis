@@ -13,6 +13,8 @@ namespace PhoenixCustom
 	[LocalizedFxCopRule("PhenixCustom.PH0003", typeof(ReliabilityCategory))]
 	internal sealed class AvoidMultiEvaluateDelayableParameter : BasePhoenixCustomRule
 	{
+		private readonly TypeReference ienumerableTypeReference = TypeReference.GetNamedTypePointerReference(typeof(IEnumerable<>).FullName);
+
 		public AvoidMultiEvaluateDelayableParameter(StatisticsService statisticsService)
 			: base(statisticsService)
 		{
@@ -30,6 +32,11 @@ namespace PhoenixCustom
 				{
 					foreach (var param in callInstruction.ArgumentsWithParameters)
 					{
+						if (!this.ienumerableTypeReference.MatchesType(param.ArgumentOperand.Type))
+						{
+							continue;
+						}
+
 						var parameterSymbol = param.ArgumentOperand.DefinitionOperand.GetDefinedParameter();
 						if (parameterSymbol == null)
 						{
