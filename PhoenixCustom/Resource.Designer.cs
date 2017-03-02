@@ -167,5 +167,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0003_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   遅延評価可能なローカル変数が複数回使用された場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0004_Description {
+            get {
+                return ResourceManager.GetString("PH0004_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidMultiEvaluateDelayableLocal に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0004_Name {
+            get {
+                return ResourceManager.GetString("PH0004_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}行目で使用された遅延評価可能な変数が再度使用されています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0004_Resolution {
+            get {
+                return ResourceManager.GetString("PH0004_Resolution", resourceCulture);
+            }
+        }
     }
 }

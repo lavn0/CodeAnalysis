@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvoidMultiEvaluateDelayableLocalSample.cs" />
     <Compile Include="AvoidMultiEvaluateDelayableParameterSample.cs" />
     <Compile Include="AvoidNonNullMethodResultComparedByNullSample.cs" />
     <Compile Include="AvoidReasignLocalWithoutUsedSample.cs" />

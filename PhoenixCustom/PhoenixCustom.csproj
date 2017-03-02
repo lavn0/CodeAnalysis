@@ -60,6 +60,7 @@
     <Compile Include="..\EnumerableUtility.cs">
       <Link>EnumerableUtility.cs</Link>
     </Compile>
+    <Compile Include="AvoidMultiEvaluateDelayableLocal.cs" />
     <Compile Include="AvoidMultiEvaluateDelayableParameter.cs" />
     <Compile Include="AvoidNonNullMethodResultComparedByNull.cs" />
     <Compile Include="AvoidReasignLocalWithoutUsed.cs" />

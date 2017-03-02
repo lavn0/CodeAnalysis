@@ -165,4 +165,16 @@
     <value>{0}行目で使用された遅延評価可能な引数が再度使用されています。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0004_Description" xml:space="preserve">
+    <value>遅延評価可能なローカル変数が複数回使用された場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0004_Name" xml:space="preserve">
+    <value>AvoidMultiEvaluateDelayableLocal</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0004_Resolution" xml:space="preserve">
+    <value>{0}行目で使用された遅延評価可能な変数が再度使用されています。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>
