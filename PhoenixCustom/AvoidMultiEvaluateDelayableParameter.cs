@@ -65,11 +65,11 @@ namespace PhoenixCustom
 
 						if (functionUnit.FlowGraph.Dominates(item1.BasicBlock, item2.BasicBlock))
 						{
-							this.Violate(warningEmitter, item2, item1.GetLineNumber());
+							this.Violate(warningEmitter, item2, pair.Key.Name.NameString, item1.GetLineNumber());
 						}
 						else if (functionUnit.FlowGraph.Dominates(item2.BasicBlock, item1.BasicBlock))
 						{
-							this.Violate(warningEmitter, item1, item2.GetLineNumber());
+							this.Violate(warningEmitter, item1, pair.Key.Name.NameString, item2.GetLineNumber());
 						}
 					}
 				}

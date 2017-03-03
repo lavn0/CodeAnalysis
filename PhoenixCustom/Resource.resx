@@ -162,7 +162,7 @@
     <comment>名前</comment>
   </data>
   <data name="PH0003_Resolution" xml:space="preserve">
-    <value>{0}行目で使用された遅延評価可能な引数が再度使用されています。</value>
+    <value>遅延評価可能な引数{0}が{1}行目で使用された後に再度使用されています。</value>
     <comment>解決方法</comment>
   </data>
   <data name="PH0004_Description" xml:space="preserve">
@@ -174,7 +174,7 @@
     <comment>名前</comment>
   </data>
   <data name="PH0004_Resolution" xml:space="preserve">
-    <value>{0}行目で使用された遅延評価可能な変数が再度使用されています。</value>
+    <value>遅延評価可能な変数{0}が{1}行目で使用された後に再度使用されています。</value>
     <comment>解決方法</comment>
   </data>
   <data name="PH0005_Description" xml:space="preserve">
