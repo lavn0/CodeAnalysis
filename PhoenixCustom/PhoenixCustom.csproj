@@ -65,6 +65,7 @@
     <Compile Include="AvoidNonNullMethodResultComparedByNull.cs" />
     <Compile Include="AvoidReasignLocalWithoutUsed.cs" />
     <Compile Include="BasePhoenixCustomRule.cs" />
+    <Compile Include="Category\DelayedPerformanceCategory.cs" />
     <Compile Include="EnumerateMethodShouldBeDelayed.cs" />
     <Compile Include="PhoenixSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

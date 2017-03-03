@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
+using PhoenixCustom.Category;
 using Phx;
 using Phx.IR;
 using Phx.Symbols;
@@ -10,7 +10,7 @@ using Phx.Symbols;
 namespace PhoenixCustom
 {
 	/// <summary>遅延評価可能な引数が複数回使用された場合を検出する</summary>
-	[LocalizedFxCopRule("PhenixCustom.PH0003", typeof(ReliabilityCategory))]
+	[LocalizedFxCopRule("PhenixCustom.PH0003", typeof(DelayedPerformanceCategory))]
 	internal sealed class AvoidMultiEvaluateDelayableParameter : BasePhoenixCustomRule
 	{
 		private readonly TypeReference ienumerableTypeReference = TypeReference.GetNamedTypePointerReference(typeof(IEnumerable<>).FullName);

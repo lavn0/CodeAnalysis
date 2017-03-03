@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
+using PhoenixCustom.Category;
 using Phx;
 using Phx.IR;
 
 namespace PhoenixCustom
 {
 	/// <summary>IEnumerable&lt;T&gt;型を返却するメソッドが遅延評価可能なインスタンスを返却しない場合を検出する</summary>
-	[LocalizedFxCopRule("PhenixCustom.PH0005", typeof(ReliabilityCategory))]
+	[LocalizedFxCopRule("PhenixCustom.PH0005", typeof(DelayedPerformanceCategory))]
 	internal sealed class EnumerateMethodShouldBeDelayed : BasePhoenixCustomRule
 	{
 		private readonly TypeReference ienumerableTypeReference = TypeReference.GetNamedTypePointerReference(typeof(IEnumerable<>).FullName);
