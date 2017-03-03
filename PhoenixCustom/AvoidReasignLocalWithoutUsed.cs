@@ -50,9 +50,9 @@ namespace PhoenixCustom
 						.ToList();
 
 				var isUsedOnAnyCopiedOperand = EnumerableUtility.Seek(
-					instruction,
-					inst => inst.SourceOperand?.DefinitionInstruction,
-					inst => inst.IsCopy)
+						instruction,
+						inst => inst.SourceOperand?.DefinitionInstruction,
+						inst => inst.IsCopy)
 					.Select(inst => inst.DestinationOperand)
 					.Any(op => op.UseInstruction != null && returnedOperands.Contains(op));
 
