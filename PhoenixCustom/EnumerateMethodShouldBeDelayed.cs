@@ -31,15 +31,9 @@ namespace PhoenixCustom
 				return;
 			}
 
-			if (functionUnit.FunctionSymbol.AttributeSymbolList != null)
+			if (functionUnit.FunctionSymbol.HasAttribute(new NamedTypeReference(typeof(IteratorStateMachineAttribute).FullName)))
 			{
-				foreach (Phx.Symbols.AttributeSymbol att in functionUnit.FunctionSymbol.AttributeSymbolList)
-				{
-					if (att.NameString == typeof(IteratorStateMachineAttribute).FullName)
-					{
-						return;
-					}
-				}
+				return;
 			}
 
 			var nonIEnumerableReturnInstrutions = functionUnit.Instructions
