@@ -35,6 +35,12 @@ namespace PhoenixCustom
 					continue;
 				}
 
+				if (instruction.SourceOperand.Symbol?.NameString == "this")
+				{
+					// thisパラメータ（拡張メソッドのパラメータだけではなく、インスタンスメソッドに渡されるパラメータの場合を含む）
+					continue;
+				}
+
 				if (instruction.DestinationOperand == null ||
 					instruction.DestinationOperand?.UseInstruction != null ||
 					!functionUnit.SymbolTable.AllSymbols.Contains(instruction.DestinationOperand.Symbol))
