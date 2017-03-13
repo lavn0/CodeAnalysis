@@ -42,7 +42,7 @@ namespace PhoenixCustom
 				}
 
 				if (instruction.DestinationOperand == null ||
-					instruction.DestinationOperand?.UseInstruction != null ||
+					instruction.DestinationOperand.UseInstruction != null ||
 					!functionUnit.SymbolTable.AllSymbols.Contains(instruction.DestinationOperand.Symbol))
 				{
 					continue;
