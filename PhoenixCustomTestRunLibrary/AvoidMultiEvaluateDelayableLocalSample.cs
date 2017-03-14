@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using PhoenixCustom;
+using TestUtility;
 
 namespace PhoenixCustomTestRunLibrary
 {
 	public class AvoidMultiEvaluateDelayableLocalSample
 	{
 		// 1回だけ評価するのはOK
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal),  ViolationCount = 0)]
 		public static object OK()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -13,6 +16,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// 2回評価するのはNG
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 1)]
 		public static object NG1()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -25,6 +29,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// 変数に結果をキャッシュすれば２回評価されないのでOK
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
 		public static object OK1()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -38,6 +43,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// ２つ評価式があっても同じパスで２回評価されていない場合はOK
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
 		public static object OK2(bool flg)
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -52,6 +58,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// ループ内の再評価は未判定
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 1)]
 		public static object NG3()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -65,6 +72,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// 遅延評価されない型
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
 		public static object OK4()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test")).ToList();

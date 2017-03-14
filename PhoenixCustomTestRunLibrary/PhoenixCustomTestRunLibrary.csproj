@@ -57,6 +57,10 @@
       <Project>{bc6c9510-bb4e-4047-8968-4afda71a8c32}</Project>
       <Name>PhoenixCustom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestUtility\TestUtility.csproj">
+      <Project>{36c51158-deda-4822-aecd-980ee9b136d8}</Project>
+      <Name>TestUtility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
