@@ -58,7 +58,7 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// ループ内の再評価は未判定
-		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 1)]
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
 		public static object NG3()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));

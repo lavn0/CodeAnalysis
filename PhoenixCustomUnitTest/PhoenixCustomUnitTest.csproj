@@ -53,7 +53,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AvoidMultiEvaluateDelayableLocalTest.cs" />
     <Compile Include="AvoidMultiEvaluateDelayableParameterTest.cs" />
     <Compile Include="AvoidNonNullMethodResultComparedByNullTest.cs" />
     <Compile Include="AvoidReasignLocalWithoutUsedTest.cs" />
@@ -62,6 +61,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="TestPhoenixRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitTest.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhoenixCustomTestRunLibrary\PhoenixCustomTestRunLibrary.csproj">
@@ -72,6 +76,15 @@
       <Project>{bc6c9510-bb4e-4047-8968-4afda71a8c32}</Project>
       <Name>PhoenixCustom</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UnitTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UnitTest.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

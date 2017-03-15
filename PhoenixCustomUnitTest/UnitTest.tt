@@ -1,0 +1,68 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output encoding="UTF-8" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="$(SolutionDir)\PhoenixCustomTestRunLibrary\bin\$(ConfigurationName)\PhoenixCustomTestRunLibrary.dll" #>
+<#@ assembly name="$(SolutionDir)\TestUtility\bin\$(ConfigurationName)\TestUtility.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="TestUtility" #>
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace PhoenixCustomUnitTest
+{
+	[TestClass]
+	public class PhoenixCustomUnitTest : BasePhoenixUnitTest
+	{
+		public TestContext TestContext { get; set; }
+<#
+	var testLibrary = System.Reflection.Assembly.GetAssembly(typeof(PhoenixCustomTestRunLibrary.TestPhoenixRuleSample));
+	var types = testLibrary.GetTypes();
+
+	foreach (var type in types)
+	{
+		var dic = new Dictionary<string, TestInfoAttribute>();
+		foreach(var method in type.GetMethods())
+		{
+			var testInfoAttribute = Attribute.GetCustomAttribute(method, typeof(TestInfoAttribute)) as TestInfoAttribute;
+			if (testInfoAttribute != null)
+			{
+				dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.Name)) + ")", testInfoAttribute);
+			}
+		}
+
+		if (dic.Any())
+		{
+#>
+
+		[TestMethod]
+		public void <#= type.Name #>()
+		{
+<#
+			foreach(var pair in dic)
+			{
+#>
+			Assert.AreEqual(<#= pair.Value.ViolationCount #>, this.GetErrors("<#= pair.Value.TargetRuleName #>", "<#= type.Name #>", "<#= pair.Key #>").Count, "<#= pair.Key #>");
+<#
+			}
+
+			var counts = dic
+				.GroupBy(p => p.Value.TargetRuleName, p => p.Value.ViolationCount)
+				.ToDictionary(g => g.Key, g => g.Cast<int>().Sum());
+			foreach(var pair in counts)
+			{
+#>
+			Assert.AreEqual(<#= pair.Value #>, this.GetErrors("<#= pair.Key #>", "<#= type.Name #>").Count);
+<#
+			}
+		}
+	}
+#>
+		}
+	}
+}
