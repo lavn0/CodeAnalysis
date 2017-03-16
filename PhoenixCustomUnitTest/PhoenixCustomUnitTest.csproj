@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1B65402C-DB16-4754-8B7A-112032D17ECA}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhoenixCustomUnitTest</RootNamespace>
     <AssemblyName>PhoenixCustomUnitTest</AssemblyName>
@@ -25,6 +25,10 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProgramFiles)\Microsoft Visual Studio $(VisualStudioVersion)\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe</StartProgram>
+    <StartArguments>/file:$(AssemblyName).dll /rule:"$(SolutionDir)$(RootNamespace)\$(OutputPath)PhoenixCustom.dll" /console</StartArguments>
+    <StartWorkingDirectory>$(SolutionDir)$(RootNamespace)\$(OutputPath)</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -54,9 +58,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BasePhoenixUnitTest.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="TestPhoenixRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestSoures\AvoidMultiEvaluateDelayableLocalSample.cs" />
+    <Compile Include="TestSoures\AvoidMultiEvaluateDelayableParameterSample.cs" />
+    <Compile Include="TestSoures\AvoidNonNullMethodResultComparedByNullSample.cs" />
+    <Compile Include="TestSoures\AvoidReasignLocalWithoutUsedSample.cs" />
+    <Compile Include="TestSoures\EnumerateMethodShouldBeDelayedSample.cs" />
     <Compile Include="UnitTest.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -64,13 +71,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PhoenixCustomTestRunLibrary\PhoenixCustomTestRunLibrary.csproj">
-      <Project>{1b6bdd94-d64f-4a45-9148-2daf4f8da8d5}</Project>
-      <Name>PhoenixCustomTestRunLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\PhoenixCustom\PhoenixCustom.csproj">
       <Project>{bc6c9510-bb4e-4047-8968-4afda71a8c32}</Project>
       <Name>PhoenixCustom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestUtility\TestUtility.csproj">
+      <Project>{36C51158-DEDA-4822-AECD-980EE9B136D8}</Project>
+      <Name>TestUtility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

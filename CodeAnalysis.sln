@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxCopCustomTestRunLibrary",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxCopCustom", "FxCopCustom\FxCopCustom.csproj", "{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixCustomTestRunLibrary", "PhoenixCustomTestRunLibrary\PhoenixCustomTestRunLibrary.csproj", "{1B6BDD94-D64F-4A45-9148-2DAF4F8DA8D5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixCustom", "PhoenixCustom\PhoenixCustom.csproj", "{BC6C9510-BB4E-4047-8968-4AFDA71A8C32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StyleCopCustom", "StyleCopCustom\StyleCopCustom.csproj", "{FD92C12C-1935-4FB0-A7B0-5F3970CA05CE}"
@@ -43,10 +41,6 @@ Global
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1B6BDD94-D64F-4A45-9148-2DAF4F8DA8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B6BDD94-D64F-4A45-9148-2DAF4F8DA8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B6BDD94-D64F-4A45-9148-2DAF4F8DA8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B6BDD94-D64F-4A45-9148-2DAF4F8DA8D5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC6C9510-BB4E-4047-8968-4AFDA71A8C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC6C9510-BB4E-4047-8968-4AFDA71A8C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC6C9510-BB4E-4047-8968-4AFDA71A8C32}.Release|Any CPU.ActiveCfg = Release|Any CPU

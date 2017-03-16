@@ -2,7 +2,7 @@
 using PhoenixCustom;
 using TestUtility;
 
-namespace PhoenixCustomTestRunLibrary
+namespace PhoenixCustomUnitTest
 {
 	public class EnumerateMethodShouldBeDelayedSample
 	{

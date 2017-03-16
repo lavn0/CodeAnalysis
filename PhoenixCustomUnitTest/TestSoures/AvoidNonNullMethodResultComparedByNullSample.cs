@@ -2,7 +2,7 @@
 using PhoenixCustom;
 using TestUtility;
 
-namespace PhoenixCustomTestRunLibrary
+namespace PhoenixCustomUnitTest
 {
 	public static class AvoidNonNullMethodResultComparedByNullSample
 	{

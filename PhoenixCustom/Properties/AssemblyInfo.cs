@@ -36,4 +36,4 @@ using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: InternalsVisibleTo("PhoenixCustomTestRunLibrary")]
+[assembly: InternalsVisibleTo("PhoenixCustomUnitTest")]

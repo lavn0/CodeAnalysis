@@ -53,7 +53,7 @@ namespace PhoenixCustomUnitTest
 			{
 				Arguments = string.Format(
 					@"/file:""{0}"" /rule:""{1}"" /out:""{2}"" /console",
-					new FileInfo("PhoenixCustomTestRunLibrary.dll").FullName,
+					new FileInfo("PhoenixCustomUnitTest.dll").FullName,
 					new FileInfo("PhoenixCustom.dll").FullName,
 					outXmlPath),
 				CreateNoWindow = true,

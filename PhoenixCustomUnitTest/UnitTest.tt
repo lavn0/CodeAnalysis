@@ -3,7 +3,7 @@
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="System.Xml.Linq" #>
-<#@ assembly name="$(SolutionDir)\PhoenixCustomTestRunLibrary\bin\$(ConfigurationName)\PhoenixCustomTestRunLibrary.dll" #>
+<#@ assembly name="$(SolutionDir)\PhoenixCustomUnitTest\bin\$(ConfigurationName)\PhoenixCustomUnitTest.dll" #>
 <#@ assembly name="$(SolutionDir)\TestUtility\bin\$(ConfigurationName)\TestUtility.dll" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Linq" #>
@@ -21,7 +21,7 @@ namespace PhoenixCustomUnitTest
 	{
 		public TestContext TestContext { get; set; }
 <#
-	var testLibrary = System.Reflection.Assembly.GetAssembly(typeof(PhoenixCustomTestRunLibrary.TestPhoenixRuleSample));
+	var testLibrary = System.Reflection.Assembly.GetAssembly(typeof(PhoenixCustomUnitTest.BasePhoenixUnitTest));
 	var types = testLibrary.GetTypes();
 
 	foreach (var type in types)
