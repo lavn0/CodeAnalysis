@@ -8,7 +8,7 @@ namespace PhoenixCustomUnitTest
 	public class AvoidMultiEvaluateDelayableLocalSample
 	{
 		// 1回だけ評価するのはOK
-		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal),  ViolationCount = 0)]
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
 		public static object OK()
 		{
 			var items = new[] { "test1", "test2", }.Where(s => s.StartsWith("test"));
@@ -37,6 +37,18 @@ namespace PhoenixCustomUnitTest
 			if (item != null)
 			{
 				return item;
+			}
+
+			return null;
+		}
+
+		// 引き数を2回評価するのはOK
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableLocal), ViolationCount = 0)]
+		public static object OK1_2(IEnumerable<string> items)
+		{
+			if (items.Any())
+			{
+				return items.ToList();
 			}
 
 			return null;

@@ -38,6 +38,11 @@ namespace PhoenixCustom
 							continue;
 						}
 
+						if (param.ArgumentOperand.DefinitionInstruction.AsLabelInstruction?.DestinationOperand.GetDefinedParameter() != null)
+						{
+							continue;
+						}
+
 						var symbol = param.ArgumentOperand.DefinitionOperand.Symbol?.AsLocalVariableSymbol;
 						if (symbol == null)
 						{
