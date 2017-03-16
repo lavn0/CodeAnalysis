@@ -42,5 +42,16 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(2, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "NG3(System.Boolean)").Count, "NG3(System.Boolean)");
 			Assert.AreEqual(4, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample").Count);
 		}
+
+		[TestMethod]
+		public void AvoidReasignLocalWithoutUsedSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "OK2(System.Boolean)").Count, "OK2(System.Boolean)");
+			Assert.AreEqual(1, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(2, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(1, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "NG3(System.Boolean)").Count, "NG3(System.Boolean)");
+			Assert.AreEqual(4, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample").Count);
+		}
 	}
 }
