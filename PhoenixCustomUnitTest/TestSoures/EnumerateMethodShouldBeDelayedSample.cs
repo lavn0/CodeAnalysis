@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using PhoenixCustom;
 using TestUtility;
 
@@ -26,6 +27,12 @@ namespace PhoenixCustomUnitTest
 		{
 			yield return "test1";
 			yield return "test2";
+		}
+
+		[TestInfo(TargetRuleName = nameof(EnumerateMethodShouldBeDelayed), ViolationCount = 0)]
+		public IEnumerable<string> OK2()
+		{
+			return new[] { "test1", "test2", }.Where(s => true);
 		}
 	}
 }

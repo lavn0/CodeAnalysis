@@ -38,7 +38,7 @@ namespace PhoenixCustom
 
 			var nonIEnumerableReturnInstrutions = functionUnit.Instructions
 				.OfType<BranchInstruction>()
-				.Where(i => i.IsReturn && !TypeReference.GenericIEnumerable.MatchesType(i.SourceOperand.Type))
+				.Where(i => i.IsReturn && !ienumerableTypeReference.MatchesType(i.SourceOperand.Type))
 				.ToList();
 			foreach (var instruction in nonIEnumerableReturnInstrutions)
 			{

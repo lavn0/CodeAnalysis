@@ -61,6 +61,7 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK()").Count, "OK()");
 			Assert.AreEqual(1, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "NG1()").Count, "NG1()");
 			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK2()").Count, "OK2()");
 			Assert.AreEqual(1, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample").Count);
 		}
 	}
