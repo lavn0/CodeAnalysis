@@ -54,7 +54,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BasePhoenixUnitTest.cs" />
-    <Compile Include="EnumerateMethodShouldBeDelayedTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="TestPhoenixRuleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

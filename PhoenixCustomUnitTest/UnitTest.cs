@@ -53,5 +53,14 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(1, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample", "NG3(System.Boolean)").Count, "NG3(System.Boolean)");
 			Assert.AreEqual(4, this.GetErrors("AvoidReasignLocalWithoutUsed", "AvoidReasignLocalWithoutUsedSample").Count);
 		}
+
+		[TestMethod]
+		public void EnumerateMethodShouldBeDelayedSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK()").Count, "OK()");
+			Assert.AreEqual(1, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(1, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample").Count);
+		}
 	}
 }
