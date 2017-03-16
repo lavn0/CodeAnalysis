@@ -67,8 +67,8 @@ namespace PhoenixCustomTestRunLibrary
 		}
 
 		// 関係ない型の引数
-		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableParameter),  ViolationCount = 1)]
-		public static object NG4(List<string> items)
+		[TestInfo(TargetRuleName = nameof(AvoidMultiEvaluateDelayableParameter),  ViolationCount = 0)]
+		public static object OK4(List<string> items)
 		{
 			if (items.Any())
 			{

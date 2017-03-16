@@ -27,8 +27,8 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "OK1(System.Collections.Generic.IEnumerable`1<System.String>)").Count, "OK1(System.Collections.Generic.IEnumerable`1<System.String>)");
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "OK2(System.Collections.Generic.IEnumerable`1<System.String>,System.Boolean)").Count, "OK2(System.Collections.Generic.IEnumerable`1<System.String>,System.Boolean)");
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "OK3(System.Collections.Generic.IEnumerable`1<System.String>)").Count, "OK3(System.Collections.Generic.IEnumerable`1<System.String>)");
-			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "NG4(System.Collections.Generic.List`1<System.String>)").Count, "NG4(System.Collections.Generic.List`1<System.String>)");
-			Assert.AreEqual(2, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample").Count);
+			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "OK4(System.Collections.Generic.List`1<System.String>)").Count, "OK4(System.Collections.Generic.List`1<System.String>)");
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample").Count);
 		}
 	}
 }
