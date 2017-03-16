@@ -35,7 +35,7 @@ namespace PhoenixCustom
 					continue;
 				}
 
-				if (instruction.SourceOperand.Symbol?.NameString == "this")
+				if ((instruction.SourceOperand.DefinitionInstruction?.DestinationOperand.GetDefinedParameter()?.IsThisPointer).GetValueOrDefault(false))
 				{
 					// thisパラメータ（拡張メソッドのパラメータだけではなく、インスタンスメソッドに渡されるパラメータの場合を含む）
 					continue;
