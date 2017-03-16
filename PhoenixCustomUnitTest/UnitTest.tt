@@ -32,7 +32,7 @@ namespace PhoenixCustomUnitTest
 			var testInfoAttribute = Attribute.GetCustomAttribute(method, typeof(TestInfoAttribute)) as TestInfoAttribute;
 			if (testInfoAttribute != null)
 			{
-				dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.Name)) + ")", testInfoAttribute);
+				dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.ParameterType).Select(t => t.IsGenericType ? t.Namespace + "." + t.Name + "<" + string.Join(",", t.GenericTypeArguments.Select(g => g.Namespace + "." + g.Name)) + ">" : t.Namespace + "." + t.Name)) + ")", testInfoAttribute);
 			}
 		}
 
@@ -58,11 +58,11 @@ namespace PhoenixCustomUnitTest
 			{
 #>
 			Assert.AreEqual(<#= pair.Value #>, this.GetErrors("<#= pair.Key #>", "<#= type.Name #>").Count);
+		}
 <#
 			}
 		}
 	}
 #>
-		}
 	}
 }
