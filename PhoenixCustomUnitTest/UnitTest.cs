@@ -30,5 +30,17 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample", "OK4(System.Collections.Generic.List`1<System.String>)").Count, "OK4(System.Collections.Generic.List`1<System.String>)");
 			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluateDelayableParameter", "AvoidMultiEvaluateDelayableParameterSample").Count);
 		}
+
+		[TestMethod]
+		public void AvoidNonNullMethodResultComparedByNullSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "OK2()").Count, "OK2()");
+			Assert.AreEqual(0, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "OK3(System.Boolean)").Count, "OK3(System.Boolean)");
+			Assert.AreEqual(1, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(2, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample", "NG3(System.Boolean)").Count, "NG3(System.Boolean)");
+			Assert.AreEqual(4, this.GetErrors("AvoidNonNullMethodResultComparedByNull", "AvoidNonNullMethodResultComparedByNullSample").Count);
+		}
 	}
 }
