@@ -49,6 +49,12 @@ namespace FxCopCustomUnitTest
 #>
 			Assert.AreEqual(<#= pair.Value.ViolationCount #>, this.GetErrors("<#= pair.Value.TargetRuleName #>", "<#= type.Name #>", "<#= pair.Key #>").Count, "<#= pair.Key #>");
 <#
+				if (pair.Value.ViolationCount > 0 && !string.IsNullOrEmpty(pair.Value.ResolutionName))
+				{
+#>
+			Assert.AreEqual("<#= pair.Value.ResolutionName #>", this.GetError("<#= pair.Value.TargetRuleName #>", "<#= type.Name #>", "<#= pair.Key #>")?.Attribute("Name").Value, "ResolutionName: <#= pair.Key #>");
+<#
+				}
 			}
 
 			var counts = dic

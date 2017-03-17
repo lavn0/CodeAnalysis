@@ -7,5 +7,6 @@ namespace TestUtility
 	{
 		public string TargetRuleName { get; set; }
 		public int ViolationCount { get; set; }
+		public string ResolutionName { get; set; }
 	}
 }

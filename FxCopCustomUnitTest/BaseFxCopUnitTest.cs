@@ -53,7 +53,7 @@ namespace FxCopCustomUnitTest
 			{
 				Arguments = string.Format(
 					@"/file:""{0}"" /rule:""{1}"" /out:""{2}"" /console",
-					new FileInfo("FxCopCustomTestRunLibrary.dll").FullName,
+					new FileInfo("FxCopCustomUnitTest.dll").FullName,
 					new FileInfo("FxCopCustom.dll").FullName,
 					outXmlPath),
 				CreateNoWindow = true,
