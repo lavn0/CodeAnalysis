@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{978084E3-6782-4040-AFA8-FA03A0485A8A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FxCopCustomUnitTest</RootNamespace>
     <AssemblyName>FxCopCustomUnitTest</AssemblyName>
@@ -55,7 +55,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AsignedConstOnlyTest.cs" />
     <Compile Include="BaseFxCopUnitTest.cs" />
     <Compile Include="CompareZeroToCountResultTest.cs" />
     <Compile Include="ConcatConstStringTest.cs" />
@@ -67,6 +66,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticMethodShouldNotCallDateTimeNowTest.cs" />
     <Compile Include="NeedToCatchTest.cs" />
+    <Compile Include="TestSources\AsignedConstOnlySample.cs" />
+    <Compile Include="UnitTest.cs">
+      <DependentUpon>UnitTest.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="UnusedReqsignTest.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +83,19 @@
       <Project>{effc3ccd-f3c6-49fc-9d67-235b965f9ade}</Project>
       <Name>FxCopCustom</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestUtility\TestUtility.csproj">
+      <Project>{36C51158-DEDA-4822-AECD-980EE9B136D8}</Project>
+      <Name>TestUtility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UnitTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UnitTest.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

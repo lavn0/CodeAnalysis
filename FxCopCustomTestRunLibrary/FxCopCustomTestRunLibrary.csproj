@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsignedConstOnlySample.cs" />
     <Compile Include="CompareZeroToCountResultSample.cs" />
     <Compile Include="ConcatConstStringSample.cs" />
     <Compile Include="DontDefineMemberSample.cs" />
