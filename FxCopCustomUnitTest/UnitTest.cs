@@ -8,6 +8,30 @@ namespace FxCopCustomUnitTest
 		public TestContext TestContext { get; set; }
 
 		[TestMethod]
+		public void ConcatConstStringSample()
+		{
+			Assert.AreEqual(1, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(2, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "NG3()").Count, "NG3()");
+			Assert.AreEqual(2, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "NG4()").Count, "NG4()");
+			Assert.AreEqual(3, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "NG5()").Count, "NG5()");
+			Assert.AreEqual(0, this.GetErrors("ConcatConstString", "ConcatConstStringSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(9, this.GetErrors("ConcatConstString", "ConcatConstStringSample").Count);
+		}
+
+		[TestMethod]
+		public void AsignedConstOnlySample()
+		{
+			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG3()").Count, "NG3()");
+			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK2()").Count, "OK2()");
+			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK3()").Count, "OK3()");
+			Assert.AreEqual(3, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample").Count);
+		}
+
+		[TestMethod]
 		public void CompareZeroToCountResultSample()
 		{
 			Assert.AreEqual(0, this.GetErrors("CompareZeroToCountResult", "CompareZeroToCountResultSample", "OK1_Any(System.Collections.Generic.IEnumerable`1<System.Object>)").Count, "OK1_Any(System.Collections.Generic.IEnumerable`1<System.Object>)");
@@ -103,18 +127,6 @@ namespace FxCopCustomUnitTest
 			Assert.AreEqual(1, this.GetErrors("CompareZeroToCountResult", "CompareZeroToCountResultSample", "NG36_Error(System.Collections.Generic.IEnumerable`1<System.Object>)").Count, "NG36_Error(System.Collections.Generic.IEnumerable`1<System.Object>)");
 			Assert.AreEqual("Error", this.GetError("CompareZeroToCountResult", "CompareZeroToCountResultSample", "NG36_Error(System.Collections.Generic.IEnumerable`1<System.Object>)")?.Attribute("Name").Value, "ResolutionName: NG36_Error(System.Collections.Generic.IEnumerable`1<System.Object>)");
 			Assert.AreEqual(36, this.GetErrors("CompareZeroToCountResult", "CompareZeroToCountResultSample").Count);
-		}
-
-		[TestMethod]
-		public void AsignedConstOnlySample()
-		{
-			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
-			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG2()").Count, "NG2()");
-			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG3()").Count, "NG3()");
-			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK1()").Count, "OK1()");
-			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK2()").Count, "OK2()");
-			Assert.AreEqual(0, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "OK3()").Count, "OK3()");
-			Assert.AreEqual(3, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample").Count);
 		}
 	}
 }

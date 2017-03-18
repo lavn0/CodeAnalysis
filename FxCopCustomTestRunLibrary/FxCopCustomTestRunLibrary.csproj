@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcatConstStringSample.cs" />
     <Compile Include="DontDefineMemberSample.cs" />
     <Compile Include="DontPassParameterTypeSample.cs" />
     <Compile Include="DontUseMethodSample.cs" />

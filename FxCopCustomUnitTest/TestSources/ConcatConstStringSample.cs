@@ -1,8 +1,12 @@
-﻿namespace FxCopCustomTestRunLibrary
+﻿using FxCopCustom.Rules;
+using TestUtility;
+
+namespace FxCopCustomTestRunLibrary
 {
 	/// <summary>固定文字連結をする処理のサンプルコード</summary>
 	public static class ConcatConstStringSample
 	{
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 1)]
 		public static string NG1()
 		{
 			// 良くある固定値の連結
@@ -17,6 +21,7 @@
 			 */
 		}
 
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 1)]
 		public static string NG2()
 		{
 			// NG1とコンパイル後は全く同じになる処理
@@ -25,6 +30,7 @@
 			return item;
 		}
 
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 2)]
 		public static string NG3()
 		{
 			// NG2の逆順連結
@@ -33,6 +39,7 @@
 			return item;
 		}
 
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 2)]
 		public static string NG4()
 		{
 			// NG3とコンパイル後は全く同じになる処理
@@ -41,6 +48,7 @@
 			return item;
 		}
 
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 3)]
 		public static string NG5()
 		{
 			var item = "a";
@@ -48,6 +56,7 @@
 			return item;
 		}
 
+		[TestInfo(TargetRuleName = nameof(ConcatConstString), ViolationCount = 0)]
 		public static string OK1()
 		{
 			// この連結はparamsを引き数に取る連結は判定できていない
