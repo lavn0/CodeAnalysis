@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FxCopCustom.Rules;
+using TestUtility;
 
 namespace FxCopCustomTestRunLibrary
 {
@@ -7,6 +9,7 @@ namespace FxCopCustomTestRunLibrary
 	{
 		public static void Sample1(IEnumerable<string> ls1, IEnumerable<string> ls2, IEnumerable<string> ls3) { }
 
+		[TestInfo(TargetRuleName = nameof(DontPassParameterType), ViolationCount = 0)]
 		public static void OK1()
 		{
 			var ls1 = new List<string>() { "hoge", "fuga", }.Where(s => s.StartsWith("a"));
@@ -15,6 +18,7 @@ namespace FxCopCustomTestRunLibrary
 			Sample1(ls1, ls2, ls3);
 		}
 
+		[TestInfo(TargetRuleName = nameof(DontPassParameterType), ViolationCount = 1)]
 		public static void NG1()
 		{
 			var ls1 = new List<string>() { "hoge", "fuga", };

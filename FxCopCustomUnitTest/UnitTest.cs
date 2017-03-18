@@ -46,6 +46,14 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void DontPassParameterTypeSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("DontPassParameterType", "DontPassParameterTypeSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(1, this.GetErrors("DontPassParameterType", "DontPassParameterTypeSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("DontPassParameterType", "DontPassParameterTypeSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
