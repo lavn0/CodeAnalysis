@@ -59,7 +59,7 @@ namespace PhoenixCustom
 						inst => inst.SourceOperand?.DefinitionInstruction,
 						inst => inst.IsCopy)
 					.Select(inst => inst.DestinationOperand)
-					.Any(op => op.UseInstruction != null && returnedOperands.Contains(op));
+					.Any(op => op.UseInstruction != null || returnedOperands.Contains(op));
 
 				if (!isUsedOnAnyCopiedOperand)
 				{
