@@ -71,6 +71,18 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void NeedToCatchSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("NeedToCatch", "NeedToCatchSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("NeedToCatch", "NeedToCatchSample", "OK2()").Count, "OK2()");
+			Assert.AreEqual(1, this.GetErrors("NeedToCatch", "NeedToCatchSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("NeedToCatch", "NeedToCatchSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(1, this.GetErrors("NeedToCatch", "NeedToCatchSample", "NG3()").Count, "NG3()");
+			Assert.AreEqual(1, this.GetErrors("NeedToCatch", "NeedToCatchSample", "NG4()").Count, "NG4()");
+			Assert.AreEqual(4, this.GetErrors("NeedToCatch", "NeedToCatchSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");

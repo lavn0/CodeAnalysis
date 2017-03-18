@@ -59,7 +59,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticMethodShouldNotCallDateTimeNowTest.cs" />
-    <Compile Include="NeedToCatchTest.cs" />
     <Compile Include="TestSources\AsignedConstOnlySample.cs" />
     <Compile Include="TestSources\CompareZeroToCountResultSample.cs" />
     <Compile Include="TestSources\ConcatConstStringSample.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="TestSources\DontPassParameterTypeSample.cs" />
     <Compile Include="TestSources\DontUseMethodSample.cs" />
     <Compile Include="TestSources\LinqResultComparedByNullSample.cs" />
+    <Compile Include="TestSources\NeedToCatchSample.cs" />
     <Compile Include="UnitTest.cs">
       <DependentUpon>UnitTest.tt</DependentUpon>
       <AutoGen>True</AutoGen>
