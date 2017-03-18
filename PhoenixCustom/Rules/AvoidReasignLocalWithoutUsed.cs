@@ -20,7 +20,8 @@ namespace PhoenixCustom
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			if (functionUnit.FunctionSymbol.IsCompilerGenerated())
+			if (functionUnit.FunctionSymbol.IsCompilerGenerated() ||
+				functionUnit.IsNoReturn())
 			{
 				return;
 			}
@@ -48,9 +49,7 @@ namespace PhoenixCustom
 					continue;
 				}
 
-				var returnedOperands = functionUnit.IsNoReturn()
-					? null
-					: instructions
+				var returnedOperands = instructions
 						.Where(inst => inst.IsReturn)
 						.Select(inst => inst.SourceOperand.DefinitionInstruction.DestinationOperand)
 						.ToList();
