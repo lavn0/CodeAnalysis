@@ -44,7 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DontDefineMemberSample.cs" />
     <Compile Include="DontPassParameterTypeSample.cs" />
     <Compile Include="DontUseMethodSample.cs" />
     <Compile Include="LinqResultComparedByNullSample.cs" />

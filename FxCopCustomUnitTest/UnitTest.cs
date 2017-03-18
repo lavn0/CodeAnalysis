@@ -20,6 +20,32 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void DontDefineMemberSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsMethodOK()").Count, "IsMethodOK()");
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "AddOK()").Count, "AddOK()");
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "PutOK()").Count, "PutOK()");
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "RemoveOK()").Count, "RemoveOK()");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsMethodNG()").Count, "IsMethodNG()");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "StartsWithNG()").Count, "StartsWithNG()");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "EndsWith()").Count, "EndsWith()");
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsPropertyOK").Count, "IsPropertyOK");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsPropertyNG").Count, "IsPropertyNG");
+			Assert.AreEqual(0, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsFieldOK").Count, "IsFieldOK");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "IsFieldNG").Count, "IsFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "CanFieldNG").Count, "CanFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "HasFieldNG").Count, "HasFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "ShouldFieldNG").Count, "ShouldFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "CouldFieldNG").Count, "CouldFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "WillFieldNG").Count, "WillFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "ShallFieldNG").Count, "ShallFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "CheckFieldNG").Count, "CheckFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "ContainsFieldNG").Count, "ContainsFieldNG");
+			Assert.AreEqual(1, this.GetErrors("DontDefineMember", "DontDefineMemberSample", "EqualsFieldNG").Count, "EqualsFieldNG");
+			Assert.AreEqual(14, this.GetErrors("DontDefineMember", "DontDefineMemberSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");

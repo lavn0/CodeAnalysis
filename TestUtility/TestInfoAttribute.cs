@@ -2,7 +2,7 @@
 
 namespace TestUtility
 {
-	[AttributeUsage(AttributeTargets.Method)]
+	[AttributeUsage(AttributeTargets.Method | AttributeTargets.Property | AttributeTargets.Field)]
 	public class TestInfoAttribute : Attribute
 	{
 		public string TargetRuleName { get; set; }

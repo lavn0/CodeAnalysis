@@ -10,6 +10,7 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
 <#@ import namespace="System.Xml.Linq" #>
 <#@ import namespace="TestUtility" #>
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,12 +28,31 @@ namespace FxCopCustomUnitTest
 	foreach (var type in types)
 	{
 		var dic = new Dictionary<string, TestInfoAttribute>();
-		foreach(var method in type.GetMethods())
+		foreach(var member in type.GetMembers())
 		{
-			var testInfoAttribute = Attribute.GetCustomAttribute(method, typeof(TestInfoAttribute)) as TestInfoAttribute;
+			var testInfoAttribute = Attribute.GetCustomAttribute(member, typeof(TestInfoAttribute)) as TestInfoAttribute;
 			if (testInfoAttribute != null)
 			{
-				dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.ParameterType).Select(t => t.IsGenericType ? t.Namespace + "." + t.Name + "<" + string.Join(",", t.GenericTypeArguments.Select(g => g.Namespace + "." + g.Name)) + ">" : t.Namespace + "." + t.Name)) + ")", testInfoAttribute);
+				var method = member as MethodInfo;
+				if (method != null)
+				{
+					dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.ParameterType).Select(t => t.IsGenericType ? t.Namespace + "." + t.Name + "<" + string.Join(",", t.GenericTypeArguments.Select(g => g.Namespace + "." + g.Name)) + ">" : t.Namespace + "." + t.Name)) + ")", testInfoAttribute);
+					continue;
+				}
+
+				var property = member as PropertyInfo;
+				if (property != null)
+				{
+					dic.Add(property.Name, testInfoAttribute);
+					continue;
+				}
+
+				var field = member as FieldInfo;
+				if (field != null)
+				{
+					dic.Add(field.Name, testInfoAttribute);
+					continue;
+				}
 			}
 		}
 
