@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxCopCustomTestRunLibrary", "FxCopCustomTestRunLibrary\FxCopCustomTestRunLibrary.csproj", "{07EDF7E0-2235-4309-8613-9404BD9764FD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FxCopCustom", "FxCopCustom\FxCopCustom.csproj", "{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoenixCustom", "PhoenixCustom\PhoenixCustom.csproj", "{BC6C9510-BB4E-4047-8968-4AFDA71A8C32}"
@@ -33,10 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{07EDF7E0-2235-4309-8613-9404BD9764FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07EDF7E0-2235-4309-8613-9404BD9764FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07EDF7E0-2235-4309-8613-9404BD9764FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07EDF7E0-2235-4309-8613-9404BD9764FD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFFC3CCD-F3C6-49FC-9D67-235B965F9ADE}.Release|Any CPU.ActiveCfg = Release|Any CPU

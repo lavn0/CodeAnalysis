@@ -76,10 +76,6 @@
     <Compile Include="UnusedReqsignTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FxCopCustomTestRunLibrary\FxCopCustomTestRunLibrary.csproj">
-      <Project>{07edf7e0-2235-4309-8613-9404bd9764fd}</Project>
-      <Name>FxCopCustomTestRunLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FxCopCustom\FxCopCustom.csproj">
       <Project>{effc3ccd-f3c6-49fc-9d67-235b965f9ade}</Project>
       <Name>FxCopCustom</Name>
