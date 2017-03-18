@@ -83,6 +83,14 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void StaticMethodShouldNotCallDateTimeNowSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("StaticMethodShouldNotCallDateTimeNow", "StaticMethodShouldNotCallDateTimeNowSample", "OK()").Count, "OK()");
+			Assert.AreEqual(1, this.GetErrors("StaticMethodShouldNotCallDateTimeNow", "StaticMethodShouldNotCallDateTimeNowSample", "NG()").Count, "NG()");
+			Assert.AreEqual(1, this.GetErrors("StaticMethodShouldNotCallDateTimeNow", "StaticMethodShouldNotCallDateTimeNowSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
