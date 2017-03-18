@@ -25,7 +25,6 @@ namespace PhoenixCustom
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			var locals = functionUnit.SymbolTable.AllSymbols.OfType<LocalVariableSymbol>().Where(s => !s.IsToolGenerated).ToList();
 			var instructionSet = new Dictionary<LocalVariableSymbol, List<CallInstruction>>();
 			foreach (var basicBlock in functionUnit.FlowGraph.BasicBlocks)
 			{
