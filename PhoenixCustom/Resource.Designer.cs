@@ -61,33 +61,6 @@ namespace PhoenixCustom {
         }
         
         /// <summary>
-        ///   TestPhoenixRuleDescription に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string PH0000_Description {
-            get {
-                return ResourceManager.GetString("PH0000_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   TestPhoenixRule に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string PH0000_Name {
-            get {
-                return ResourceManager.GetString("PH0000_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   TestPhoenixRuleResolution に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string PH0000_Resolution {
-            get {
-                return ResourceManager.GetString("PH0000_Resolution", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   戻り値がnullではないメソッドの結果がnullと比較された場合を検出する に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string PH0001_Description {
