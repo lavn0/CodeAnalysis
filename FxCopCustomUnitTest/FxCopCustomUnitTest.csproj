@@ -67,6 +67,7 @@
     <Compile Include="TestSources\LinqResultComparedByNullSample.cs" />
     <Compile Include="TestSources\NeedToCatchSample.cs" />
     <Compile Include="TestSources\StaticMethodShouldNotCallDateTimeNowSample.cs" />
+    <Compile Include="TestSources\UnusedReasignSample.cs" />
     <Compile Include="UnitTest.cs">
       <DependentUpon>UnitTest.tt</DependentUpon>
       <AutoGen>True</AutoGen>

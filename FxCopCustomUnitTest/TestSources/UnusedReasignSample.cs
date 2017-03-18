@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using FxCopCustom.Rules;
+using TestUtility;
 
 namespace FxCopCustomTestRunLibrary
 {
 	public static class UnusedReasignSample
 	{
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 1)]
 		public static object NG1()
 		{
 			var ls = new List<string>();
@@ -12,6 +15,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 1)]
 		public static object NG2()
 		{
 			var ls = GetList1();
@@ -19,6 +23,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 1)]
 		public static object NG3()
 		{
 			var ls = new List<string>();
@@ -27,6 +32,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 1)]
 		public static object NG4()
 		{
 			List<string> ls;
@@ -35,6 +41,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 0)]
 		public static object OK1()
 		{
 			List<string> ls;
@@ -42,6 +49,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 0)]
 		public static object OK2()
 		{
 			var ls = new List<string>();
@@ -49,6 +57,7 @@ namespace FxCopCustomTestRunLibrary
 			return ls;
 		}
 
+		[TestInfo(TargetRuleName = nameof(UnusedReasign), ViolationCount = 0)]
 		public static object OK3()
 		{
 			var ls = new List<string>();

@@ -91,6 +91,19 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void UnusedReasignSample()
+		{
+			Assert.AreEqual(1, this.GetErrors("UnusedReasign", "UnusedReasignSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("UnusedReasign", "UnusedReasignSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(1, this.GetErrors("UnusedReasign", "UnusedReasignSample", "NG3()").Count, "NG3()");
+			Assert.AreEqual(1, this.GetErrors("UnusedReasign", "UnusedReasignSample", "NG4()").Count, "NG4()");
+			Assert.AreEqual(0, this.GetErrors("UnusedReasign", "UnusedReasignSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(0, this.GetErrors("UnusedReasign", "UnusedReasignSample", "OK2()").Count, "OK2()");
+			Assert.AreEqual(0, this.GetErrors("UnusedReasign", "UnusedReasignSample", "OK3()").Count, "OK3()");
+			Assert.AreEqual(4, this.GetErrors("UnusedReasign", "UnusedReasignSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
