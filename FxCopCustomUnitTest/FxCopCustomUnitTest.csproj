@@ -56,7 +56,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseFxCopUnitTest.cs" />
-    <Compile Include="DontUseMethodTest.cs" />
     <Compile Include="LinqResultComparedByNullTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="TestSources\ConcatConstStringSample.cs" />
     <Compile Include="TestSources\DontDefineMemberSample.cs" />
     <Compile Include="TestSources\DontPassParameterTypeSample.cs" />
+    <Compile Include="TestSources\DontUseMethodSample.cs" />
     <Compile Include="UnitTest.cs">
       <DependentUpon>UnitTest.tt</DependentUpon>
       <AutoGen>True</AutoGen>

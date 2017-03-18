@@ -54,6 +54,14 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void DontUseMethodSample()
+		{
+			Assert.AreEqual(0, this.GetErrors("DontUseMethod", "DontUseMethodSample", "OK()").Count, "OK()");
+			Assert.AreEqual(1, this.GetErrors("DontUseMethod", "DontUseMethodSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("DontUseMethod", "DontUseMethodSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
