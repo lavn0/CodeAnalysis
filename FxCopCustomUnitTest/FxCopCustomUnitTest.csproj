@@ -56,7 +56,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseFxCopUnitTest.cs" />
-    <Compile Include="LinqResultComparedByNullTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StaticMethodShouldNotCallDateTimeNowTest.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="TestSources\DontDefineMemberSample.cs" />
     <Compile Include="TestSources\DontPassParameterTypeSample.cs" />
     <Compile Include="TestSources\DontUseMethodSample.cs" />
+    <Compile Include="TestSources\LinqResultComparedByNullSample.cs" />
     <Compile Include="UnitTest.cs">
       <DependentUpon>UnitTest.tt</DependentUpon>
       <AutoGen>True</AutoGen>

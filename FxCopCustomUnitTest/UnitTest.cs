@@ -62,6 +62,15 @@ namespace FxCopCustomUnitTest
 		}
 
 		[TestMethod]
+		public void LinqResultComparedByNullSample()
+		{
+			Assert.AreEqual(1, this.GetErrors("LinqResultComparedByNull", "LinqResultComparedByNullSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("LinqResultComparedByNull", "LinqResultComparedByNullSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(0, this.GetErrors("LinqResultComparedByNull", "LinqResultComparedByNullSample", "OK1()").Count, "OK1()");
+			Assert.AreEqual(2, this.GetErrors("LinqResultComparedByNull", "LinqResultComparedByNullSample").Count);
+		}
+
+		[TestMethod]
 		public void AsignedConstOnlySample()
 		{
 			Assert.AreEqual(1, this.GetErrors("AsignedConstOnly", "AsignedConstOnlySample", "NG1()").Count, "NG1()");
