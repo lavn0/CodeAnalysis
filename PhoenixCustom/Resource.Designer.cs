@@ -194,5 +194,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0005_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   プロパティを複数回読み出している場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0006_Description {
+            get {
+                return ResourceManager.GetString("PH0006_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidMultiGetProperty に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0006_Name {
+            get {
+                return ResourceManager.GetString("PH0006_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   プロパティの評価結果をキャッシュします。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0006_Resolution {
+            get {
+                return ResourceManager.GetString("PH0006_Resolution", resourceCulture);
+            }
+        }
     }
 }

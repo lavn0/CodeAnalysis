@@ -177,4 +177,16 @@
     <value>IEnumerable&lt;T&gt;型を返却するメソッドの戻り値が遅延評価可能なように実装します。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0006_Description" xml:space="preserve">
+    <value>プロパティを複数回読み出している場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0006_Name" xml:space="preserve">
+    <value>AvoidMultiGetProperty</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0006_Resolution" xml:space="preserve">
+    <value>プロパティの評価結果をキャッシュします。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>
