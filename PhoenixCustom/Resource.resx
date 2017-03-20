@@ -189,4 +189,16 @@
     <value>プロパティの評価結果をキャッシュします。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0007_Description" xml:space="preserve">
+    <value>PerformanceCliticalMethodとして指定されたメソッドが複数回使用された場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0007_Name" xml:space="preserve">
+    <value>AvoidMultiEvaluatePerformanceCliticalMethod</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0007_Resolution" xml:space="preserve">
+    <value>評価結果をキャッシュします。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>

@@ -221,5 +221,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0006_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   PerformanceCliticalMethodとして指定されたメソッドが複数回使用された場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0007_Description {
+            get {
+                return ResourceManager.GetString("PH0007_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidMultiEvaluatePerformanceCliticalMethod に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0007_Name {
+            get {
+                return ResourceManager.GetString("PH0007_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   評価結果をキャッシュします。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0007_Resolution {
+            get {
+                return ResourceManager.GetString("PH0007_Resolution", resourceCulture);
+            }
+        }
     }
 }

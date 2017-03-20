@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Rules\AvoidMultiEvaluateDelayableLocal.cs" />
     <Compile Include="Rules\AvoidMultiEvaluateDelayableParameter.cs" />
+    <Compile Include="Rules\AvoidMultiEvaluatePerformanceCliticalMethod.cs" />
     <Compile Include="Rules\AvoidMultiGetProperty.cs" />
     <Compile Include="Rules\AvoidNonNullMethodResultComparedByNull.cs" />
     <Compile Include="Rules\AvoidReasignLocalWithoutUsed.cs" />

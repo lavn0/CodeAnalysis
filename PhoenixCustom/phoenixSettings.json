@@ -1,4 +1,9 @@
 ﻿{
+  "PerformanceCliticalMethod": {
+    "list": [
+      "PhoenixCustomUnitTest.AvoidMultiEvaluatePerformanceCliticalMethodSample.GetSample"
+    ]
+  },
   "UnNullReturnMethod": {
     "list": [
       "System.Linq.Enumerable.Where",

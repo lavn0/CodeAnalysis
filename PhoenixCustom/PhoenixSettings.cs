@@ -8,6 +8,9 @@ namespace PhoenixCustom
 	internal class PhoenixSettings
 	{
 		[DataMember]
+		public ReadOnlyCollection<string> PerformanceCliticalMethod { get; set; }
+
+		[DataMember]
 		public ReadOnlyCollection<string> UnNullReturnMethod { get; set; }
 	}
 }
