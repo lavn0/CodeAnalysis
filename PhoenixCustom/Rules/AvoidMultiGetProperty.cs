@@ -38,11 +38,12 @@ namespace PhoenixCustom
 				ls.Add(callInstruction);
 			}
 
-			if (instructionSet.Any())
+			if (!instructionSet.Any())
 			{
-				functionUnit.FlowGraph.BuildDominators();
+				return;
 			}
 
+			functionUnit.FlowGraph.BuildDominators();
 			foreach (var pair in instructionSet)
 			{
 				for (var i = 0; i < pair.Value.Count; i++)
