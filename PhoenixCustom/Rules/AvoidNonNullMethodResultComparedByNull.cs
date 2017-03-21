@@ -1,9 +1,9 @@
-﻿using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
+﻿using System.Linq;
+using Microsoft.VisualStudio.CodeAnalysis.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using Phx;
 using Phx.IR;
-using System.Linq;
 
 namespace PhoenixCustom
 {
@@ -21,23 +21,18 @@ namespace PhoenixCustom
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			var comps = functionUnit.Instructions.OfType<CompareInstruction>().ToList();
-
-			foreach (var comp in comps)
+			foreach (var compareInstruction in functionUnit.Instructions.OfType<CompareInstruction>())
 			{
-				if (comp.GetFileName().IsNull)
+				if (compareInstruction.GetFileName().IsNull)
 				{
 					// ラムダ式などから生成されたメソッドで対応コードが無い部分の場合
 					continue;
 				}
 
-				var functionSymbol =
-					comp.SourceOperand2.IsNullPtr()
-						? comp.SourceOperand1.DefinitionInstruction.SourceOperand?.AsFunctionOperand?.FunctionSymbol
-					: comp.SourceOperand1.IsNullPtr()
-						? comp.SourceOperand2.DefinitionInstruction.SourceOperand?.AsFunctionOperand?.FunctionSymbol
-						: null;
-
+				var targetOperand =
+					compareInstruction.SourceOperand2.IsNullPtr() ? compareInstruction.SourceOperand1 :
+					compareInstruction.SourceOperand1.IsNullPtr() ? compareInstruction.SourceOperand2 : null;
+				var functionSymbol = targetOperand?.DefinitionInstruction.SourceOperand?.AsFunctionOperand?.FunctionSymbol;
 				if (functionSymbol == null)
 				{
 					continue;
@@ -51,7 +46,7 @@ namespace PhoenixCustom
 
 				if (Settings.UnNullReturnMethod.Contains(fullNameWithoutGenericParameter))
 				{
-					this.Violate(warningEmitter, comp, symbol);
+					this.Violate(warningEmitter, compareInstruction, symbol);
 				}
 			}
 		}
