@@ -194,7 +194,7 @@
     <comment>説明</comment>
   </data>
   <data name="PH0007_Name" xml:space="preserve">
-    <value>AvoidMultiEvaluatePerformanceCliticalMethod</value>
+    <value>AvoidMultiEvaluatePerformanceCriticalMethod</value>
     <comment>名前</comment>
   </data>
   <data name="PH0007_Resolution" xml:space="preserve">

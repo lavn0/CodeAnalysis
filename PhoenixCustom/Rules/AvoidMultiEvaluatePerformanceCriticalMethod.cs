@@ -11,11 +11,11 @@ namespace PhoenixCustom
 {
 	/// <summary>PerformanceCliticalMethodとして指定されたメソッドが複数回使用された場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0007", typeof(DelayedPerformanceCategory))]
-	internal sealed class AvoidMultiEvaluatePerformanceCliticalMethod : BasePhoenixCustomRule
+	internal sealed class AvoidMultiEvaluatePerformanceCriticalMethod : BasePhoenixCustomRule
 	{
 		private readonly TypeReference ienumerableTypeReference = TypeReference.GetNamedTypePointerReference(typeof(IEnumerable<>).FullName);
 
-		public AvoidMultiEvaluatePerformanceCliticalMethod(StatisticsService statisticsService)
+		public AvoidMultiEvaluatePerformanceCriticalMethod(StatisticsService statisticsService)
 			: base(statisticsService)
 		{
 		}

@@ -35,9 +35,9 @@ namespace PhoenixCustomUnitTest
 		[TestMethod]
 		public void AvoidMultiEvaluatePerformanceCliticalMethodSample()
 		{
-			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluatePerformanceCliticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample", "OK()").Count, "OK()");
-			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluatePerformanceCliticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample", "NG1()").Count, "NG1()");
-			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluatePerformanceCliticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample").Count);
+			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluatePerformanceCriticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample", "OK()").Count, "OK()");
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluatePerformanceCriticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiEvaluatePerformanceCriticalMethod", "AvoidMultiEvaluatePerformanceCliticalMethodSample").Count);
 		}
 
 		[TestMethod]

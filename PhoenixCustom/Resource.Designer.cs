@@ -232,7 +232,7 @@ namespace PhoenixCustom {
         }
         
         /// <summary>
-        ///   AvoidMultiEvaluatePerformanceCliticalMethod に類似しているローカライズされた文字列を検索します。
+        ///   AvoidMultiEvaluatePerformanceCriticalMethod に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string PH0007_Name {
             get {
