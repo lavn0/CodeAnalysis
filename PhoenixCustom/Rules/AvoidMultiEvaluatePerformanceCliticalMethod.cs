@@ -36,15 +36,22 @@ namespace PhoenixCustom
 						continue;
 					}
 
-					var fullNameWithoutGenericParameter = string.Format(
-						"{0}.{1}",
-						symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
-						symbol.NameString);
-
-					if (Settings.PerformanceCliticalMethod.Contains(fullNameWithoutGenericParameter))
+					List<CallInstruction> ls;
+					if (instructionSet.TryGetValue(symbol, out ls))
 					{
-						List<CallInstruction> ls = instructionSet.TryGetValue(symbol, out ls) ? ls : instructionSet[symbol] = new List<CallInstruction>();
 						ls.Add(callInstruction);
+					}
+					else
+					{
+						var fullNameWithoutGenericParameter = string.Format(
+							"{0}.{1}",
+							symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
+							symbol.NameString);
+
+						if (Settings.PerformanceCliticalMethod.Contains(fullNameWithoutGenericParameter))
+						{
+							instructionSet[symbol] = new List<CallInstruction>() { callInstruction };
+						}
 					}
 				}
 			}
