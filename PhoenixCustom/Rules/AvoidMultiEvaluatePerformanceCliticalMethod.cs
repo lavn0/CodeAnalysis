@@ -26,32 +26,29 @@ namespace PhoenixCustom
 			WarningEmitter warningEmitter)
 		{
 			var instructionSet = new Dictionary<FunctionSymbol, List<CallInstruction>>();
-			foreach (var basicBlock in functionUnit.FlowGraph.BasicBlocks)
+			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
 			{
-				foreach (var callInstruction in basicBlock.Instructions.OfType<CallInstruction>())
+				var symbol = callInstruction.FunctionSymbol;
+				if (symbol.IsCompilerGenerated())
 				{
-					var symbol = callInstruction.FunctionSymbol;
-					if (symbol.IsCompilerGenerated())
-					{
-						continue;
-					}
+					continue;
+				}
 
-					List<CallInstruction> ls;
-					if (instructionSet.TryGetValue(symbol, out ls))
-					{
-						ls.Add(callInstruction);
-					}
-					else
-					{
-						var fullNameWithoutGenericParameter = string.Format(
-							"{0}.{1}",
-							symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
-							symbol.NameString);
+				List<CallInstruction> ls;
+				if (instructionSet.TryGetValue(symbol, out ls))
+				{
+					ls.Add(callInstruction);
+				}
+				else
+				{
+					var fullNameWithoutGenericParameter = string.Format(
+						"{0}.{1}",
+						symbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString,
+						symbol.NameString);
 
-						if (Settings.PerformanceCliticalMethod.Contains(fullNameWithoutGenericParameter))
-						{
-							instructionSet[symbol] = new List<CallInstruction>() { callInstruction };
-						}
+					if (Settings.PerformanceCliticalMethod.Contains(fullNameWithoutGenericParameter))
+					{
+						instructionSet[symbol] = new List<CallInstruction>() { callInstruction };
 					}
 				}
 			}
