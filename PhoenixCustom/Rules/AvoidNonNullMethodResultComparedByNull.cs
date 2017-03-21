@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using Phx;
 using Phx.IR;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>戻り値がnullではないメソッドの結果がnullと比較された場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0001", typeof(ReliabilityCategory))]

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using Phx;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>ローカル変数が使用されずに再代入されている場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0002", typeof(ReliabilityCategory))]

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using PhoenixCustom;
+using PhoenixCustom.Rules;
 using TestUtility;
 
 namespace PhoenixCustomUnitTest

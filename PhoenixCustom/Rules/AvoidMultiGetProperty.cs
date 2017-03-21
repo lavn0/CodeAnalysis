@@ -7,7 +7,7 @@ using Phx;
 using Phx.IR;
 using Phx.Symbols;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>プロパティを複数回読み出している場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0006", typeof(DelayedPerformanceCategory))]

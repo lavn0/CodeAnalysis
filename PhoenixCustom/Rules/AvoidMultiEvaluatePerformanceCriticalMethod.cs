@@ -7,7 +7,7 @@ using Phx;
 using Phx.IR;
 using Phx.Symbols;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>PerformanceCliticalMethodとして指定されたメソッドが複数回使用された場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0007", typeof(DelayedPerformanceCategory))]

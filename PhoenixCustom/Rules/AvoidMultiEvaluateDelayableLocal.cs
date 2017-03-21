@@ -7,7 +7,7 @@ using Phx;
 using Phx.IR;
 using Phx.Symbols;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>遅延評価可能な変数が複数回使用された場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0004", typeof(DelayedPerformanceCategory))]

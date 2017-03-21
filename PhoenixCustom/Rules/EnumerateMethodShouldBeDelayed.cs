@@ -7,7 +7,7 @@ using PhoenixCustom.Category;
 using Phx;
 using Phx.IR;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>IEnumerable&lt;T&gt;型を返却するメソッドが遅延評価可能なインスタンスを返却しない場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0005", typeof(DelayedPerformanceCategory))]
