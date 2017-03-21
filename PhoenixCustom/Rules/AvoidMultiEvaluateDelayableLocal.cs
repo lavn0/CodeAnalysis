@@ -26,31 +26,28 @@ namespace PhoenixCustom
 			WarningEmitter warningEmitter)
 		{
 			var instructionSet = new Dictionary<LocalVariableSymbol, List<CallInstruction>>();
-			foreach (var basicBlock in functionUnit.FlowGraph.BasicBlocks)
+			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
 			{
-				foreach (var callInstruction in basicBlock.Instructions.OfType<CallInstruction>())
+				foreach (var param in callInstruction.ArgumentsWithParameters)
 				{
-					foreach (var param in callInstruction.ArgumentsWithParameters)
+					if (!this.ienumerableTypeReference.MatchesType(param.ArgumentOperand.Type))
 					{
-						if (!this.ienumerableTypeReference.MatchesType(param.ArgumentOperand.Type))
-						{
-							continue;
-						}
-
-						if (param.ArgumentOperand.DefinitionInstruction.AsLabelInstruction?.DestinationOperand.GetDefinedParameter() != null)
-						{
-							continue;
-						}
-
-						var symbol = param.ArgumentOperand.DefinitionOperand.Symbol?.AsLocalVariableSymbol;
-						if (symbol == null)
-						{
-							continue;
-						}
-
-						List<CallInstruction> ls = instructionSet.TryGetValue(symbol, out ls) ? ls : instructionSet[symbol] = new List<CallInstruction>();
-						ls.Add(callInstruction);
+						continue;
 					}
+
+					if (param.ArgumentOperand.DefinitionInstruction.AsLabelInstruction?.DestinationOperand.GetDefinedParameter() != null)
+					{
+						continue;
+					}
+
+					var symbol = param.ArgumentOperand.DefinitionOperand.Symbol?.AsLocalVariableSymbol;
+					if (symbol == null)
+					{
+						continue;
+					}
+
+					List<CallInstruction> ls = instructionSet.TryGetValue(symbol, out ls) ? ls : instructionSet[symbol] = new List<CallInstruction>();
+					ls.Add(callInstruction);
 				}
 			}
 
