@@ -28,7 +28,7 @@ namespace PhoenixCustom
 			var instructionSet = new Dictionary<FunctionSymbol, List<CallInstruction>>();
 			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
 			{
-				var symbol = callInstruction.SourceOperand.Symbol?.AsFunctionSymbol;
+				var symbol = callInstruction.FunctionSymbol;
 				if (symbol == null)
 				{
 					continue;
