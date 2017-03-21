@@ -26,34 +26,32 @@ namespace PhoenixCustom
 			WarningEmitter warningEmitter)
 		{
 			var instructionSet = new Dictionary<ParameterSymbol, List<CallInstruction>>();
-			foreach (var basicBlock in functionUnit.FlowGraph.BasicBlocks)
+			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
 			{
-				foreach (var callInstruction in basicBlock.Instructions.OfType<CallInstruction>())
+				foreach (var param in callInstruction.ArgumentsWithParameters)
 				{
-					foreach (var param in callInstruction.ArgumentsWithParameters)
+					if (!this.ienumerableTypeReference.MatchesType(param.ArgumentOperand.Type))
 					{
-						if (!this.ienumerableTypeReference.MatchesType(param.ArgumentOperand.Type))
-						{
-							continue;
-						}
-
-						var parameterSymbol = param.ArgumentOperand.DefinitionOperand.GetDefinedParameter();
-						if (parameterSymbol == null)
-						{
-							continue;
-						}
-
-						List<CallInstruction> ls = instructionSet.TryGetValue(parameterSymbol, out ls) ? ls : instructionSet[parameterSymbol] = new List<CallInstruction>();
-						ls.Add(callInstruction);
+						continue;
 					}
+
+					var parameterSymbol = param.ArgumentOperand.DefinitionOperand.GetDefinedParameter();
+					if (parameterSymbol == null)
+					{
+						continue;
+					}
+
+					List<CallInstruction> ls = instructionSet.TryGetValue(parameterSymbol, out ls) ? ls : instructionSet[parameterSymbol] = new List<CallInstruction>();
+					ls.Add(callInstruction);
 				}
 			}
 
-			if (instructionSet.Any())
+			if (!instructionSet.Any())
 			{
-				functionUnit.FlowGraph.BuildDominators();
+				return;
 			}
 
+			functionUnit.FlowGraph.BuildDominators();
 			foreach (var pair in instructionSet)
 			{
 				for (var i = 0; i < pair.Value.Count; i++)
