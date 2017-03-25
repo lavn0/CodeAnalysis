@@ -51,7 +51,7 @@ namespace PhoenixCustom.Rules
 
 				var returnedOperands = instructions
 						.Where(inst => inst.IsReturn)
-						.Select(inst => inst.SourceOperand.DefinitionInstruction.DestinationOperand)
+						.Select(inst => inst.SourceOperand.DefinitionInstruction?.DestinationOperand)
 						.ToList();
 
 				var isUsedOnAnyCopiedOperand = EnumerableUtility.Seek(

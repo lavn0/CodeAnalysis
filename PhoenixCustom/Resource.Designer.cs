@@ -248,5 +248,32 @@ namespace PhoenixCustom {
                 return ResourceManager.GetString("PH0007_Resolution", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   複数回キャストされた場合を検出する に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0008_Description {
+            get {
+                return ResourceManager.GetString("PH0008_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   AvoidDoubleCast に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0008_Name {
+            get {
+                return ResourceManager.GetString("PH0008_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}行目で処理したキャストが再度行われています。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string PH0008_Resolution {
+            get {
+                return ResourceManager.GetString("PH0008_Resolution", resourceCulture);
+            }
+        }
     }
 }

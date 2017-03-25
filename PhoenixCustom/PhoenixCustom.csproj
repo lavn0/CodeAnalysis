@@ -60,6 +60,7 @@
     <Compile Include="..\EnumerableUtility.cs">
       <Link>EnumerableUtility.cs</Link>
     </Compile>
+    <Compile Include="Rules\AvoidDoubleCast.cs" />
     <Compile Include="Rules\AvoidMultiEvaluateDelayableLocal.cs" />
     <Compile Include="Rules\AvoidMultiEvaluateDelayableParameter.cs" />
     <Compile Include="Rules\AvoidMultiEvaluatePerformanceCriticalMethod.cs" />

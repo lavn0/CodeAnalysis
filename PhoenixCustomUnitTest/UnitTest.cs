@@ -83,5 +83,14 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(0, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample", "OK2()").Count, "OK2()");
 			Assert.AreEqual(1, this.GetErrors("EnumerateMethodShouldBeDelayed", "EnumerateMethodShouldBeDelayedSample").Count);
 		}
+
+		[TestMethod]
+		public void AvoidDoubleCastSample()
+		{
+			Assert.AreEqual(1, this.GetErrors("AvoidDoubleCast", "AvoidDoubleCastSample", "NG1(System.Collections.Generic.IEnumerable`1<System.String>,System.String,System.String)").Count, "NG1(System.Collections.Generic.IEnumerable`1<System.String>,System.String,System.String)");
+			Assert.AreEqual(0, this.GetErrors("AvoidDoubleCast", "AvoidDoubleCastSample", "OK1(System.Collections.Generic.IEnumerable`1<System.String>,System.String)").Count, "OK1(System.Collections.Generic.IEnumerable`1<System.String>,System.String)");
+			Assert.AreEqual(0, this.GetErrors("AvoidDoubleCast", "AvoidDoubleCastSample", "OK2(System.Collections.Generic.IEnumerable`1<System.String>)").Count, "OK2(System.Collections.Generic.IEnumerable`1<System.String>)");
+			Assert.AreEqual(1, this.GetErrors("AvoidDoubleCast", "AvoidDoubleCastSample").Count);
+		}
 	}
 }

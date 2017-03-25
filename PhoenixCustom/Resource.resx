@@ -201,4 +201,16 @@
     <value>評価結果をキャッシュします。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0008_Description" xml:space="preserve">
+    <value>複数回キャストされた場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0008_Name" xml:space="preserve">
+    <value>AvoidDoubleCast</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0008_Resolution" xml:space="preserve">
+    <value>{0}行目で処理したキャストが再度行われています。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>
