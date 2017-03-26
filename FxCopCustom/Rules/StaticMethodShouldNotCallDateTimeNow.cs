@@ -4,8 +4,9 @@ namespace FxCopCustom.Rules
 {
 	public class StaticMethodShouldNotCallDateTimeNow : BaseRule
 	{
+		/// <summary>DateTime.Nowが使用されている場合を検出する</summary>
 		public StaticMethodShouldNotCallDateTimeNow()
-				: base(typeof(StaticMethodShouldNotCallDateTimeNow).Name)
+			: base(typeof(StaticMethodShouldNotCallDateTimeNow).Name)
 		{
 		}
 

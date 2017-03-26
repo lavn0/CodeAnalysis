@@ -1,9 +1,10 @@
-﻿using FxCopCustom.Info;
+﻿using System.Linq;
+using FxCopCustom.Info;
 using Microsoft.FxCop.Sdk;
-using System.Linq;
 
 namespace FxCopCustom.Rules
 {
+	/// <summary>メソッドのcatchすべき例外検出する</summary>
 	public class NeedToCatch : BaseRule
 	{
 		public NeedToCatch()
