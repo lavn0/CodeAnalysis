@@ -1,7 +1,7 @@
 ﻿{
   "PerformanceCliticalMethod": {
     "list": [
-      "PhoenixCustomUnitTest.AvoidMultiEvaluatePerformanceCliticalMethodSample.GetSample"
+      "PhoenixCustomUnitTest.TestSources.AvoidMultiEvaluatePerformanceCliticalMethodSample.GetSample"
     ]
   },
   "UnNullReturnMethod": {

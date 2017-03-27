@@ -2,7 +2,7 @@
 using PhoenixCustom;
 using TestUtility;
 
-namespace PhoenixCustomUnitTest.TestSoures
+namespace PhoenixCustomUnitTest.TestSources
 {
 	public static class AvoidDoubleCastSample
 	{

@@ -3,7 +3,7 @@ using System.Linq;
 using PhoenixCustom.Rules;
 using TestUtility;
 
-namespace PhoenixCustomUnitTest
+namespace PhoenixCustomUnitTest.TestSources
 {
 	public static class AvoidReasignLocalWithoutUsedSample
 	{

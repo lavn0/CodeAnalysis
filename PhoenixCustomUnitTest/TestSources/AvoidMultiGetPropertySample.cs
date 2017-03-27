@@ -2,7 +2,7 @@
 using PhoenixCustom.Rules;
 using TestUtility;
 
-namespace PhoenixCustomUnitTest
+namespace PhoenixCustomUnitTest.TestSources
 {
 	public class AvoidMultiGetPropertySample
 	{
