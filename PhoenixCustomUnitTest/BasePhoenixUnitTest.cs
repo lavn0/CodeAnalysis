@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 using System.Xml.XPath;
 
@@ -17,13 +18,15 @@ namespace PhoenixCustomUnitTest
 
 		static BasePhoenixUnitTest()
 		{
-			exePath = new[]
-				{
-					@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
-					@"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
-					@"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
-					@"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
-				}.First(s => File.Exists(s));
+			var majorVersion = Assembly.LoadFile(new FileInfo("PhoenixCustom.dll").FullName)
+				.GetReferencedAssemblies()
+				.First(a => a.Name == "phx")
+				.Version.Major;
+			exePath =
+				majorVersion == 15 ? @"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe" :
+				majorVersion == 14 ? @"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe" :
+				majorVersion == 12 ? @"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe" :
+				majorVersion == 11 ? @"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe" : null;
 
 			FxCopResult = GetFxCopResult();
 		}
