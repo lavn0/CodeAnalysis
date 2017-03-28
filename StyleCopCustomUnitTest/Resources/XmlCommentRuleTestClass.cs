@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.Resources
 {
 	// Test
-	public static class PreferAtmarkQuotedStringTestClass
+	public class XmlCommentRuleTestClass
 	{
 		/// <summary>1行コメントの説明</summary>
 		public string OK1 { get; }

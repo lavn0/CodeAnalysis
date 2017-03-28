@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.Resources
 {
-	public static class SpaceIndentMustNotBeUsedTestClass
+	public class SpaceAndTabMixedIndentMustNotBeUsedTestClass
 	{
 		public void OK1()
 		{
@@ -15,21 +12,21 @@ namespace StyleCopCustomUnitTest.Resources
 	        return;
 		}
 
-		public string OK2()
+		public bool OK2()
 		{
 			return true
 					? false
 					: true;
 		}
 
-		public string NG2()
+		public bool NG2()
 		{
 			return true
 				   ? false
 				   : true;
 		}
 
-		public string NG3()
+		public bool NG3()
 		{
 			return true
 				 	? false

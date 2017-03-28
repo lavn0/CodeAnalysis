@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace StyleCopCustomUnitTest.Resources
 {
-	// Test
-	public static class NumberAmoountRuleTestClass
+	public class NumberAmoountRuleTestClass
 	{
 		public int OKField = 1000 * 1000;
 		public int NGField = 1000000;
@@ -27,12 +25,12 @@ namespace StyleCopCustomUnitTest.Resources
 		{
 		}
 
-		public viod OKExpression()
+		public void OKExpression()
 		{
 			var ls = Enumerable.Range(1, 10).Select(i => i * 10 * 1000);
 		}
 
-		public viod NGExpression()
+		public void NGExpression()
 		{
 			var ls = Enumerable.Range(1, 10).Select(i => i * 10000);
 		}

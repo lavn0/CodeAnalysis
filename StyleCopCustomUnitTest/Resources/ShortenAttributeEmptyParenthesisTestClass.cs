@@ -2,12 +2,12 @@
 
 namespace StyleCopCustomUnitTest.Resources
 {
+	[DebuggerDisplay("hoge, fuga"), DebuggerStepThrough]
 	public class ShortenAttributeEmptyParenthesisTestClass
 	{
-		[DebuggerDisplay("hoge, fuga"), DebuggerStepThrough]
-		public string OK1()
+		public string OK1
 		{
-			return string.Empty;
+			get { return string.Empty; }
 		}
 
 		[DebuggerStepThrough]

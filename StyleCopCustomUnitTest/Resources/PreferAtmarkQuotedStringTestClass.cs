@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.Resources
 {
-	public static class PreferAtmarkQuotedStringTestClass
+	public class PreferAtmarkQuotedStringTestClass
 	{
 		public static string Field1 = "TestData";
 		public static string Field2 = "Test\tData";

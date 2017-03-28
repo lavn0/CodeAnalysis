@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.Resources
 {
-	public static class TrailingSpacesMustNotBeUsedTestClass
+	public class WideSpaceNotBeUsedTestClass
 	{
 		public void OK1()
 		{

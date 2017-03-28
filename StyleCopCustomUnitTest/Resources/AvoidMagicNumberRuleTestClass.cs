@@ -49,7 +49,7 @@
 				slesholdCount + 10 * 10 * 10,
 				isVisible & true & false | true,
 				isEnabled && false && true || false,
-				isChecked | true & false || true);
+				isChecked.Value | true & false || true);
 		}
 	}
 }
