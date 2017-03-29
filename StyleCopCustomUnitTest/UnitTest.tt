@@ -1,0 +1,65 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output encoding="UTF-8" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="$(SolutionDir)\PhoenixCustomUnitTest\bin\$(ConfigurationName)\PhoenixCustomUnitTest.dll" #>
+<#@ assembly name="$(SolutionDir)\TestUtility\bin\$(ConfigurationName)\TestUtility.dll" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="TestUtility" #>
+using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StyleCop.CSharp;
+using StyleCopContrib.Runner;
+
+namespace StyleCopCustomUnitTest
+{
+	[TestClass]
+	public class StyleCopUnitTest
+	{
+		private const string settingPath = "NullSettings.StyleCop";
+
+<#
+	var directoryPath = Host.ResolvePath("Resources");
+	var sourceFiles = Directory.EnumerateFiles(directoryPath, "*.cs", SearchOption.AllDirectories);
+
+	foreach (var sourceFile in sourceFiles)
+	{
+		var fileName = Path.GetFileNameWithoutExtension(sourceFile);
+		var sourceCode = File.ReadAllText(sourceFile);
+		var matches = Regex.Matches(sourceCode, @"^\s*//\s*ERROR@(\d+).*?\n", RegexOptions.Multiline).Cast<Match>().ToList();
+		var lines = matches.Select(m => sourceCode.Substring(0, m.Index).Count(c => c == '\n')).ToList();
+		for (int i = 0; i < lines.Count; i++)
+		{
+			lines[i] -= i;
+		}
+#>
+
+		[TestMethod]
+		public void <#= fileName #>()
+		{
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\\<#= fileName #>.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "<#= fileName #>").ToList();
+
+<#
+		for (int i = 0; i < lines.Count; i++)
+		{
+			int line = lines[i] + 1;
+			int columnIndexInLine = int.Parse(matches[i].Groups[1].Value);
+#>
+			Assert.AreEqual(<#= line #>, violations[<#= i #>].Line);
+<#
+		}
+#>
+			Assert.AreEqual(<#= matches.Count #>, violations.Count);
+		}
+<#
+	}
+#>
+	}
+}

@@ -26,12 +26,22 @@
 		public void NG1()
 		{
 			// 固定値で指定すれば、マジックナンバー扱い
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
 			AvoidMagicNumberRuleTestClass.ViolateMethod("value", 10, true, false, null);
 		}
 
 		public void NG2()
 		{
 			// 式も固定値と判断できればNG
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
+			// ERROR@0
 			AvoidMagicNumberRuleTestClass.ViolateMethod("va" + "l" + "ue", 10 * 10 * 10, true & false | true, false && true || false, true & false || true);
 		}
 

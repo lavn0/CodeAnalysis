@@ -20,7 +20,7 @@ namespace TestUtility
 			{
 				this.Log.LogMessage("ItemSpec = " + item.ItemSpec);
 				var sourceText = File.ReadAllText(item.ItemSpec);
-				var outputText = Regex.Replace(sourceText, @"^\s*//\s*COMMENT:.*?\n", string.Empty, RegexOptions.Multiline);
+				var outputText = Regex.Replace(sourceText, @"^\s*//\s*ERROR@\d*.*?\n", string.Empty, RegexOptions.Multiline);
 				var outputPath = Path.Combine(OutputPath, item.ItemSpec);
 				Directory.CreateDirectory(Path.GetDirectoryName(outputPath));
 				File.WriteAllText(outputPath, outputText);

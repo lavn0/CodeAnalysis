@@ -59,6 +59,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="UnitTest.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UnitTest.tt</DependentUpon>
+    </Compile>
     <None Include="CompileSourceTask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,7 +87,11 @@
     <Content Include="NullSettings.StyleCop">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <TestResource Include="Resources\AvoidMagicNumberRuleTestClass.cs" />
+    <Content Include="UnitTest.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UnitTest.cs</LastGenOutput>
+    </Content>
+    <TestResource Include="Resources\AvoidMagicNumberRule.cs" />
     <TestResource Include="Resources\NumberAmoountRuleTestClass.cs" />
     <TestResource Include="Resources\PreferAtmarkQuotedStringTestClass.cs" />
     <TestResource Include="Resources\ShortenAttributeEmptyParenthesisTestClass.cs" />
@@ -99,6 +108,9 @@
       <Project>{fd92c12c-1935-4fb0-a7b0-5f3970ca05ce}</Project>
       <Name>StyleCopCustom</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
