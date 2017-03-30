@@ -23,7 +23,6 @@ namespace StyleCopCustomUnitTest
 	public class StyleCopUnitTest
 	{
 		private const string settingPath = "NullSettings.StyleCop";
-
 <#
 	var directoryPath = Host.ResolvePath("Resources");
 	var sourceFiles = Directory.EnumerateFiles(directoryPath, "*.cs", SearchOption.AllDirectories);
@@ -32,7 +31,7 @@ namespace StyleCopCustomUnitTest
 	{
 		var fileName = Path.GetFileNameWithoutExtension(sourceFile);
 		var sourceCode = File.ReadAllText(sourceFile);
-		var matches = Regex.Matches(sourceCode, @"^\s*//\s*ERROR@(\d+).*?\n", RegexOptions.Multiline).Cast<Match>().ToList();
+		var matches = Regex.Matches(sourceCode, @"^\s*//\s*ERROR\((\s*(?<start>\d+)\s*(,\s*(?<end>\d+)\s*)?)?\).*?\n", RegexOptions.Multiline).Cast<Match>().ToList();
 		var lines = matches.Select(m => sourceCode.Substring(0, m.Index).Count(c => c == '\n')).ToList();
 		for (int i = 0; i < lines.Count; i++)
 		{
@@ -50,10 +49,24 @@ namespace StyleCopCustomUnitTest
 		for (int i = 0; i < lines.Count; i++)
 		{
 			int line = lines[i] + 1;
-			int columnIndexInLine = int.Parse(matches[i].Groups[1].Value);
 #>
-			Assert.AreEqual(<#= line #>, violations[<#= i #>].Line);
+			Assert.AreEqual(<#= line #>, violations[<#= i #>].Line, "エラーの開始行が期待値と異なります。");
 <#
+			int columnIndexStart;
+			if (int.TryParse(matches[i].Groups["start"].Value, out columnIndexStart))
+			{
+#>
+			Assert.AreEqual(<#= columnIndexStart #>, violations[<#= i #>].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+<#
+			}
+
+			int columnIndexEnd;
+			if (int.TryParse(matches[i].Groups["end"].Value, out columnIndexEnd))
+			{
+#>
+			Assert.AreEqual(<#= columnIndexEnd #>, violations[<#= i #>].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+<#
+			}
 		}
 #>
 			Assert.AreEqual(<#= matches.Count #>, violations.Count);
