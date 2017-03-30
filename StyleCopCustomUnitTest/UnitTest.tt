@@ -14,7 +14,6 @@
 <#@ import namespace="TestUtility" #>
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using StyleCop.CSharp;
 using StyleCopContrib.Runner;
 
 namespace StyleCopCustomUnitTest
@@ -31,7 +30,7 @@ namespace StyleCopCustomUnitTest
 	{
 		var fileName = Path.GetFileNameWithoutExtension(sourceFile);
 		var sourceCode = File.ReadAllText(sourceFile);
-		var matches = Regex.Matches(sourceCode, @"^\s*//\s*ERROR\((\s*(?<start>\d+)\s*(,\s*(?<end>\d+)\s*)?)?\).*?\n", RegexOptions.Multiline).Cast<Match>().ToList();
+		var matches = Regex.Matches(sourceCode, @"^[\t ]*//\s*ERROR\((\s*(?<start>\d+)\s*(,\s*(?<end>\d+)\s*)?)?\).*?\n", RegexOptions.Multiline).Cast<Match>().ToList();
 		var lines = matches.Select(m => sourceCode.Substring(0, m.Index).Count(c => c == '\n')).ToList();
 		for (int i = 0; i < lines.Count; i++)
 		{
