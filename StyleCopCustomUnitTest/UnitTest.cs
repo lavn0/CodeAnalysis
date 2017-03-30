@@ -70,12 +70,18 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void PreferAtmarkQuotedStringTestClass()
+		public void PreferAtmarkQuotedString()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\PreferAtmarkQuotedStringTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "PreferAtmarkQuotedStringTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\PreferAtmarkQuotedString.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "PreferAtmarkQuotedString").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(7, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(33, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(45, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(24, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(11, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(23, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(2, violations.Count);
 		}
 
 		[TestMethod]
