@@ -71,7 +71,6 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\AvoidMagicNumberRuleTest.cs" />
     <Compile Include="TestCode\NumberAmoountRuleTest.cs" />
     <Compile Include="TestCode\PreferAtmarkQuotedStringTest.cs" />
     <Compile Include="TestCode\ShortenAttributeEmptyParenthesisTest.cs" />
