@@ -71,7 +71,6 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\SpaceIndentMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\TabNotBeUseInNonIndentTest.cs" />
     <Compile Include="TestCode\TrailingSpacesMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\WideSpaceNotBeUsedTest.cs" />
@@ -91,7 +90,7 @@
     <TestResource Include="Resources\ShortenAttributeEmptyParenthesis.cs" />
     <TestResource Include="Resources\ShortenAttributeName.cs" />
     <TestResource Include="Resources\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
-    <TestResource Include="Resources\SpaceIndentMustNotBeUsedTestClass.cs" />
+    <TestResource Include="Resources\SpaceIndentMustNotBeUsed.cs" />
     <TestResource Include="Resources\TabNotBeUseInNonIndentTestClass.cs" />
     <TestResource Include="Resources\TrailingSpacesMustNotBeUsedTestClass.cs" />
     <TestResource Include="Resources\WideSpaceNotBeUsedTestClass.cs" />

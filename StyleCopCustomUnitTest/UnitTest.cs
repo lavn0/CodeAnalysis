@@ -142,12 +142,27 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void SpaceIndentMustNotBeUsedTestClass()
+		public void SpaceIndentMustNotBeUsed()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\SpaceIndentMustNotBeUsedTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "SpaceIndentMustNotBeUsedTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\SpaceIndentMustNotBeUsed.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "SpaceIndentMustNotBeUsed").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(12, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(12, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(25, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(8, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(26, violations[2].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[2].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(8, violations[2].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(32, violations[3].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[3].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(6, violations[3].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(33, violations[4].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[4].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(6, violations[4].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(5, violations.Count);
 		}
 
 		[TestMethod]
