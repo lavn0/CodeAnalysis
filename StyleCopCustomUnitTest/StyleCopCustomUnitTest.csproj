@@ -71,7 +71,6 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\ShortenAttributeEmptyParenthesisTest.cs" />
     <Compile Include="TestCode\ShortenAttributeNameTest.cs" />
     <Compile Include="TestCode\SpaceAndTabMixedIndentMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\SpaceIndentMustNotBeUsedTest.cs" />
@@ -91,7 +90,7 @@
     <TestResource Include="Resources\AvoidMagicNumberRule.cs" />
     <TestResource Include="Resources\NumberAmoountRule.cs" />
     <TestResource Include="Resources\PreferAtmarkQuotedString.cs" />
-    <TestResource Include="Resources\ShortenAttributeEmptyParenthesisTestClass.cs" />
+    <TestResource Include="Resources\ShortenAttributeEmptyParenthesis.cs" />
     <TestResource Include="Resources\ShortenAttributeNameTestClass.cs" />
     <TestResource Include="Resources\SpaceAndTabMixedIndentMustNotBeUsedTestClass.cs" />
     <TestResource Include="Resources\SpaceIndentMustNotBeUsedTestClass.cs" />

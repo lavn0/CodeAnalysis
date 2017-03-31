@@ -85,12 +85,18 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void ShortenAttributeEmptyParenthesisTestClass()
+		public void ShortenAttributeEmptyParenthesis()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\ShortenAttributeEmptyParenthesisTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "ShortenAttributeEmptyParenthesisTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\ShortenAttributeEmptyParenthesis.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "ShortenAttributeEmptyParenthesis").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(19, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(4, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(24, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(25, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(25, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(64, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(2, violations.Count);
 		}
 
 		[TestMethod]
