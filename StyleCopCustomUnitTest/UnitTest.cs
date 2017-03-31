@@ -100,12 +100,21 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void ShortenAttributeNameTestClass()
+		public void ShortenAttributeName()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\ShortenAttributeNameTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "ShortenAttributeNameTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\ShortenAttributeName.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "ShortenAttributeName").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(13, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(4, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(31, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(19, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(4, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(33, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(19, violations[2].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(36, violations[2].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(84, violations[2].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(3, violations.Count);
 		}
 
 		[TestMethod]
