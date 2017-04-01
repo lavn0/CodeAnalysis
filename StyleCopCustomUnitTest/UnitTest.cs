@@ -194,12 +194,18 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void WideSpaceNotBeUsedTestClass()
+		public void WideSpaceNotBeUsed()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\WideSpaceNotBeUsedTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "WideSpaceNotBeUsedTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\WideSpaceNotBeUsed.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "WideSpaceNotBeUsed").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(10, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(9, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(9, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(12, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(4, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(2, violations.Count);
 		}
 
 		[TestMethod]
