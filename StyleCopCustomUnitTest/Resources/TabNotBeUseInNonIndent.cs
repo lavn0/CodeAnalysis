@@ -9,6 +9,7 @@
 
 		public bool NG(bool flg)
 		{
+			// ERROR()
 			return flg ? true :	false;	
 		}
 	}

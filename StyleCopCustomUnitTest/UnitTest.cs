@@ -166,12 +166,13 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void TabNotBeUseInNonIndentTestClass()
+		public void TabNotBeUseInNonIndent()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\TabNotBeUseInNonIndentTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "TabNotBeUseInNonIndentTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\TabNotBeUseInNonIndent.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "TabNotBeUseInNonIndent").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(12, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(1, violations.Count);
 		}
 
 		[TestMethod]
