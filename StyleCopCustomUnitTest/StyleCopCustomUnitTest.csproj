@@ -71,7 +71,6 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\TrailingSpacesMustNotBeUsedTest.cs" />
     <Compile Include="TestCode\WideSpaceNotBeUsedTest.cs" />
     <Compile Include="TestCode\XmlCommentRuleTest.cs" />
   </ItemGroup>
@@ -91,7 +90,7 @@
     <TestResource Include="Resources\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
     <TestResource Include="Resources\SpaceIndentMustNotBeUsed.cs" />
     <TestResource Include="Resources\TabNotBeUseInNonIndent.cs" />
-    <TestResource Include="Resources\TrailingSpacesMustNotBeUsedTestClass.cs" />
+    <TestResource Include="Resources\TrailingSpacesMustNotBeUsed.cs" />
     <TestResource Include="Resources\WideSpaceNotBeUsedTestClass.cs" />
     <TestResource Include="Resources\XmlCommentRuleTestClass.cs" />
   </ItemGroup>

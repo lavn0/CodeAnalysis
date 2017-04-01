@@ -176,12 +176,21 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void TrailingSpacesMustNotBeUsedTestClass()
+		public void TrailingSpacesMustNotBeUsed()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\TrailingSpacesMustNotBeUsedTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "TrailingSpacesMustNotBeUsedTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\TrailingSpacesMustNotBeUsed.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "TrailingSpacesMustNotBeUsed").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(30, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(11, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(12, violations[0].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(35, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(11, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(11, violations[1].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(40, violations[2].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(11, violations[2].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(11, violations[2].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(3, violations.Count);
 		}
 
 		[TestMethod]
