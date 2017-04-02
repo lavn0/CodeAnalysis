@@ -71,7 +71,6 @@
     <Compile Include="Runner\ConsoleRunner.cs" />
     <Compile Include="Runner\ProjectUtility.cs" />
     <Compile Include="Runner\StyleCopUtil.cs" />
-    <Compile Include="TestCode\XmlCommentRuleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NullSettings.StyleCop">
@@ -91,7 +90,7 @@
     <TestResource Include="Resources\TabNotBeUseInNonIndent.cs" />
     <TestResource Include="Resources\TrailingSpacesMustNotBeUsed.cs" />
     <TestResource Include="Resources\WideSpaceNotBeUsed.cs" />
-    <TestResource Include="Resources\XmlCommentRuleTestClass.cs" />
+    <TestResource Include="Resources\XmlCommentRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StyleCopCustom\StyleCopCustom.csproj">

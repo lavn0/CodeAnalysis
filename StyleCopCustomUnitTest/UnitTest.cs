@@ -209,12 +209,18 @@ namespace StyleCopCustomUnitTest
 		}
 
 		[TestMethod]
-		public void XmlCommentRuleTestClass()
+		public void XmlCommentRule()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\XmlCommentRuleTestClass.cs");
-			var violations = result.Violations.Where(v => v.Rule.Name == "XmlCommentRuleTestClass").ToList();
+			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\XmlCommentRule.cs");
+			var violations = result.Violations.Where(v => v.Rule.Name == "XmlCommentRule").ToList();
 
-			Assert.AreEqual(0, violations.Count);
+			Assert.AreEqual(21, violations[0].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(3, violations[0].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(26, violations[1].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(3, violations[1].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(31, violations[2].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(3, violations[2].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(3, violations.Count);
 		}
 	}
 }

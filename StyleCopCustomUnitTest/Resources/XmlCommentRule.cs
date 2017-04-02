@@ -18,16 +18,19 @@
 		/// <summary>正しくないXMLコメント<summary>
 		public string OK4 { get; }
 
+		// ERROR(3) 開始タグ直後開始ではないコメント
 		/// <summary>
 		/// 1行コメントの説明
 		/// </summary>
 		public string NG1 { get; }
 
+		// ERROR(3) 開始タグ直後開始ではないコメント
 		/// <summary>
 		/// 複数コメントの説明
 		/// </summary>
 		public string NG2 { get; }
 
+		// ERROR(3) 開始タグ直後開始ではないコメント
 		/// <summary>
 		/// 複数コメントの
 		/// 説明
