@@ -49,13 +49,13 @@ namespace StyleCopCustomUnitTest
 		{
 			int line = lines[i] + 1;
 #>
-			Assert.AreEqual(<#= line #>, violations[<#= i #>].Line, "エラーの開始行が期待値と異なります。");
+			Assert.AreEqual(<#= line #>, violations[<#= i #>].Line, "エラー[<#= i #>]の開始行が期待値と異なります。");
 <#
 			int columnIndexStart;
 			if (int.TryParse(matches[i].Groups["start"].Value, out columnIndexStart))
 			{
 #>
-			Assert.AreEqual(<#= columnIndexStart #>, violations[<#= i #>].Location.Value.StartPoint.IndexOnLine, "エラーの開始位置が期待値と異なります。");
+			Assert.AreEqual(<#= columnIndexStart #>, violations[<#= i #>].Location.Value.StartPoint.IndexOnLine, "エラー[<#= i #>]の開始位置が期待値と異なります。");
 <#
 			}
 
@@ -63,7 +63,7 @@ namespace StyleCopCustomUnitTest
 			if (int.TryParse(matches[i].Groups["end"].Value, out columnIndexEnd))
 			{
 #>
-			Assert.AreEqual(<#= columnIndexEnd #>, violations[<#= i #>].Location.Value.EndPoint.IndexOnLine, "エラーの終了位置が期待値と異なります。");
+			Assert.AreEqual(<#= columnIndexEnd #>, violations[<#= i #>].Location.Value.EndPoint.IndexOnLine, "エラー[<#= i #>]の終了位置が期待値と異なります。");
 <#
 			}
 		}
