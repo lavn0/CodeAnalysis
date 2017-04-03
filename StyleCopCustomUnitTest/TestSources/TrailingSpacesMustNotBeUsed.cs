@@ -1,6 +1,6 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
-	public class TrailingSpacesMustNotBeUsedTestClass
+	public class TrailingSpacesMustNotBeUsed
 	{
 		public void OK0()
 		{

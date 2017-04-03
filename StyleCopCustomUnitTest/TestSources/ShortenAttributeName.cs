@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 
-namespace StyleCopCustomUnitTest.Resources
+namespace StyleCopCustomUnitTest.TestSources
 {
-	public class ShortenAttributeNameTestClass
+	public class ShortenAttributeName
 	{
 		[DebuggerStepThrough]
 		public string OK()

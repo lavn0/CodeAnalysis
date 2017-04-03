@@ -1,6 +1,6 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
-	public class SpaceIndentMustNotBeUsedTestClass
+	public class SpaceIndentMustNotBeUsed
 	{
 		public void OK1()
 		{

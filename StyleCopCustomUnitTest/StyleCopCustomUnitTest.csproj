@@ -80,17 +80,17 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>UnitTest.cs</LastGenOutput>
     </Content>
-    <TestResource Include="Resources\AvoidMagicNumberRule.cs" />
-    <TestResource Include="Resources\NumberAmoountRule.cs" />
-    <TestResource Include="Resources\PreferAtmarkQuotedString.cs" />
-    <TestResource Include="Resources\ShortenAttributeEmptyParenthesis.cs" />
-    <TestResource Include="Resources\ShortenAttributeName.cs" />
-    <TestResource Include="Resources\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
-    <TestResource Include="Resources\SpaceIndentMustNotBeUsed.cs" />
-    <TestResource Include="Resources\TabNotBeUseInNonIndent.cs" />
-    <TestResource Include="Resources\TrailingSpacesMustNotBeUsed.cs" />
-    <TestResource Include="Resources\WideSpaceNotBeUsed.cs" />
-    <TestResource Include="Resources\XmlCommentRule.cs" />
+    <TestResource Include="TestSources\AvoidMagicNumberRule.cs" />
+    <TestResource Include="TestSources\NumberAmoountRule.cs" />
+    <TestResource Include="TestSources\PreferAtmarkQuotedString.cs" />
+    <TestResource Include="TestSources\ShortenAttributeEmptyParenthesis.cs" />
+    <TestResource Include="TestSources\ShortenAttributeName.cs" />
+    <TestResource Include="TestSources\SpaceAndTabMixedIndentMustNotBeUsed.cs" />
+    <TestResource Include="TestSources\SpaceIndentMustNotBeUsed.cs" />
+    <TestResource Include="TestSources\TabNotBeUseInNonIndent.cs" />
+    <TestResource Include="TestSources\TrailingSpacesMustNotBeUsed.cs" />
+    <TestResource Include="TestSources\WideSpaceNotBeUsed.cs" />
+    <TestResource Include="TestSources\XmlCommentRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StyleCopCustom\StyleCopCustom.csproj">

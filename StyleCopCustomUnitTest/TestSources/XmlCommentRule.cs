@@ -1,7 +1,7 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
 	// Test
-	public class XmlCommentRuleTestClass
+	public class XmlCommentRule
 	{
 		/// <summary>1行コメントの説明</summary>
 		public string OK1 { get; }

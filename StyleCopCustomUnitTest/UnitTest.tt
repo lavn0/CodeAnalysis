@@ -12,6 +12,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Xml.Linq" #>
 <#@ import namespace="TestUtility" #>
+using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StyleCopContrib.Runner;
@@ -23,7 +24,7 @@ namespace StyleCopCustomUnitTest
 	{
 		private const string settingPath = "NullSettings.StyleCop";
 <#
-	var directoryPath = Host.ResolvePath("Resources");
+	var directoryPath = Host.ResolvePath("TestSources");
 	var sourceFiles = Directory.EnumerateFiles(directoryPath, "*.cs", SearchOption.AllDirectories);
 
 	foreach (var sourceFile in sourceFiles)
@@ -41,7 +42,13 @@ namespace StyleCopCustomUnitTest
 		[TestMethod]
 		public void <#= fileName #>()
 		{
-			var result = StyleCopUtil.RunStyleCop(settingPath, @"Resources\\<#= fileName #>.cs");
+			var path = @"TestSources\\<#= fileName #>.cs";
+			if (!File.Exists(path))
+			{
+				throw new FileNotFoundException(path + " が見つかりません。");
+			}
+
+			var result = StyleCopUtil.RunStyleCop(settingPath, path);
 			var violations = result.Violations.Where(v => v.Rule.Name == "<#= fileName #>").ToList();
 
 <#

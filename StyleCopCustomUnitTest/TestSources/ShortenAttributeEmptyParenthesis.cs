@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 
-namespace StyleCopCustomUnitTest.Resources
+namespace StyleCopCustomUnitTest.TestSources
 {
 	[DebuggerDisplay("hoge, fuga"), DebuggerStepThrough]
-	public class ShortenAttributeEmptyParenthesisTestClass
+	public class ShortenAttributeEmptyParenthesis
 	{
 		public string OK1
 		{

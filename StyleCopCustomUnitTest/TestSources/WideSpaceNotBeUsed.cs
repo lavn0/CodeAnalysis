@@ -1,6 +1,6 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
-	public class WideSpaceNotBeUsedTestClass
+	public class WideSpaceNotBeUsed
 	{
 		public void OK1()
 		{

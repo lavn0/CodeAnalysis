@@ -1,6 +1,6 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
-	public class TabNotBeUseInNonIndentTestClass
+	public class TabNotBeUseInNonIndent
 	{
 		public bool OK(bool flg)
 		{

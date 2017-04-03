@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 
-namespace StyleCopCustomUnitTest.Resources
+namespace StyleCopCustomUnitTest.TestSources
 {
-	public class NumberAmoountRuleTestClass
+	public class NumberAmoountRule
 	{
 		public int OKField = 1000 * 1000;
 		// ERROR(24,30) NGField

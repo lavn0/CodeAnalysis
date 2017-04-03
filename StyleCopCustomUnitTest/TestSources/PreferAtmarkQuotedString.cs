@@ -1,6 +1,6 @@
-﻿namespace StyleCopCustomUnitTest.Resources
+﻿namespace StyleCopCustomUnitTest.TestSources
 {
-	public class PreferAtmarkQuotedStringTestClass
+	public class PreferAtmarkQuotedString
 	{
 		public static string Field1 = "TestData";
 		public static string Field2 = "Test\tData";
