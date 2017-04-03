@@ -8,7 +8,7 @@ using PhoenixCustom.Category;
 using Phx;
 using Phx.IR;
 
-namespace PhoenixCustom
+namespace PhoenixCustom.Rules
 {
 	/// <summary>複数回キャストされた場合を検出する</summary>
 	[LocalizedFxCopRule("PhenixCustom.PH0008", typeof(DelayedPerformanceCategory))]
