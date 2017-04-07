@@ -61,6 +61,7 @@
       <Link>EnumerableUtility.cs</Link>
     </Compile>
     <Compile Include="Rules\AvoidDoubleCast.cs" />
+    <Compile Include="Rules\AvoidMultiCalculatePureMethod.cs" />
     <Compile Include="Rules\AvoidMultiEvaluateDelayableLocal.cs" />
     <Compile Include="Rules\AvoidMultiEvaluateDelayableParameter.cs" />
     <Compile Include="Rules\AvoidMultiEvaluatePerformanceCriticalMethod.cs" />
@@ -77,6 +78,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="Utilities\EnumerateArgumentsWithParametersExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource.resx">

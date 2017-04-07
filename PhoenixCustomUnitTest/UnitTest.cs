@@ -17,6 +17,14 @@ namespace PhoenixCustomUnitTest
 		}
 
 		[TestMethod]
+		public void AvoidMultiCalculatePureMethodSample()
+		{
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "NG2()").Count, "NG2()");
+			Assert.AreEqual(2, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample").Count);
+		}
+
+		[TestMethod]
 		public void AvoidMultiEvaluateDelayableLocalSample()
 		{
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiEvaluateDelayableLocal", "AvoidMultiEvaluateDelayableLocalSample", "OK()").Count, "OK()");

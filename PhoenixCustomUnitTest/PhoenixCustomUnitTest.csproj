@@ -65,6 +65,7 @@
     <Compile Include="BasePhoenixUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestSources\AvoidDoubleCastSample.cs" />
+    <Compile Include="TestSources\AvoidMultiCalculatePureMethodSample.cs" />
     <Compile Include="TestSources\AvoidMultiEvaluateDelayableLocalSample.cs" />
     <Compile Include="TestSources\AvoidMultiEvaluateDelayableParameterSample.cs" />
     <Compile Include="TestSources\AvoidMultiEvaluatePerformanceCriticalMethodSample.cs" />

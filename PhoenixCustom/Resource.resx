@@ -213,4 +213,16 @@
     <value>{0}行目で処理したキャストが再度行われています。</value>
     <comment>解決方法</comment>
   </data>
+  <data name="PH0009_Description" xml:space="preserve">
+    <value>同じ結果になるメソッドが複数回呼び出された場合を検出する</value>
+    <comment>説明</comment>
+  </data>
+  <data name="PH0009_Name" xml:space="preserve">
+    <value>AvoidMultiCalculatePureMethod</value>
+    <comment>名前</comment>
+  </data>
+  <data name="PH0009_Resolution" xml:space="preserve">
+    <value>{0}行目で処理した{1}メソッドが再度計算されています。</value>
+    <comment>解決方法</comment>
+  </data>
 </root>
