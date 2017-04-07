@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
+using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using PhoenixCustom.Category;
 using PhoenixCustom.Utilities;
 using Phx;
@@ -52,6 +53,7 @@ namespace PhoenixCustom.Rules
 					var callInstruction2 = pairs[j];
 
 					if (callInstruction1.FunctionSymbol != callInstruction2.FunctionSymbol ||
+						callInstruction1.FunctionSymbol.IsPropertyGetter() ||
 						callInstruction1.FunctionSymbol.IsConstructor)
 					{
 						continue;
