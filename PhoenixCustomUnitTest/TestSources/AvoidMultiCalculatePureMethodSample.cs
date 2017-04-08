@@ -40,6 +40,31 @@ namespace PhoenixCustomUnitTest.TestSources
 			var b = GetListMarkedPure();
 		}
 
+		[TestInfo(TargetRuleName = nameof(AvoidMultiCalculatePureMethod), ViolationCount = 0)]
+		public void OK3()
+		{
+			// メソッドが違えば結果が違うので問題ない
+			var a = GetListMarkedPure("a", "b");
+			var b = GetListMarkedPure();
+		}
+
+		[TestInfo(TargetRuleName = nameof(AvoidMultiCalculatePureMethod), ViolationCount = 0)]
+		public void OK4()
+		{
+			// パラメータが違えば結果が違うので問題ない
+			var a = GetListMarkedPure("a", "b");
+			var b = GetListMarkedPure("a", "c");
+			var c = GetListMarkedPure("c", "b");
+		}
+
+		[TestInfo(TargetRuleName = nameof(AvoidMultiCalculatePureMethod), ViolationCount = 1)]
+		public void NG3()
+		{
+			// パラメータが同じなら結果が同じなので取り直してはいけない
+			var a = GetListMarkedPure("a", "b");
+			var b = GetListMarkedPure("a", "b");
+		}
+
 		private List<string> GetList()
 		{
 			return new[] { "a", "b", "c" }.ToList();
@@ -54,6 +79,11 @@ namespace PhoenixCustomUnitTest.TestSources
 		private List<string> GetListMarkedPure()
 		{
 			return new[] { "a", "b", "c" }.ToList();
+		}
+
+		private List<string> GetListMarkedPure(string param1, string param2)
+		{
+			return new[] { param1, param2 }.ToList();
 		}
 
 		private List<string> List

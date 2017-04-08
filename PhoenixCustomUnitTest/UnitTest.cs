@@ -23,7 +23,10 @@ namespace PhoenixCustomUnitTest
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "OK2()").Count, "OK2()");
 			Assert.AreEqual(1, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "NG1()").Count, "NG1()");
 			Assert.AreEqual(1, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "NG2()").Count, "NG2()");
-			Assert.AreEqual(2, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample").Count);
+			Assert.AreEqual(0, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "OK3()").Count, "OK3()");
+			Assert.AreEqual(0, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "OK4()").Count, "OK4()");
+			Assert.AreEqual(1, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample", "NG3()").Count, "NG3()");
+			Assert.AreEqual(3, this.GetErrors("AvoidMultiCalculatePureMethod", "AvoidMultiCalculatePureMethodSample").Count);
 		}
 
 		[TestMethod]
