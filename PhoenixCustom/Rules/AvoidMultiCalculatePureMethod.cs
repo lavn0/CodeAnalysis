@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.Contracts;
+using System.Linq;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Extensibility;
 using Microsoft.VisualStudio.CodeAnalysis.Phoenix.Utilities;
 using PhoenixCustom.Category;
@@ -12,6 +13,8 @@ namespace PhoenixCustom.Rules
 	[LocalizedFxCopRule("PhenixCustom.PH0009", typeof(DelayedPerformanceCategory))]
 	internal sealed class AvoidMultiCalculatePureMethod : BasePhoenixCustomRule
 	{
+		private readonly NamedTypeReference pureAttributeTypeReference = new NamedTypeReference(typeof(PureAttribute).FullName);
+
 		public AvoidMultiCalculatePureMethod(StatisticsService statisticsService)
 			: base(statisticsService)
 		{
@@ -59,22 +62,26 @@ namespace PhoenixCustom.Rules
 						continue;
 					}
 
-					var parameterOperands1 = EnumerateArgumentsWithParametersExtensions
-						.AsList(callInstruction1.ArgumentsWithParameters)
-						.Select(arg => arg.ArgumentOperand.DefinitionOperand);
-					var parameterOperands2 = EnumerateArgumentsWithParametersExtensions
-						.AsList(callInstruction2.ArgumentsWithParameters)
-						.Select(arg => arg.ArgumentOperand.DefinitionOperand);
-
-					if (parameterOperands1.SequenceEqual(parameterOperands2))
+					if (callInstruction1.FunctionSymbol.HasAttribute(pureAttributeTypeReference) ||
+						Settings.PureMethods.Contains(callInstruction1.FunctionSymbol.EnclosingAggregateType.DefinitionType.TypeSymbol.NameString + "." + callInstruction1.FunctionSymbol.NameString))
 					{
-						if (functionUnit.FlowGraph.Dominates(callInstruction1.BasicBlock, callInstruction2.BasicBlock))
+						var parameterOperands1 = EnumerateArgumentsWithParametersExtensions
+							.AsList(callInstruction1.ArgumentsWithParameters)
+							.Select(arg => arg.ArgumentOperand.DefinitionOperand);
+						var parameterOperands2 = EnumerateArgumentsWithParametersExtensions
+							.AsList(callInstruction2.ArgumentsWithParameters)
+							.Select(arg => arg.ArgumentOperand.DefinitionOperand);
+
+						if (parameterOperands1.SequenceEqual(parameterOperands2))
 						{
-							this.Violate(warningEmitter, callInstruction2, callInstruction1.GetLineNumber(), callInstruction2.FunctionSymbol.NameString);
-						}
-						else if (functionUnit.FlowGraph.Dominates(callInstruction2.BasicBlock, callInstruction1.BasicBlock))
-						{
-							this.Violate(warningEmitter, callInstruction1, callInstruction2.GetLineNumber(), callInstruction1.FunctionSymbol.NameString);
+							if (functionUnit.FlowGraph.Dominates(callInstruction1.BasicBlock, callInstruction2.BasicBlock))
+							{
+								this.Violate(warningEmitter, callInstruction2, callInstruction1.GetLineNumber(), callInstruction2.FunctionSymbol.NameString);
+							}
+							else if (functionUnit.FlowGraph.Dominates(callInstruction2.BasicBlock, callInstruction1.BasicBlock))
+							{
+								this.Violate(warningEmitter, callInstruction1, callInstruction2.GetLineNumber(), callInstruction1.FunctionSymbol.NameString);
+							}
 						}
 					}
 				}

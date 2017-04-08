@@ -4,6 +4,11 @@
       "PhoenixCustomUnitTest.TestSources.AvoidMultiEvaluatePerformanceCliticalMethodSample.GetSample"
     ]
   },
+  "PureMethods": {
+    "list": [
+      "PhoenixCustomUnitTest.TestSources.AvoidMultiCalculatePureMethodSample.GetListMarkedPure"
+    ]
+  },
   "UnNullReturnMethod": {
     "list": [
       "System.Linq.Enumerable.Where",

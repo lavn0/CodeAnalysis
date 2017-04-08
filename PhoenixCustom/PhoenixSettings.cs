@@ -11,6 +11,9 @@ namespace PhoenixCustom
 		public ReadOnlyCollection<string> PerformanceCliticalMethod { get; set; }
 
 		[DataMember]
+		public ReadOnlyCollection<string> PureMethods { get; set; }
+
+		[DataMember]
 		public ReadOnlyCollection<string> UnNullReturnMethod { get; set; }
 	}
 }
