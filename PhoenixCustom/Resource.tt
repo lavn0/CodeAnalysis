@@ -1,0 +1,36 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".md" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Xml.XPath" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#
+var resourcePath = Host.ResolvePath("Resource.resx");
+var resourceXDoc = XDocument.Load(resourcePath);
+var elements = ((IEnumerable<object>)resourceXDoc.XPathEvaluate("//data")).Cast<XElement>();
+var groups = elements.GroupBy(e => e.Attribute("name").Value.Split('_').First()).ToList();
+#>
+| ID | 名前 | 説明 |
+|----|------|------|
+<#
+foreach (var group in groups)
+{
+	var id = group.Key;
+	var name = group.Single(g => g.Attribute("name").Value.Split('_').Last() == "Name").Element("value").Value;
+	var solution = group.Single(g => g.Attribute("name").Value.Split('_').Last() == "Resolution").Element("value").Value;
+	var description = group.Single(g => g.Attribute("name").Value.Split('_').Last() == "Description").Element("value").Value;
+#>
+|<#= id #>|<#= name #>|<#= description #>|
+<#
+}
+#>
