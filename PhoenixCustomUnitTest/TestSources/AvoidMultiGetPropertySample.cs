@@ -8,7 +8,7 @@ namespace PhoenixCustomUnitTest.TestSources
 	{
 		// 1回だけ評価するのはOK
 		[TestInfo(TargetRuleName = nameof(AvoidMultiGetProperty), ViolationCount = 0)]
-		public object OK()
+		public object OK1()
 		{
 			return this.Property.IndexOf("a");
 		}
@@ -25,9 +25,21 @@ namespace PhoenixCustomUnitTest.TestSources
 			return null;
 		}
 
+		// メソッドを2回評価するのはOK
+		[TestInfo(TargetRuleName = nameof(AvoidMultiGetProperty), ViolationCount = 0)]
+		public object OK2()
+		{
+			if (this.GetProperty().Contains("a"))
+			{
+				return this.GetProperty().IndexOf("a");
+			}
+
+			return null;
+		}
+
 		// 変数に結果をキャッシュすれば２回評価されないのでOK
 		[TestInfo(TargetRuleName = nameof(AvoidMultiGetProperty), ViolationCount = 0)]
-		public object OK1()
+		public object OK3()
 		{
 			var prop = this.Property;
 			if (prop.Contains("a"))
@@ -40,7 +52,7 @@ namespace PhoenixCustomUnitTest.TestSources
 
 		// ２つ評価式があっても同じパスで２回評価されていない場合はOK
 		[TestInfo(TargetRuleName = nameof(AvoidMultiGetProperty), ViolationCount = 0)]
-		public object OK2(bool flg)
+		public object OK4(bool flg)
 		{
 			if (flg)
 			{
@@ -66,5 +78,6 @@ namespace PhoenixCustomUnitTest.TestSources
 		}
 
 		public string Property { get; set; }
+		public string GetProperty() => Property;
 	}
 }

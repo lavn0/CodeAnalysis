@@ -25,17 +25,21 @@ namespace PhoenixCustom.Rules
 			FunctionUnit functionUnit,
 			WarningEmitter warningEmitter)
 		{
-			var instructionSet = new Dictionary<FunctionSymbol, List<CallInstruction>>();
+			var instructionSet = new Dictionary<PropertySymbol, List<CallInstruction>>();
 			foreach (var callInstruction in functionUnit.Instructions.OfType<CallInstruction>())
 			{
-				var symbol = callInstruction.FunctionSymbol;
-				if (symbol == null)
+				var functionSymbol = callInstruction.FunctionSymbol;
+				if (functionSymbol.IsPropertyGetter())
 				{
-					continue;
-				}
+					var propertySymbol = functionSymbol.GetDeclaringProperty();
+					if (propertySymbol == null)
+					{
+						continue;
+					}
 
-				List<CallInstruction> ls = instructionSet.TryGetValue(symbol, out ls) ? ls : instructionSet[symbol] = new List<CallInstruction>();
-				ls.Add(callInstruction);
+					List<CallInstruction> ls = instructionSet.TryGetValue(propertySymbol, out ls) ? ls : instructionSet[propertySymbol] = new List<CallInstruction>();
+					ls.Add(callInstruction);
+				}
 			}
 
 			if (!instructionSet.Any())

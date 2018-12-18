@@ -67,6 +67,7 @@ namespace PhoenixCustomUnitTest
 		{
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "OK()").Count, "OK()");
 			Assert.AreEqual(1, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "NG1()").Count, "NG1()");
+			Assert.AreEqual(0, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "OK2()").Count, "OK2()");
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "OK1()").Count, "OK1()");
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "OK2(System.Boolean)").Count, "OK2(System.Boolean)");
 			Assert.AreEqual(0, this.GetErrors("AvoidMultiGetProperty", "AvoidMultiGetPropertySample", "NG3()").Count, "NG3()");
