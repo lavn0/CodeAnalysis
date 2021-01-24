@@ -19,11 +19,18 @@ namespace FxCopCustomUnitTest
 		{
 			exePath = new[]
 				{
+					@"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
 					@"C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
 					@"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
 					@"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
 					@"C:\Program Files (x86)\Microsoft Visual Studio 11.0\Team Tools\Static Analysis Tools\FxCop\FxCopCmd.exe",
 				}.First(s => File.Exists(s));
+
+			if (!File.Exists(exePath))
+			{
+				Debugger.Break();
+				throw new FileNotFoundException(exePath);
+			}
 
 			FxCopResult = GetFxCopResult();
 		}
