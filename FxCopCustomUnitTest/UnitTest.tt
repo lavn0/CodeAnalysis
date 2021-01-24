@@ -3,7 +3,6 @@
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Xml" #>
 <#@ assembly name="System.Xml.Linq" #>
-<#@ assembly name="$(SolutionDir)\FxCopCustomUnitTest\bin\$(ConfigurationName)\FxCopCustomUnitTest.dll" #>
 <#@ assembly name="$(SolutionDir)\TestUtility\bin\$(ConfigurationName)\TestUtility.dll" #>
 <#@ import namespace="System.IO" #>
 <#@ import namespace="System.Linq" #>
@@ -22,70 +21,74 @@ namespace FxCopCustomUnitTest
 	{
 		public TestContext TestContext { get; set; }
 <#
-	var testLibrary = System.Reflection.Assembly.GetAssembly(typeof(FxCopCustomUnitTest.BaseFxCopUnitTest));
-	var types = testLibrary.GetTypes();
-
-	foreach (var type in types)
+	string path =Host.ResolveAssemblyReference(@"$(SolutionDir)FxCopCustomUnitTest\bin\$(ConfigurationName)\FxCopCustomUnitTest.dll");
+	if (File.Exists(path))
 	{
-		var dic = new Dictionary<string, TestInfoAttribute>();
-		foreach(var member in type.GetMembers())
+		var testLibrary = Assembly.LoadFrom(path);
+		var types = testLibrary.GetTypes();
+
+		foreach (var type in types)
 		{
-			var testInfoAttribute = Attribute.GetCustomAttribute(member, typeof(TestInfoAttribute)) as TestInfoAttribute;
-			if (testInfoAttribute != null)
+			var dic = new Dictionary<string, TestInfoAttribute>();
+			foreach(var member in type.GetMembers())
 			{
-				var method = member as MethodInfo;
-				if (method != null)
+				var testInfoAttribute = Attribute.GetCustomAttribute(member, typeof(TestInfoAttribute)) as TestInfoAttribute;
+				if (testInfoAttribute != null)
 				{
-					dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.ParameterType).Select(t => t.IsGenericType ? t.Namespace + "." + t.Name + "<" + string.Join(",", t.GenericTypeArguments.Select(g => g.Namespace + "." + g.Name)) + ">" : t.Namespace + "." + t.Name)) + ")", testInfoAttribute);
-					continue;
-				}
+					var method = member as MethodInfo;
+					if (method != null)
+					{
+						dic.Add(method.Name + "(" + string.Join(",", method.GetParameters().Select(p => p.ParameterType).Select(t => t.IsGenericType ? t.Namespace + "." + t.Name + "<" + string.Join(",", t.GenericTypeArguments.Select(g => g.Namespace + "." + g.Name)) + ">" : t.Namespace + "." + t.Name)) + ")", testInfoAttribute);
+						continue;
+					}
 
-				var property = member as PropertyInfo;
-				if (property != null)
-				{
-					dic.Add(property.Name, testInfoAttribute);
-					continue;
-				}
+					var property = member as PropertyInfo;
+					if (property != null)
+					{
+						dic.Add(property.Name, testInfoAttribute);
+						continue;
+					}
 
-				var field = member as FieldInfo;
-				if (field != null)
-				{
-					dic.Add(field.Name, testInfoAttribute);
-					continue;
+					var field = member as FieldInfo;
+					if (field != null)
+					{
+						dic.Add(field.Name, testInfoAttribute);
+						continue;
+					}
 				}
 			}
-		}
 
-		if (dic.Any())
-		{
+			if (dic.Any())
+			{
 #>
 
 		[TestMethod]
 		public void <#= type.Name #>()
 		{
 <#
-			foreach(var pair in dic)
-			{
+				foreach(var pair in dic)
+				{
 #>
 			Assert.AreEqual(<#= pair.Value.ViolationCount #>, this.GetErrors("<#= pair.Value.TargetRuleName #>", "<#= type.Name #>", "<#= pair.Key #>").Count, "<#= pair.Key #>");
 <#
-				if (pair.Value.ViolationCount > 0 && !string.IsNullOrEmpty(pair.Value.ResolutionName))
-				{
+					if (pair.Value.ViolationCount > 0 && !string.IsNullOrEmpty(pair.Value.ResolutionName))
+					{
 #>
 			Assert.AreEqual("<#= pair.Value.ResolutionName #>", this.GetError("<#= pair.Value.TargetRuleName #>", "<#= type.Name #>", "<#= pair.Key #>")?.Attribute("Name").Value, "ResolutionName: <#= pair.Key #>");
 <#
+					}
 				}
-			}
 
-			var counts = dic
-				.GroupBy(p => p.Value.TargetRuleName, p => p.Value.ViolationCount)
-				.ToDictionary(g => g.Key, g => g.Cast<int>().Sum());
-			foreach(var pair in counts)
-			{
+				var counts = dic
+					.GroupBy(p => p.Value.TargetRuleName, p => p.Value.ViolationCount)
+					.ToDictionary(g => g.Key, g => g.Cast<int>().Sum());
+				foreach(var pair in counts)
+				{
 #>
 			Assert.AreEqual(<#= pair.Value #>, this.GetErrors("<#= pair.Key #>", "<#= type.Name #>").Count);
 		}
 <#
+				}
 			}
 		}
 	}
